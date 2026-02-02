@@ -9,15 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1.2rem;
+  gap: vars.$sp-3;
 
-  @media (max-width: 767px) {
+  @include tablet-down {
     bottom: 8rem;
-    right: 1.6rem;
+    right: vars.$sp-4;
   }
 
-  @media (max-width: 375px) {
-    right: 1.2rem;
+  @include mobile-sm {
+    right: vars.$sp-3;
     bottom: 8rem;
   }
 }
@@ -26,23 +26,23 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1.2rem;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  gap: vars.$sp-3;
+  transition: opacity vars.$transition-base, transform vars.$transition-base, visibility vars.$transition-base;
 
-  @media (max-width: 767px) {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(1rem);
-    pointer-events: none;
-  }
+  // Ẩn mặc định
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  pointer-events: none;
 
+  // Show on hover (desktop) or when open (mobile click)
+  .chat-widget:hover &,
+  .chat-widget--hover &,
   .chat-widget--open & {
-    @media (max-width: 767px) {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
 
@@ -57,7 +57,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform vars.$transition-fast, box-shadow vars.$transition-fast;
   text-decoration: none;
 
   &:hover {
@@ -74,12 +74,12 @@
     transform: scale(0.95);
   }
 
-  @media (max-width: 767px) {
+  @include tablet-down {
     width: 4.4rem;
     height: 4.4rem;
   }
 
-  @media (max-width: 375px) {
+  @include mobile-sm {
     width: 4rem;
     height: 4rem;
   }
@@ -102,7 +102,7 @@
   height: 2.4rem;
   color: #ffffff;
 
-  @media (max-width: 767px) {
+  @include tablet-down {
     width: 2rem;
     height: 2rem;
   }
@@ -116,14 +116,14 @@
   background-color: vars.$gray-900;
   color: #ffffff;
   font-family: vars.$font-family-base;
-  font-size: 1.3rem;
+  font-size: vars.$fs-caption;
   font-weight: vars.$fw-medium;
-  padding: 0.8rem 1.2rem;
-  border-radius: 0.6rem;
+  padding: vars.$sp-2 vars.$sp-3;
+  border-radius: vars.$radius-md;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition: opacity vars.$transition-fast, visibility vars.$transition-fast;
   pointer-events: none;
 
   &::after {
@@ -137,13 +137,13 @@
     border-right: none;
   }
 
-  @media (max-width: 767px) {
+  @include tablet-down {
     display: none;
   }
 }
 
 .chat-widget__toggle {
-  display: none;
+  display: flex;
   width: 5.5rem;
   height: 5.5rem;
   border-radius: 50%;
@@ -152,16 +152,12 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform vars.$transition-base, box-shadow vars.$transition-base;
   position: relative;
   background-color: vars.$brand-secondary;
   color: #ffffff;
 
-  @media (max-width: 767px) {
-    display: flex;
-  }
-
-  @media (max-width: 375px) {
+  @include mobile-sm {
     width: 5rem;
     height: 5rem;
   }
@@ -192,7 +188,7 @@
   width: 2.8rem;
   height: 2.8rem;
   position: absolute;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity vars.$transition-base, transform vars.$transition-base;
 
   &--close {
     opacity: 0;

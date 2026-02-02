@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -25,8 +26,19 @@ const ChatWidget: React.FC = () => {
     };
   }, [isOpen]);
 
+  const widgetClasses = [
+    'chat-widget',
+    isOpen ? 'chat-widget--open' : '',
+    isHovered ? 'chat-widget--hover' : ''
+  ].filter(Boolean).join(' ');
+
   return (
-    <div className={`chat-widget ${isOpen ? 'chat-widget--open' : ''}`} aria-label="Chat support options">
+    <div 
+      className={widgetClasses} 
+      aria-label="Chat support options"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="chat-widget__buttons">
         {/* Zalo Chat */}
         <a
@@ -34,9 +46,9 @@ const ChatWidget: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="chat-widget__btn chat-widget__btn--zalo"
-          aria-label="Chat qua Zalo tư vấn"
+          aria-label="Chat qua Zalo"
         >
-          <Icon icon="simple-icons:zalo" className="chat-widget__icon" />
+          <Icon icon="simple-icons:zalo" className="chat-widget__icon" width={24} height={24} />
           <span className="chat-widget__tooltip">Chat Zalo tư vấn</span>
         </a>
 
@@ -46,7 +58,7 @@ const ChatWidget: React.FC = () => {
           className="chat-widget__btn chat-widget__btn--ai"
           aria-label="AI Chat tư vấn 24/7"
         >
-          <Icon icon="mdi:robot" className="chat-widget__icon" />
+          <Icon icon="mdi:robot" className="chat-widget__icon" width={24} height={24} />
           <span className="chat-widget__tooltip">AI tư vấn 24/7</span>
         </a>
 
@@ -56,9 +68,9 @@ const ChatWidget: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="chat-widget__btn chat-widget__btn--messenger"
-          aria-label="Chat qua Facebook Messenger tư vấn"
+          aria-label="Chat qua Facebook Messenger"
         >
-          <Icon icon="mdi:facebook-messenger" className="chat-widget__icon" />
+          <Icon icon="mdi:facebook-messenger" className="chat-widget__icon" width={24} height={24} />
           <span className="chat-widget__tooltip">Chat tư vấn tuyển sinh</span>
         </a>
       </div>
@@ -72,11 +84,15 @@ const ChatWidget: React.FC = () => {
       >
         <Icon 
           icon="mdi:chat" 
-          className="chat-widget__toggle-icon chat-widget__toggle-icon--chat" 
+          className="chat-widget__toggle-icon chat-widget__toggle-icon--chat"
+          width={28}
+          height={28}
         />
         <Icon 
           icon="mdi:close" 
-          className="chat-widget__toggle-icon chat-widget__toggle-icon--close" 
+          className="chat-widget__toggle-icon chat-widget__toggle-icon--close"
+          width={28}
+          height={28}
         />
       </button>
     </div>

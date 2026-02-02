@@ -9,10 +9,6 @@
 .registration-section__wrapper {
   position: relative;
   width: 100%;
-
-  @include laptop-up {
-    padding-bottom: 29rem;
-  }
 }
 
 .registration-section__bg {
@@ -41,7 +37,7 @@
     left: 1.4rem;
     font-family: vars.$font-primary;
     font-size: 10rem;
-    font-weight: 700;
+    font-weight: vars.$fw-bold;
     line-height: 1.22;
     color: transparent;
     -webkit-text-stroke: 0.1rem rgba(0, 0, 0, 0.1);
@@ -68,7 +64,7 @@
   }
 
   // Mobile: red background card
-  @media (max-width: 575px) {
+  @include mobile {
     background-color: vars.$brand-primary;
     border-radius: vars.$radius-10;
     padding: vars.$sp-4 vars.$sp-3;
@@ -90,7 +86,7 @@
   }
 
   // Mobile: show subtitle with white color
-  @media (max-width: 575px) {
+  @include mobile {
     display: block;
     font-family: vars.$font-family-base;
     font-size: vars.$fs-100;
@@ -98,13 +94,13 @@
     line-height: 1.2;
     color: vars.$color-light;
     text-align: center;
-    margin: 0 0 0.8rem;
+    margin: 0 0 vars.$sp-2;
   }
 }
 
 .registration-card__title {
   font-family: vars.$font-family-base;
-  font-size: 2.4rem;
+  font-size: vars.$fs-500;
   color: vars.$brand-primary;
   margin-bottom: vars.$sp-4;
   text-align: center;
@@ -112,12 +108,12 @@
 
   @include tablet-up {
     font-size: 2.8rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: vars.$sp-5;
   }
 
   // Mobile: white title
-  @media (max-width: 575px) {
-    font-size: 2rem;
+  @include mobile {
+    font-size: vars.$fs-425;
     margin-bottom: vars.$sp-3;
     color: vars.$color-light;
   }
@@ -132,7 +128,7 @@
     gap: vars.$sp-4;
   }
 
-  @media (max-width: 575px) {
+  @include mobile {
     gap: 1.4rem;
   }
 }
@@ -141,7 +137,7 @@
   display: flex;
   gap: 2rem;
 
-  @media (max-width: 575px) {
+  @include mobile {
     flex-direction: column;
     gap: 1.4rem;
   }
@@ -173,10 +169,10 @@
   padding: 0.9rem 1.8rem;
   background-color: vars.$color-light;
   border: 0.1rem solid #ededed;
-  border-radius: 0.6rem;
+  border-radius: vars.$radius-md;
   font-family: vars.$font-primary;
   font-size: vars.$fs-200;
-  font-weight: 400;
+  font-weight: vars.$fw-regular;
   line-height: 1.21;
   color: vars.$gray-800;
   transition: border-color vars.$transition-base;
@@ -190,7 +186,7 @@
     color: vars.$gray-800;
   }
 
-  @media (max-width: 575px) {
+  @include mobile {
     height: 4rem;
     padding: 1rem 1.4rem;
   }
@@ -201,7 +197,7 @@
   resize: none;
   padding-top: 0.9rem;
 
-  @media (max-width: 575px) {
+  @include mobile {
     height: 9rem;
   }
 }
@@ -225,9 +221,9 @@
   gap: 2.7rem;
   margin-top: -0.6rem;
 
-  @media (max-width: 575px) {
+  @include mobile {
     flex-direction: column;
-    gap: 1.2rem;
+    gap: vars.$sp-3;
     margin-top: 0;
   }
 }
@@ -242,7 +238,7 @@
   width: 1.7rem;
   height: 1.7rem;
   border: 0.1rem solid #ededed;
-  border-radius: 0.2rem;
+  border-radius: vars.$radius-sm;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -250,13 +246,13 @@
 .registration-form__checkbox-label {
   font-family: vars.$font-primary;
   font-size: vars.$fs-100;
-  font-weight: 400;
+  font-weight: vars.$fw-regular;
   line-height: 1.22;
   color: vars.$gray-800;
   cursor: pointer;
   user-select: none;
 
-  @media (max-width: 575px) {
+  @include mobile {
     color: vars.$color-light;
   }
 }
@@ -267,24 +263,24 @@
   background-color: vars.$brand-primary;
   color: vars.$color-light;
   border: none;
-  border-radius: 1rem;
+  border-radius: vars.$radius-10;
   font-family: vars.$font-primary;
   font-size: vars.$fs-350;
-  font-weight: 700;
+  font-weight: vars.$fw-bold;
   line-height: 1.22;
   cursor: pointer;
   transition: background-color vars.$transition-base;
   margin-top: 0.6rem;
 
   &:hover {
-    background-color: #8a0d2a;
+    background-color: vars.$brand-accent-dark;
   }
 
   &:active {
     transform: translateY(0.1rem);
   }
 
-  @media (max-width: 575px) {
+  @include mobile {
     height: 4.2rem;
     margin-top: vars.$sp-2;
     background-color: vars.$brand-secondary;
@@ -296,7 +292,7 @@
 }
 
 .registration-form__note {
-  font-size: 1.2rem;
+  font-size: vars.$fs-100;
   color: vars.$gray-500;
   text-align: center;
   margin-top: vars.$sp-3;

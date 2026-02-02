@@ -124,7 +124,7 @@ p {
 .container-lg,
 .container-xl,
 .container-xxl {
-  --bs-gutter-x: 4rem;
+  --bs-gutter-x: vars.$sp-6;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   width: 100%;
@@ -132,18 +132,33 @@ p {
   margin-left: auto;
 }
 
-/* Tablet */
-@media (min-width: 576px) {
-  .container {
-    max-width: 72rem;
-    --bs-gutter-x: 8rem;
+/* Mobile (< 576px) */
+@include mobile {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    --bs-gutter-x: vars.$sp-4;
+    padding-right: vars.$sp-4;
+    padding-left: vars.$sp-4;
   }
 }
 
-@media (min-width: 768px) {
+/* Tablet (>= 576px) */
+@media (min-width: 576px) {
   .container {
-    max-width: 96rem;
-    --bs-gutter-x: 8rem;
+    max-width: vars.$container-md;
+    --bs-gutter-x: vars.$sp-6;
+  }
+}
+
+/* Tablet up (>= 768px) */
+@include tablet-up {
+  .container {
+    max-width: vars.$container-lg;
+    --bs-gutter-x: vars.$sp-8;
   }
 }
 
@@ -155,8 +170,8 @@ p {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 120rem !important;
-    --bs-gutter-x: 4rem;
+    max-width: vars.$container-xxl !important;
+    --bs-gutter-x: vars.$sp-6;
     padding-right: calc(var(--bs-gutter-x) * 0.5);
     padding-left: calc(var(--bs-gutter-x) * 0.5);
   }
@@ -203,24 +218,48 @@ p {
    ================================================ */
 
 .row {
+  --bs-gutter-x: #{vars.$bs-gutter-x};
+  --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
-  margin-right: calc(vars.$bs-gutter-x * -0.5);
-  margin-left: calc(vars.$bs-gutter-x * -0.5);
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
 
   & > * {
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;
-    padding-right: calc(vars.$bs-gutter-x * 0.5);
-    padding-left: calc(vars.$bs-gutter-x * 0.5);
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
   }
 }
 
+// Bootstrap gutter classes
 .g-4 {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 1.5rem;
+  --bs-gutter-x: #{vars.$sp-5};
+  --bs-gutter-y: #{vars.$sp-5};
+
+  @include mobile {
+    --bs-gutter-x: #{vars.$sp-4};
+    --bs-gutter-y: #{vars.$sp-4};
+  }
 }
+
+.g-3 {
+  --bs-gutter-x: #{vars.$sp-4};
+  --bs-gutter-y: #{vars.$sp-4};
+
+  @include mobile {
+    --bs-gutter-x: #{vars.$sp-3};
+    --bs-gutter-y: #{vars.$sp-3};
+  }
+}
+
+.gap-3 { gap: vars.$sp-3 !important; }
+.gap-4 { gap: vars.$sp-4 !important; }
+.gap-5 { gap: vars.$sp-5 !important; }
 
 .col-12 { flex: 0 0 auto; width: 100%; }
 .col-6 { flex: 0 0 auto; width: 50%; }
@@ -229,12 +268,12 @@ p {
   .col-sm-6 { flex: 0 0 auto; width: 50%; }
 }
 
-@media (min-width: 768px) {
+@include tablet-up {
   .col-md-6 { flex: 0 0 auto; width: 50%; }
   .col-md-4 { flex: 0 0 auto; width: 33.333333%; }
 }
 
-@media (min-width: 992px) {
+@include desktop {
   .col-lg-3 { flex: 0 0 auto; width: 25%; }
   .col-lg-4 { flex: 0 0 auto; width: 33.333333%; }
   .col-lg-5 { flex: 0 0 auto; width: 41.666667%; }
@@ -252,20 +291,20 @@ p {
 .order-1 { order: 1 !important; }
 .order-2 { order: 2 !important; }
 
-@media (min-width: 768px) {
+@include tablet-up {
   .order-md-1 { order: 1 !important; }
   .order-md-2 { order: 2 !important; }
 }
 
-@media (min-width: 992px) {
+@include desktop {
   .order-lg-1 { order: 1 !important; }
   .order-lg-2 { order: 2 !important; }
 }
 
 /* Margin utilities */
-.mb-3 { margin-bottom: 1rem !important; }
-.mb-4 { margin-bottom: 1.5rem !important; }
-.mb-5 { margin-bottom: 3rem !important; }
+.mb-3 { margin-bottom: vars.$sp-3 !important; }
+.mb-4 { margin-bottom: vars.$sp-4 !important; }
+.mb-5 { margin-bottom: vars.$sp-6 !important; }
 .ms-auto { margin-left: auto !important; }
 
 /* Display utilities */
@@ -283,13 +322,13 @@ p {
   .d-sm-inline-block { display: inline-block !important; }
 }
 
-@media (min-width: 768px) {
+@include tablet-up {
   .d-md-none { display: none !important; }
   .d-md-block { display: block !important; }
   .d-md-flex { display: flex !important; }
 }
 
-@media (min-width: 992px) {
+@include desktop {
   .d-lg-none { display: none !important; }
   .d-lg-block { display: block !important; }
   .d-lg-flex { display: flex !important; }

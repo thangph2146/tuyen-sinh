@@ -10,7 +10,14 @@ const Registration: React.FC = () => {
       aria-labelledby="registration-heading"
     >
       <div className="container">
-       
+        <div className="registration-section__wrapper">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/images/dkts_bg.png"
+            alt="Banner đăng ký tư vấn tuyển sinh"
+            className="registration-section__bg"
+            loading="lazy"
+          />
           <div className="registration-card">
             <p className="registration-card__subtitle">
               TRƯỜNG ĐẠI HỌC NGÂN HÀNG HUB
@@ -144,6 +151,7 @@ const Registration: React.FC = () => {
               </button>
             </form>
           </div>
+        </div>
       </div>
     </section>
   );

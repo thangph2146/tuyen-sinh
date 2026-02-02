@@ -137,17 +137,6 @@ const AdmissionInfo = () => {
                 </article>
               </div>
 
-              <div className="col-lg-6 d-none d-lg-block">
-                <div className="admission-info-section__image">
-                  <Image
-                    src="/assets/images/admission_bg.png"
-                    alt="Sinh viên HUB University"
-                    width={600}
-                    height={800}
-                    className="img-fluid"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>

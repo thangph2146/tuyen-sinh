@@ -24,9 +24,10 @@
     grid-template-columns: 1fr 1fr;
     gap: vars.$sp-6;
 
+    // Tablet down: 1 column
     @include tablet {
       grid-template-columns: 1fr;
-      gap: vars.$sp-5;
+      gap: vars.$sp-4;
     }
   }
 
@@ -48,7 +49,7 @@
   color: inherit;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform vars.$transition-fast, box-shadow vars.$transition-fast;
   background-color: vars.$color-light;
   border-radius: vars.$radius-lg;
   overflow: hidden;
@@ -61,11 +62,12 @@
   }
 
   &--featured {
-    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.08);
+    box-shadow: vars.$shadow-1;
 
     .news-card__image {
       width: 100%;
-      height: 28.6rem;
+      height: auto;
+      aspect-ratio: 591 / 286;
       object-fit: cover;
       border-radius: vars.$radius-lg vars.$radius-lg 0 0;
       display: block;
@@ -81,7 +83,7 @@
       font-size: vars.$fs-350;
       font-weight: vars.$fw-semibold;
       color: vars.$gray-900;
-      line-height: 1.7;
+      line-height: vars.$lh-loose;
       margin-bottom: vars.$sp-3;
       text-transform: capitalize;
     }
@@ -109,19 +111,24 @@
   &--horizontal {
     flex-direction: row;
     margin-bottom: 0;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.06);
+    box-shadow: vars.$shadow-1;
 
     .news-card__thumbnail {
+      flex: 0 0 21.8rem;
+      max-width: 21.8rem;
       width: 21.8rem;
-      height: 15.5rem;
+      height: auto;
+      min-height: 15.5rem;
+      aspect-ratio: 218 / 155;
       object-fit: cover;
       border-radius: vars.$radius-lg 0 0 vars.$radius-lg;
-      flex-shrink: 0;
+      display: block;
 
       @include mobile {
+        flex: 0 0 40%;
+        max-width: 40%;
         width: 40%;
-        height: auto;
-        aspect-ratio: 218 / 155;
+        min-height: auto;
       }
     }
 

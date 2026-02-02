@@ -6,11 +6,11 @@
   top: 0;
   z-index: 1030;
   background-color: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color vars.$transition-base, box-shadow vars.$transition-base;
 
   &.is-scrolled {
     background-color: vars.$color-light;
-    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
+    box-shadow: vars.$shadow-1;
   }
 }
 
@@ -20,8 +20,7 @@
   padding: vars.$sp-2 0;
   font-family: vars.$font-family-base;
 
-  // Tablet responsive (< 1024px)
-  @media (max-width: 1024px) {
+  @include desktop-xl {
     height: auto;
     display: flex;
     align-items: center;
@@ -33,11 +32,13 @@
     }
   }
 
-  // Mobile responsive (< 576px)
-  @media (max-width: 575px) {
+  @include mobile {
+    padding: vars.$sp-2 0;
+    
     .container > div {
       flex-direction: column !important;
       justify-content: center !important;
+      gap: vars.$sp-2;
     }
   }
 
@@ -46,7 +47,7 @@
     align-items: center;
     gap: vars.$sp-2;
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       width: auto;
       justify-content: flex-start;
       flex: 1;
@@ -54,7 +55,7 @@
       margin-right: vars.$sp-2;
     }
 
-    @media (max-width: 575px) {
+    @include mobile {
       width: 100%;
       justify-content: center;
       margin-right: 0;
@@ -71,7 +72,7 @@
       object-fit: contain;
     }
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       display: none;
     }
   }
@@ -85,7 +86,7 @@
     &--hotline {
       display: inline;
 
-      @media (max-width: 1024px) {
+      @include desktop-xl {
         display: none;
       }
     }
@@ -93,7 +94,7 @@
     &--school {
       display: none;
 
-      @media (max-width: 1024px) {
+      @include desktop-xl {
         display: block;
         text-align: left;
         font-size: vars.$fs-100;
@@ -102,12 +103,12 @@
         line-height: 1.3;
       }
 
-      @media (max-width: 575px) {
+      @include mobile {
         text-align: center;
       }
     }
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       font-size: vars.$fs-100;
     }
   }
@@ -118,7 +119,7 @@
     justify-content: flex-end;
     gap: vars.$sp-4;
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       width: auto;
       flex-shrink: 0;
 
@@ -129,7 +130,7 @@
       }
     }
 
-    @media (max-width: 575px) {
+    @include mobile {
       width: 100%;
       justify-content: center;
     }
@@ -138,7 +139,7 @@
   &__search {
     position: relative;
     background-color: #ffffff;
-    border-radius: 3rem;
+    border-radius: vars.$radius-30;
     padding: vars.$sp-1 vars.$sp-3;
     display: flex;
     align-items: center;
@@ -166,7 +167,7 @@
       height: 1.6rem;
     }
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       display: none;
     }
   }
@@ -175,22 +176,22 @@
     background-color: vars.$brand-secondary;
     color: #ffffff;
     font-family: vars.$font-family-base;
-    font-size: 1.4rem;
+    font-size: vars.$fs-200;
     font-weight: vars.$fw-semibold;
     padding: vars.$sp-1 vars.$sp-3;
-    border-radius: 4rem;
+    border-radius: vars.$radius-40;
     text-decoration: none;
     display: inline-block;
     transition: all vars.$transition-base;
     white-space: nowrap;
     flex-shrink: 0;
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       font-size: 1.1rem;
       padding: 0.5rem 1.2rem;
     }
 
-    @media (max-width: 575px) {
+    @include mobile {
       font-size: 1rem;
     }
 
@@ -205,14 +206,24 @@
 
 // Navbar
 .navbar {
-  padding: vars.$sp-2 0;
+  padding: vars.$sp-3 0;
   background-color: transparent;
-  transition: padding 0.3s ease;
+  transition: padding vars.$transition-base;
 
-  @media (max-width: 1024px) {
-    padding: 0;
+  @include desktop-xl {
+    padding: vars.$sp-2 0;
     display: flex;
     align-items: center;
+  }
+
+  @include mobile {
+    padding: vars.$sp-2 0;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__inner {
@@ -235,13 +246,13 @@
     &__text {
       margin-left: 0.6rem;
       font-family: vars.$font-family-base;
-      font-size: 1.2rem;
+      font-size: vars.$fs-100;
       font-weight: vars.$fw-semibold;
       line-height: 1.25;
       color: vars.$brand-secondary;
       text-transform: uppercase;
 
-      @media (max-width: 575px) {
+      @include mobile {
         font-size: 1rem;
         line-height: 1.2;
       }
@@ -253,12 +264,12 @@
     height: 6rem;
     object-fit: contain;
 
-    @media (max-width: 1390px) {
+    @include desktop-xl {
       width: 3.8rem;
       height: auto;
     }
 
-    @media (max-width: 575px) {
+    @include mobile {
       width: 3.6rem;
       height: auto;
     }
@@ -269,7 +280,7 @@
     align-items: center;
     gap: vars.$sp-3;
 
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       display: flex;
     }
   }
@@ -303,7 +314,7 @@
   }
 
   .navbar-nav-wrapper {
-    @media (max-width: 1024px) {
+    @include desktop-xl {
       display: none !important;
     }
   }
@@ -311,18 +322,14 @@
   .navbar-nav {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: vars.$sp-2;
     list-style: none;
     padding: 0;
     margin: 0;
 
-    @media (max-width: 1390px) {
-      gap: 0.8rem;
-    }
-
     .nav-link {
       font-family: vars.$font-family-base;
-      font-size: 1.4rem;
+      font-size: vars.$fs-200;
       font-weight: vars.$fw-semibold;
       line-height: 1.8rem;
       color: vars.$gray-900;
@@ -333,14 +340,9 @@
       transition: color vars.$transition-base;
       white-space: nowrap;
 
-      @media (max-width: 1390px) {
-        font-size: 1.3rem;
+      @include laptop-up {
+        font-size: vars.$fs-200;
         padding: vars.$sp-2 0.4rem !important;
-      }
-
-      @media (max-width: 1200px) {
-        font-size: 1.2rem;
-        padding: vars.$sp-2 0.2rem !important;
       }
 
       &::after {
@@ -399,11 +401,11 @@
 // Dropdown Menu Custom
 .navbar-nav .dropdown-menu {
   min-width: 22rem;
-  border-radius: 0.8rem;
+  border-radius: vars.$radius-md;
   border: 0.1rem solid vars.$gray-200;
   box-shadow: 0 0.6rem 2.4rem 0 rgba(0, 0, 0, 0.08);
-  padding: 0.8rem 0;
-  margin-top: 0.8rem;
+  padding: vars.$sp-2 0;
+  margin-top: vars.$sp-2;
   display: none;
   z-index: 1050;
   background-color: #fff;
@@ -420,11 +422,11 @@
 
 .navbar-nav .dropdown-item {
   font-family: vars.$font-family-base;
-  font-size: 1.4rem;
+  font-size: vars.$fs-200;
   color: vars.$gray-900;
-  padding: 0.8rem 2.4rem;
-  border-radius: 0.4rem;
-  transition: background 0.18s, color 0.18s;
+  padding: vars.$sp-2 vars.$sp-5;
+  border-radius: vars.$radius-sm;
+  transition: background vars.$transition-fast, color vars.$transition-fast;
   position: relative;
   display: block;
   text-decoration: none;
@@ -459,7 +461,7 @@
   padding: vars.$sp-4;
   z-index: 1100;
   visibility: hidden;
-  transition: background-color 0.3s ease, visibility 0.3s ease;
+  transition: background-color vars.$transition-base, visibility vars.$transition-base;
   width: 100%;
   height: 100%;
 
@@ -489,10 +491,8 @@
     gap: vars.$sp-2;
     transform: translateY(-3rem);
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform vars.$transition-base, opacity vars.$transition-base;
     box-sizing: border-box;
-    border-bottom: none;
-    padding-bottom: 0;
   }
 
   &.is-open &__container {
@@ -504,10 +504,10 @@
     flex: 1;
     min-width: 0;
     border: none;
-    border-radius: 0.8rem;
+    border-radius: vars.$radius-md;
     padding: vars.$sp-3 vars.$sp-4;
     font-family: vars.$font-family-base;
-    font-size: 1.6rem;
+    font-size: vars.$fs-300;
     outline: none;
     background-color: vars.$color-light;
     color: vars.$gray-900;
@@ -525,7 +525,7 @@
     border: none;
     background: vars.$brand-primary;
     padding: 0 vars.$sp-4;
-    border-radius: 0.8rem;
+    border-radius: vars.$radius-md;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -534,7 +534,7 @@
     img {
       width: 2.4rem;
       height: 2.4rem;
-      filter: brightness(0) invert(1); // Make icon white
+      filter: brightness(0) invert(1);
     }
   }
 }
@@ -628,7 +628,7 @@
     align-items: center;
     gap: vars.$sp-3;
     font-family: vars.$font-family-base;
-    font-size: 1.6rem;
+    font-size: vars.$fs-300;
     color: vars.$gray-900;
     text-decoration: none;
     padding: 0;
@@ -640,7 +640,7 @@
 
     &--active {
       color: vars.$brand-primary;
-      font-weight: 600;
+      font-weight: vars.$fw-semibold;
     }
   }
 
@@ -655,7 +655,7 @@
 
     &-title {
       font-family: vars.$font-family-base;
-      font-size: 1.6rem;
+      font-size: vars.$fs-300;
       margin-bottom: vars.$sp-4;
       color: vars.$gray-900;
     }
@@ -676,7 +676,7 @@
     justify-content: center;
     text-decoration: none;
     color: vars.$color-light;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform vars.$transition-fast, opacity vars.$transition-fast;
 
     &:hover {
       transform: translateY(-0.2rem);

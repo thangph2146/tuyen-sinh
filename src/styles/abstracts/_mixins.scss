@@ -1,47 +1,69 @@
+// Mobile (< 576px)
 @mixin mobile {
   @media (max-width: 575.98px) {
     @content;
   }
 }
 
+// Tablet down (< 768px) - for chat widget mobile
+@mixin tablet-down {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+// Tablet (< 992px)
 @mixin tablet {
   @media (max-width: 991.98px) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media (min-width: 992px) {
-    @content;
-  }
-}
-
-@mixin tablet-up {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin laptop-up {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
+// Desktop xl down (< 1024px) - for navbar/topbar
 @mixin desktop-xl {
   @media (max-width: 1024px) {
     @content;
   }
 }
 
+// Desktop (>= 992px)
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+// Tablet up (>= 768px)
+@mixin tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// Laptop up (>= 1200px)
+@mixin laptop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// Tablet only (576px - 991px)
 @mixin tablet-only {
   @media (min-width: 576px) and (max-width: 991.98px) {
     @content;
   }
 }
 
+// Mobile only (< 576px) - alias
 @mixin mobile-only {
   @media (max-width: 575.98px) {
+    @content;
+  }
+}
+
+// Small mobile (< 376px)
+@mixin mobile-sm {
+  @media (max-width: 375px) {
     @content;
   }
 }

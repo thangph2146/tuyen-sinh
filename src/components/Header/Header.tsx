@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,11 +44,11 @@ const Header: React.FC = () => {
           <div className="d-flex align-items-center justify-content-between">
             <div className="topbar__contact">
               <span className="topbar__contact-icon">
-                <Image
+                <img
                   src="/assets/images/phone.png"
                   alt="Biểu tượng điện thoại"
-                  width={20}
-                  height={20}
+                  width="20"
+                  height="20"
                 />
               </span>
               <span className="topbar__contact-text topbar__contact-text--hotline">
@@ -60,11 +60,11 @@ const Header: React.FC = () => {
             </div>
             <div className="topbar__actions">
               <span className="topbar__contact-icon">
-                <Image
+                <img
                   src="/assets/images/email.png"
                   alt="Biểu tượng email"
-                  width={23}
-                  height={23}
+                  width="23"
+                  height="23"
                 />
               </span>
               <span className="topbar__contact-text">
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
                   className="topbar__search-input"
                   aria-label="Tìm kiếm"
                 />
-                <Image
+                <img
                   src="/assets/images/search.png"
                   alt=""
                   width="16"
@@ -99,12 +99,12 @@ const Header: React.FC = () => {
       <nav className="navbar navbar-expand-lg" role="navigation" aria-label="Menu chính">
         <div className="container">
           <Link href="/" className="navbar-brand" aria-label="Trang chủ HUB University">
-            <Image 
+            <img 
               src="/assets/svg/logo.svg" 
               alt="Logo Trường Đại học Ngân hàng TP.HCM - HUB University" 
               className="navbar__logo"
-              width={50} 
-              height={72} 
+              width="50" 
+              height="72" 
             />
             <span className="navbar-brand__text">
               TRƯỜNG ĐẠI HỌC NGÂN HÀNG
@@ -135,11 +135,11 @@ const Header: React.FC = () => {
                 type="button"
                 aria-label="Tìm kiếm"
               >
-                <Image
+                <img
                   src="/assets/images/search.png"
                   alt=""
-                  width={20}
-                  height={20}
+                  width="20"
+                  height="20"
                 />
               </button>
             </div>
@@ -161,14 +161,15 @@ const Header: React.FC = () => {
             </button>
             <button 
               className="navbar-toggle" 
+              type="button"
               onClick={() => setIsMobileNavOpen(true)}
               aria-label="Mở menu điều hướng"
             >
-              <Image
+              <img
                 src="/assets/svg/harmbuger.svg"
                 alt="Mở menu điều hướng"
-                width={24}
-                height={24}
+                width="24"
+                height="24"
               />
             </button>
           </div>
@@ -207,12 +208,12 @@ const Header: React.FC = () => {
                     className="mobile-nav__link" 
                     onClick={() => setIsMobileNavOpen(false)}
                   >
-                    <Image
+                    <img
                       src={link.icon}
                       alt={link.name}
                       className="mobile-nav__icon"
-                      width={24}
-                      height={24}
+                      width="24"
+                      height="24"
                     />
                     <span>{link.name}</span>
                   </Link>
