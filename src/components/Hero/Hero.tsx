@@ -56,17 +56,17 @@ const Hero = () => {
           className="carousel-control-prev"
           type="button"
           onClick={prevSlide}
+          aria-label="Slide trước"
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
+          <Icon icon="mdi:chevron-left" width="32" height="32" color="white" />
         </button>
         <button
           className="carousel-control-next"
           type="button"
           onClick={nextSlide}
+          aria-label="Slide kế tiếp"
         >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
+          <Icon icon="mdi:chevron-right" width="32" height="32" color="white" />
         </button>
       </div>
     </section>

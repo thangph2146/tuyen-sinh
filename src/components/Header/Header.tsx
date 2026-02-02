@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 /* eslint-disable @next/next/no-img-element */
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -16,6 +18,20 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const isActive = (path: string) => {
+    if (!pathname) return false;
+    
+    // Chuẩn hóa path: loại bỏ slash cuối cùng để so sánh chính xác
+    const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+    const normalizedPath = path.replace(/\/$/, '') || '/';
+
+    if (normalizedPath === '/') {
+      return normalizedPathname === '/';
+    }
+    
+    return normalizedPathname === normalizedPath || normalizedPathname.startsWith(normalizedPath + '/');
+  };
 
   const navLinks = [
     { name: 'Trang chủ', href: '/' },
@@ -43,16 +59,17 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="d-flex align-items-center justify-content-between">
             <div className="topbar__contact">
-              <span className="topbar__contact-icon">
+              <a href="tel:0888353488" className="topbar__contact-icon">
                 <img
                   src="/assets/images/phone.png"
                   alt="Biểu tượng điện thoại"
                   width="20"
                   height="20"
                 />
-              </span>
+              </a>
               <span className="topbar__contact-text topbar__contact-text--hotline">
-                Hotline: (028) 38 212 430 - (028) 38 211 704 - 0888 353 488
+                <span className="d-none d-sm-inline">Hotline: </span>
+                <a href="tel:0888353488" className="text-white text-decoration-none">0888 353 488</a>
               </span>
               <span className="topbar__contact-text topbar__contact-text--school">
                 TRƯỜNG ĐẠI HỌC NGÂN HÀNG THÀNH PHỐ HỒ CHÍ MINH
@@ -178,7 +195,12 @@ const Header: React.FC = () => {
             <ul id="main-navbar" className="navbar-nav ms-auto">
               {navLinks.map((link) => (
                 <li key={link.href} className="nav-item">
-                  <Link href={link.href} className="nav-link">{link.name}</Link>
+                  <Link 
+                    href={link.href} 
+                    className={`nav-link ${isActive(link.href) ? 'nav-link--active' : ''}`}
+                  >
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -205,7 +227,7 @@ const Header: React.FC = () => {
                 <li key={link.href} className="mobile-nav__item">
                   <Link 
                     href={link.href} 
-                    className="mobile-nav__link" 
+                    className={`mobile-nav__link ${isActive(link.href) ? 'mobile-nav__link--active' : ''}`} 
                     onClick={() => setIsMobileNavOpen(false)}
                   >
                     <img
