@@ -1,0 +1,271 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+
+.programs-section {
+  background-color: vars.$gray-50;
+  padding: vars.$sp-6 0;
+
+  @include tablet-up {
+    padding: vars.$sp-8 0;
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-title-mobile;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-align: center;
+    margin-bottom: vars.$sp-6;
+
+    @include tablet-up {
+      font-size: vars.$section-title-tablet;
+    }
+
+    @include laptop-up {
+      font-size: vars.$section-title;
+      margin-bottom: vars.$sp-8;
+    }
+  }
+}
+
+.programs-tabs-nav {
+  margin-bottom: vars.$sp-5;
+}
+
+.programs-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: vars.$sp-3;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+
+  &__item {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-body-sm;
+    font-weight: vars.$fw-medium;
+    color: vars.$gray-900;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+    position: relative;
+    padding-bottom: vars.$sp-1;
+    white-space: nowrap;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0.2rem;
+      background-color: vars.$brand-primary;
+      transition: all vars.$transition-base;
+    }
+
+    &:hover {
+      color: vars.$brand-primary;
+    }
+
+    &.active {
+      font-weight: vars.$fw-semibold;
+      color: vars.$brand-primary;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.programs-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$sp-3;
+  margin-top: vars.$sp-4;
+
+  &__item {
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  &__header {
+    background-color: vars.$color-light;
+    border: 0.1rem solid vars.$gray-300;
+    border-radius: 6rem;
+    padding: vars.$sp-2 vars.$sp-3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-body;
+    font-weight: vars.$fw-medium;
+    color: vars.$gray-900;
+    text-align: left;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+
+    &.active {
+      background-color: vars.$color-light;
+      color: vars.$gray-900;
+      border-color: vars.$brand-primary;
+    }
+  }
+
+  &__icon {
+    font-size: 1.8rem;
+    color: vars.$gray-500;
+  }
+
+  &__panel {
+    display: block;
+    margin-top: vars.$sp-2;
+    overflow-x: auto;
+    padding: 0 0 vars.$sp-1 0;
+    background-color: transparent;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: vars.$sp-2;
+  }
+
+  &__list-item {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-body;
+    font-weight: vars.$fw-medium;
+    color: vars.$gray-900;
+    white-space: nowrap;
+    padding: vars.$sp-2 vars.$sp-3;
+    background-color: vars.$gray-100;
+    border-radius: 100rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+.programs-groups {
+  position: relative;
+}
+
+.programs-group {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.programs-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: vars.$sp-3;
+
+  &__item {
+    flex: 0 0 26rem;
+
+    &--wide {
+      flex: 0 0 32rem;
+    }
+  }
+}
+
+.program-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: vars.$sp-3;
+  padding: vars.$sp-2;
+  background-color: vars.$color-light;
+  border: 0.1rem solid vars.$gray-300;
+  border-radius: 6rem;
+  transition: all vars.$transition-base;
+  height: 7.5rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+    border-color: vars.$brand-primary;
+  }
+
+  &__icon-wrapper {
+    position: relative;
+    width: 5.8rem;
+    height: 5.8rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__icon-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 4rem;
+    max-height: 4rem;
+    object-fit: contain;
+
+    &--sm {
+      width: 1.875rem;
+      height: 1.875rem;
+    }
+
+    &--md {
+      width: 2.1875rem;
+      height: 2.1875rem;
+    }
+
+    &--lg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-300;
+    font-weight: vars.$fw-medium;
+    color: vars.$gray-900;
+    text-transform: capitalize;
+    line-height: 1.22;
+  }
+}
+
+@include mobile {
+  .program-card__title {
+    font-size: 1.4rem;
+  }
+}
+

@@ -1,0 +1,172 @@
+@use "sass:color";
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+
+  & > .container {
+    @include laptop-up {
+      max-width: vars.$container-xl;
+    }
+  }
+
+  &__row {
+    gap: 0;
+
+    @include laptop-up {
+      row-gap: vars.$sp-4;
+    }
+  }
+
+  &__content-col,
+  &__image-col {
+    @include laptop-up {
+      padding: 0 calc(vars.$bs-gutter-x * 0.5);
+    }
+  }
+
+  &__content-col {
+    @include laptop-up {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__image-col {
+    @include laptop-up {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+    overflow: visible;
+
+    @include laptop-up {
+      margin-left: 0;
+      border-radius: 0;
+      overflow: visible;
+    }
+  }
+
+  &__deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 89.5rem;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &__main-image {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+    z-index: 2;
+    box-shadow: vars.$shadow-lg;
+
+    @include tablet-up {
+      border-radius: vars.$radius-30;
+    }
+
+    @include laptop-up {
+      max-width: 61.8rem;
+    }
+  }
+
+  &__content {
+    background-color: vars.$color-light;
+    border-radius: 0 0 vars.$radius-32 0;
+    padding: vars.$sp-5 0 2.8rem;
+    margin-left: calc(vars.$bs-gutter-x * 0.5);
+    margin-right: calc(vars.$bs-gutter-x * 0.5);
+    position: relative;
+    z-index: 2;
+
+    @include laptop-up {
+      background-color: transparent;
+      border-radius: 0;
+      padding: vars.$sp-2 0 0 0;
+      margin: 0;
+      padding-left: 3rem;
+    }
+  }
+
+  &__subtitle {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-350;
+    font-weight: vars.$fw-regular;
+    color: vars.$gray-900;
+    line-height: vars.$lh-heading-tight;
+    margin-bottom: vars.$sp-2;
+    font-style: italic;
+
+    @include laptop-up {
+      font-size: vars.$fs-500;
+    }
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title-mobile;
+    font-weight: vars.$fw-bold;
+    color: vars.$brand-primary;
+    line-height: vars.$lh-heading-tight;
+    margin-bottom: vars.$sp-3;
+
+    @include tablet-up {
+      font-size: vars.$section-title-tablet;
+      margin-bottom: vars.$sp-4;
+    }
+
+    @include laptop-up {
+      font-size: vars.$section-title;
+    }
+  }
+
+  &__description {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description-mobile;
+    color: vars.$gray-900;
+    line-height: 1.6;
+    margin-bottom: vars.$sp-5;
+
+    @include tablet-up {
+      font-size: vars.$section-description-tablet;
+    }
+
+    @include laptop-up {
+      font-size: vars.$section-description;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: vars.$radius-md;
+    background-color: vars.$brand-secondary;
+    color: vars.$color-light;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-body-sm;
+    font-weight: vars.$fw-semibold;
+    text-decoration: none;
+    transition: background-color vars.$transition-base;
+
+    &:hover {
+      background-color: #1a2954;
+      color: vars.$color-light;
+    }
+  }
+}

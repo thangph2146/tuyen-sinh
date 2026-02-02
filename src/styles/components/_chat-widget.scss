@@ -1,0 +1,235 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *;
+
+.chat-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+
+  @media (max-width: 767px) {
+    bottom: 8rem;
+    right: 1.6rem;
+  }
+
+  @media (max-width: 375px) {
+    right: 1.2rem;
+    bottom: 8rem;
+  }
+}
+
+.chat-widget__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  @media (max-width: 767px) {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    pointer-events: none;
+  }
+
+  .chat-widget--open & {
+    @media (max-width: 767px) {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+}
+
+.chat-widget__btn {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.2);
+
+    .chat-widget__tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 767px) {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  @media (max-width: 375px) {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.chat-widget__btn--messenger {
+  background: linear-gradient(135deg, #0084ff 0%, #00c6ff 100%);
+}
+
+.chat-widget__btn--ai {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+}
+
+.chat-widget__btn--zalo {
+  background: #0068ff;
+}
+
+.chat-widget__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #ffffff;
+
+  @media (max-width: 767px) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.chat-widget__tooltip {
+  position: absolute;
+  right: calc(100% + 1.2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: vars.$gray-900;
+  color: #ffffff;
+  font-family: vars.$font-family-base;
+  font-size: 1.3rem;
+  font-weight: vars.$fw-medium;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.6rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -0.6rem;
+    transform: translateY(-50%);
+    border: 0.6rem solid transparent;
+    border-left-color: vars.$gray-900;
+    border-right: none;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.chat-widget__toggle {
+  display: none;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  background-color: vars.$brand-secondary;
+  color: #ffffff;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+
+  @media (max-width: 375px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Pulse animation
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0;
+    animation: chat-pulse 2s ease-out infinite;
+  }
+}
+
+.chat-widget__toggle-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &--close {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+
+  .chat-widget--open &--chat {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .chat-widget--open &--close {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes chat-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-widget__btn,
+  .chat-widget__toggle,
+  .chat-widget__buttons,
+  .chat-widget__toggle-icon {
+    transition: none;
+  }
+
+  .chat-widget__toggle::before {
+    animation: none;
+  }
+}

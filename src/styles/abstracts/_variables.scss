@@ -1,0 +1,146 @@
+// --- MÀU SẮC ---
+$brand-primary: #a61b28;
+$brand-secondary: #213368;
+
+$color-primary: $brand-primary;
+$color-on-primary: #ffffff;
+$color-secondary: $brand-secondary;
+$color-on-secondary: #ffffff;
+$color-light: #ffffff;
+$color-dark: #000000;
+
+$gray-50: #f8f9fa;
+$gray-100: #f1f3f5;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$color-success: #198754;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+$color-info: #0dcaf0;
+
+// Semantic tokens
+$brand-accent: #a41034;
+$brand-accent-dark: #8a0d2b;
+$gray-border: #dddddd;
+$text-muted: #737477;
+
+$gradient-brand: linear-gradient(277.07deg, #a61b28 0%, #213368 100%);
+
+// --- FONTS ---
+$font-primary: var(--font-inter), "Inter", sans-serif;
+$font-secondary: var(--font-inter), "Inter", sans-serif;
+$font-family-base: $font-secondary;
+$font-family-heading: $font-primary;
+
+$fw-regular: 400;
+$fw-normal: $fw-regular;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+// --- KÍCH THƯỚC (QUY ĐỔI REM) ---
+$fs-100: 1.2rem;
+$fs-200: 1.4rem;
+$fs-300: 1.6rem;
+$fs-350: 1.7rem;
+$fs-400: 1.8rem;
+$fs-425: 2rem;
+$fs-450: 2.3rem;
+$fs-500: 2.4rem;
+$fs-525: 2.5rem;
+$fs-550: 2.6rem;
+$fs-600: 3rem;
+$fs-700: 4rem;
+$fs-800: 5.5rem;
+$fs-900: 6rem;
+
+// Semantic Font Sizes
+$fs-body: $fs-300;
+$fs-body-sm: $fs-200;
+$fs-body-xs: $fs-100;
+$fs-h1: $fs-700;
+$fs-h2: $fs-600;
+$fs-h3: $fs-500;
+$fs-page-title: 3.2rem;
+$fs-heading-xl: 2.6rem;
+$fs-heading-m: 2rem;
+$fs-caption: 1.3rem;
+
+$section-title: $fs-600;
+$section-subtitle: $fs-400;
+$section-title-mobile: $fs-500;
+$section-subtitle-mobile: $fs-300;
+$section-title-tablet: $fs-550;
+$section-subtitle-tablet: $fs-350;
+$section-description: $fs-300;
+$section-description-tablet: $fs-200;
+$section-description-mobile: $fs-100;
+
+$lh-tight: 1.2;
+$lh-normal: 1.5;
+$lh-relaxed: 1.6;
+$lh-loose: 1.7;
+
+$lh-heading-tight: $lh-tight;
+$lh-body-normal: $lh-normal;
+$lh-body-relaxed: $lh-relaxed;
+$lh-body-loose: $lh-loose;
+
+$sp-1: 0.4rem;
+$sp-2: 0.8rem;
+$sp-3: 1.2rem;
+$sp-4: 1.6rem;
+$sp-5: 2.4rem;
+$sp-6: 3.2rem;
+$sp-7: 4.8rem;
+$sp-8: 6.4rem;
+$sp-9: 8rem;
+$sp-10: 10rem;
+
+// --- RADIUS ---
+$radius-sm: 0.4rem;
+$radius-md: 0.8rem;
+$radius-10: 1rem;
+$radius-lg: 1.6rem;
+$radius-20: 2rem;
+$radius-24: 2.4rem;
+$radius-30: 3rem;
+$radius-32: 3.2rem;
+$radius-40: 4rem;
+$radius-60: 6rem;
+$radius-pill: 999rem;
+$radius-full: $radius-pill;
+$radius-base: $radius-md;
+
+// --- TRANSITIONS ---
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// --- SHADOWS ---
+$shadow-1: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.06), 0 0.1rem 0.3rem rgba(0, 0, 0, 0.08);
+$shadow-2: 0 0.4rem 1rem rgba(0, 0, 0, 0.08), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.06);
+$shadow-sm: $shadow-1;
+$shadow-base: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+$shadow-md: $shadow-2;
+$shadow-lg: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+$shadow-xl: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+// Container Config
+$container-sm: 54rem;
+$container-md: 72rem;
+$container-lg: 96rem;
+$container-xl: 114rem;
+$container-xxl: 120rem;
+
+$header-topbar-height-mobile: 4.8rem;
+$header-navbar-height-mobile: 7.2rem;
+
+$bs-gutter-x: 1.5rem;

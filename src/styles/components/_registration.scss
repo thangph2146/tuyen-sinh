@@ -1,0 +1,312 @@
+@use "sass:color";
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *;
+
+.registration-section {
+  padding: vars.$sp-6 0;
+}
+
+.registration-section__wrapper {
+  position: relative;
+  width: 100%;
+
+  @include laptop-up {
+    padding-bottom: 29rem;
+  }
+}
+
+.registration-section__bg {
+  display: none;
+
+  @include tablet-up {
+    display: block;
+    width: 100%;
+    height: 40rem !important;
+    object-fit: cover;
+    border-radius: vars.$radius-10;
+  }
+
+  @include laptop-up {
+    height: 54.3rem !important;
+  }
+}
+
+.registration-text-effect {
+  display: none;
+
+  @include laptop-up {
+    display: block;
+    position: absolute;
+    top: 40.3rem;
+    left: 1.4rem;
+    font-family: vars.$font-primary;
+    font-size: 10rem;
+    font-weight: 700;
+    line-height: 1.22;
+    color: transparent;
+    -webkit-text-stroke: 0.1rem rgba(0, 0, 0, 0.1);
+    text-stroke: 0.1rem rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.registration-card {
+  background-color: vars.$color-light;
+  border-radius: vars.$radius-20;
+  padding: vars.$sp-5 vars.$sp-4;
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.15);
+  width: 100%;
+  margin: 0 auto;
+
+  @include tablet-up {
+    position: relative;
+    max-width: 100rem;
+    margin: vars.$sp-4 auto 0;
+    padding: 4rem 3rem;
+  }
+
+  // Mobile: red background card
+  @media (max-width: 575px) {
+    background-color: vars.$brand-primary;
+    border-radius: vars.$radius-10;
+    padding: vars.$sp-4 vars.$sp-3;
+  }
+}
+
+.registration-card__subtitle {
+  display: none;
+
+  @include laptop-up {
+    display: block;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-body-sm;
+    color: vars.$gray-600;
+    text-align: center;
+    margin-bottom: vars.$sp-1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  // Mobile: show subtitle with white color
+  @media (max-width: 575px) {
+    display: block;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-100;
+    font-weight: vars.$fw-semibold;
+    line-height: 1.2;
+    color: vars.$color-light;
+    text-align: center;
+    margin: 0 0 0.8rem;
+  }
+}
+
+.registration-card__title {
+  font-family: vars.$font-family-base;
+  font-size: 2.4rem;
+  color: vars.$brand-primary;
+  margin-bottom: vars.$sp-4;
+  text-align: center;
+  font-weight: vars.$fw-bold;
+
+  @include tablet-up {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  // Mobile: white title
+  @media (max-width: 575px) {
+    font-size: 2rem;
+    margin-bottom: vars.$sp-3;
+    color: vars.$color-light;
+  }
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+
+  @include tablet {
+    gap: vars.$sp-4;
+  }
+
+  @media (max-width: 575px) {
+    gap: 1.4rem;
+  }
+}
+
+.registration-form__row {
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+}
+
+.registration-form__group {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$sp-1;
+
+  &--full {
+    width: 100%;
+  }
+}
+
+.registration-form__label {
+  font-size: vars.$fs-100;
+  font-weight: vars.$fw-medium;
+  color: vars.$gray-800;
+}
+
+.registration-form__input,
+.registration-form__select,
+.registration-form__textarea {
+  width: 100%;
+  height: 3.7rem;
+  padding: 0.9rem 1.8rem;
+  background-color: vars.$color-light;
+  border: 0.1rem solid #ededed;
+  border-radius: 0.6rem;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-200;
+  font-weight: 400;
+  line-height: 1.21;
+  color: vars.$gray-800;
+  transition: border-color vars.$transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: vars.$brand-primary;
+  }
+
+  &::placeholder {
+    color: vars.$gray-800;
+  }
+
+  @media (max-width: 575px) {
+    height: 4rem;
+    padding: 1rem 1.4rem;
+  }
+}
+
+.registration-form__textarea {
+  height: 10rem;
+  resize: none;
+  padding-top: 0.9rem;
+
+  @media (max-width: 575px) {
+    height: 9rem;
+  }
+}
+
+.registration-form__select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23333333" d="M0 0l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1.8rem center;
+  background-size: 1rem 1rem;
+  padding-right: 4rem;
+  cursor: pointer;
+
+  option:first-child {
+    color: vars.$gray-800;
+  }
+}
+
+.registration-form__checkboxes {
+  display: flex;
+  gap: 2.7rem;
+  margin-top: -0.6rem;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 0;
+  }
+}
+
+.registration-form__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.registration-form__checkbox-input {
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 0.1rem solid #ededed;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.registration-form__checkbox-label {
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-100;
+  font-weight: 400;
+  line-height: 1.22;
+  color: vars.$gray-800;
+  cursor: pointer;
+  user-select: none;
+
+  @media (max-width: 575px) {
+    color: vars.$color-light;
+  }
+}
+
+.registration-form__submit {
+  width: 100%;
+  height: 3.7rem;
+  background-color: vars.$brand-primary;
+  color: vars.$color-light;
+  border: none;
+  border-radius: 1rem;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-350;
+  font-weight: 700;
+  line-height: 1.22;
+  cursor: pointer;
+  transition: background-color vars.$transition-base;
+  margin-top: 0.6rem;
+
+  &:hover {
+    background-color: #8a0d2a;
+  }
+
+  &:active {
+    transform: translateY(0.1rem);
+  }
+
+  @media (max-width: 575px) {
+    height: 4.2rem;
+    margin-top: vars.$sp-2;
+    background-color: vars.$brand-secondary;
+
+    &:hover {
+      background-color: #1a2a4a;
+    }
+  }
+}
+
+.registration-form__note {
+  font-size: 1.2rem;
+  color: vars.$gray-500;
+  text-align: center;
+  margin-top: vars.$sp-3;
+
+  a {
+    color: vars.$brand-primary;
+    text-decoration: underline;
+
+    &:hover {
+      color: color.adjust(vars.$brand-primary, $lightness: -10%);
+    }
+  }
+}

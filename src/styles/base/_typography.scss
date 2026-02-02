@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as vars;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: vars.$font-family-heading;
+  font-weight: 700;
+  line-height: vars.$lh-tight;
+  margin-bottom: vars.$sp-3;
+}
+
+h1 { font-size: vars.$fs-700; }
+h2 { font-size: vars.$fs-600; }
+h3 { font-size: vars.$fs-500; }
+h4 { font-size: vars.$fs-400; }
+h5 { font-size: vars.$fs-300; }
+h6 { font-size: vars.$fs-200; }
+
+p {
+  margin-bottom: vars.$sp-3;
+}
+
+.text-white { color: vars.$color-light !important; }
+.text-primary { color: vars.$color-primary !important; }
+.text-secondary { color: vars.$color-secondary !important; }
+.text-muted { color: vars.$text-muted !important; }
+

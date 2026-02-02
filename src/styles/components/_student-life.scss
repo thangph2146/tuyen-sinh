@@ -1,0 +1,193 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+
+.student-life-section {
+  background-color: vars.$brand-primary;
+  padding: vars.$sp-6 0;
+  position: relative;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 6rem 0;
+  }
+}
+
+.student-life-section__grid {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$sp-4;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+  }
+}
+
+.student-life-section__header {
+  max-width: 100%;
+  margin-bottom: vars.$sp-3;
+
+  @include tablet {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding-top: 5.5rem;
+    margin-bottom: vars.$sp-6;
+    text-align: left;
+  }
+}
+
+.student-life-section__label {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-subtitle-mobile;
+  font-weight: vars.$fw-semibold;
+  line-height: vars.$lh-tight;
+  color: vars.$color-light;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+
+  @include tablet {
+    font-size: vars.$section-subtitle-tablet;
+  }
+}
+
+.student-life-section__title {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-title-mobile;
+  font-weight: vars.$fw-bold;
+  line-height: vars.$lh-tight;
+  color: vars.$color-light;
+  text-transform: capitalize;
+  margin-bottom: vars.$sp-2;
+
+  @include tablet {
+    font-size: vars.$section-title-tablet;
+  }
+
+  @include desktop {
+    font-size: vars.$section-title;
+  }
+}
+
+.student-life-section__description {
+  display: none;
+  font-family: vars.$font-family-heading;
+  line-height: vars.$lh-tight;
+  color: vars.$color-light;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  @include tablet {
+    display: block;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    color: vars.$color-light;
+    line-height: 1.57;
+  }
+}
+
+.student-life-section__images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vars.$sp-2;
+  position: relative;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+    gap: vars.$sp-4;
+  }
+}
+
+.student-life-section__col {
+  display: contents;
+
+  @include tablet-up {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$sp-4;
+  }
+}
+
+.student-life-section__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: vars.$radius-md !important;
+
+  @include tablet-up {
+    border-radius: vars.$radius-lg !important;
+  }
+
+  &--tall {
+    @include tablet-up {
+      height: 100% !important;
+    }
+  }
+}
+
+// Mobile: all images are square
+@include mobile {
+  .student-life-section__image {
+    aspect-ratio: 1 / 1;
+    height: auto !important;
+  }
+}
+
+// Desktop: specific aspect ratios for each column
+@include tablet-up {
+  .student-life-section__col--left {
+    .student-life-section__image {
+      height: 100%;
+    }
+  }
+
+  .student-life-section__col--middle {
+    .student-life-section__image:nth-child(1) {
+      aspect-ratio: 389 / 362;
+    }
+    .student-life-section__image:nth-child(2),
+    .student-life-section__image:nth-child(3) {
+      aspect-ratio: 389 / 255;
+    }
+  }
+
+  .student-life-section__col--right {
+    .student-life-section__image:nth-child(1) {
+      aspect-ratio: 387 / 497;
+    }
+    .student-life-section__image:nth-child(2) {
+      aspect-ratio: 387 / 390;
+    }
+  }
+}
+
+.student-life-section__view-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: vars.$sp-4;
+  padding: 0.6rem vars.$sp-5;
+  background-color: vars.$color-light;
+  color: vars.$brand-secondary;
+  font-family: vars.$font-family-heading;
+  font-size: vars.$fs-body-sm;
+  font-weight: vars.$fw-semibold;
+  text-decoration: none;
+  align-self: center;
+  transition: all vars.$transition-base;
+
+  @include tablet {
+    display: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: vars.$gray-100;
+    color: vars.$brand-secondary;
+    transform: translateY(-2px);
+  }
+}
+
+
