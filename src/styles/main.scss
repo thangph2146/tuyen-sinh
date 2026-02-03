@@ -8,18 +8,7 @@
 @use "components/mobile-title-box";
 @use "components/header";
 @use "components/footer";
-@use "components/hero";
-@use "components/about";
-@use "components/admission-info";
-@use "components/programs";
-@use "components/news";
-@use "components/faq";
-@use "components/statistics";
-@use "components/student-life";
-@use "components/events";
-@use "components/registration";
-@use "components/partners";
 @use "components/chat-widget";
 
 // Pages
-// @use "pages/home";
+@use "pages/home";
