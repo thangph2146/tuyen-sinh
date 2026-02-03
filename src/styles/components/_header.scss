@@ -556,10 +556,6 @@
     .mobile-nav__overlay {
       opacity: 1;
     }
-
-    .mobile-nav__panel {
-      transform: translateX(0);
-    }
   }
 
   &__overlay {
@@ -568,126 +564,189 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
     opacity: 0;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s ease;
   }
 
   &__panel {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
-    width: 80%;
-    max-width: 32rem;
+    right: -100%;
+    width: 300px;
     height: 100%;
-    background-color: vars.$color-light;
+    background-color: #ffffff;
+    z-index: 1001;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    padding: vars.$sp-4 vars.$sp-5 vars.$sp-6;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-    box-shadow: -0.5rem 0 2rem rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+
+    .is-open & {
+      right: 0;
+    }
   }
 
   &__header {
+    padding: vars.$sp-4 vars.$sp-5;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-bottom: vars.$sp-4;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+  }
+
+  &__logo {
+    img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
   }
 
   &__close {
+    background: none;
     border: none;
-    background: transparent;
-    font-size: 2.2rem;
-    line-height: 1;
-    cursor: pointer;
     color: vars.$brand-primary;
+    padding: vars.$sp-1;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   &__body {
-    flex: 1 1 auto;
+    flex: 1;
     overflow-y: auto;
+    padding: vars.$sp-4 0;
   }
 
   &__list {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
   }
 
-  &__item + &__item {
-    margin-top: vars.$sp-4;
+  &__item {
+    margin-bottom: vars.$sp-1;
   }
 
   &__link {
     display: flex;
     align-items: center;
-    gap: vars.$sp-3;
-    font-family: vars.$font-family-base;
-    font-size: vars.$fs-300;
-    color: vars.$gray-900;
+    gap: vars.$sp-4;
+    padding: vars.$sp-3 vars.$sp-5;
     text-decoration: none;
-    padding: 0;
-    transition: color vars.$transition-base;
+    color: vars.$gray-900;
+    font-size: vars.$fs-300;
+    font-weight: vars.$fw-medium;
+    transition: all 0.3s ease;
+    position: relative;
 
-    &:hover {
-      color: vars.$brand-primary;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background-color: vars.$brand-primary;
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
     }
 
     &--active {
       color: vars.$brand-primary;
-      font-weight: vars.$fw-semibold;
+      background-color: rgba(vars.$brand-primary, 0.05);
+
+      &::before {
+        transform: scaleY(1);
+      }
+
+      .mobile-nav__icon {
+        filter: none;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(vars.$brand-primary, 0.02);
     }
   }
 
   &__icon {
-    flex-shrink: 0;
-    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.7);
+    transition: all 0.3s ease;
+
+    .mobile-nav__link--active & {
+      filter: none;
+      opacity: 1;
+    }
   }
 
   &__footer {
-    margin-top: vars.$sp-5;
-    text-align: center;
+    padding: vars.$sp-6 vars.$sp-5;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #f8f9fa;
+  }
 
-    &-title {
-      font-family: vars.$font-family-base;
-      font-size: vars.$fs-300;
-      margin-bottom: vars.$sp-4;
-      color: vars.$gray-900;
-    }
+  &__footer-title {
+    font-size: vars.$fs-200;
+    font-weight: vars.$fw-bold;
+    color: vars.$gray-500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: vars.$sp-4;
   }
 
   &__socials {
     display: flex;
-    justify-content: center;
     gap: vars.$sp-3;
   }
 
   &__social {
-    width: 3.6rem;
-    height: 3.6rem;
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: vars.$color-light;
-    transition: transform vars.$transition-fast, opacity vars.$transition-fast;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
 
     &:hover {
-      transform: translateY(-0.2rem);
-      opacity: 0.9;
-      color: vars.$color-light;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 0, 0, 0.08);
     }
 
-    &--facebook { background-color: #1877F2; }
-    &--youtube { background-color: #FF0000; }
-    &--tiktok { background-color: #000000; }
-    &--email { background-color: vars.$brand-primary; }
-    &--zalo { background-color: #0068FF; }
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &--email { 
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      box-shadow: 0 4px 10px rgba(245, 87, 108, 0.3);
+    }
+    &--zalo { 
+      background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+      box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+    }
+    
+    // Logos like FB, YT, TikTok already have colors, we just style the container
+    &--facebook, &--youtube, &--tiktok {
+      background-color: #ffffff;
+    }
   }
 }

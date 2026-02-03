@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Icon } from '@iconify/react';
 
 interface EventItem {
   id: number;
@@ -66,14 +65,23 @@ const Events: React.FC = () => {
     return timeLeft;
   };
 
+  const [isMounted, setIsMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft(targetDate));
 
   useEffect(() => {
+    // setIsMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
+    const mountedTimer = setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearTimeout(mountedTimer);
+      clearInterval(timer);
+    };
   }, [targetDate]);
 
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
@@ -144,19 +152,27 @@ const Events: React.FC = () => {
                   aria-label="Thời gian còn lại đến sự kiện"
                 >
                   <div className="event-countdown__item">
-                    <span className="event-countdown__value">{formatNumber(timeLeft.days)}</span>
+                    <span className="event-countdown__value">
+                      {isMounted ? formatNumber(timeLeft.days) : '00'}
+                    </span>
                     <span className="event-countdown__label">Days</span>
                   </div>
                   <div className="event-countdown__item">
-                    <span className="event-countdown__value">{formatNumber(timeLeft.hours)}</span>
+                    <span className="event-countdown__value">
+                      {isMounted ? formatNumber(timeLeft.hours) : '00'}
+                    </span>
                     <span className="event-countdown__label">Hrs</span>
                   </div>
                   <div className="event-countdown__item">
-                    <span className="event-countdown__value">{formatNumber(timeLeft.minutes)}</span>
+                    <span className="event-countdown__value">
+                      {isMounted ? formatNumber(timeLeft.minutes) : '00'}
+                    </span>
                     <span className="event-countdown__label">Min</span>
                   </div>
                   <div className="event-countdown__item">
-                    <span className="event-countdown__value">{formatNumber(timeLeft.seconds)}</span>
+                    <span className="event-countdown__value">
+                      {isMounted ? formatNumber(timeLeft.seconds) : '00'}
+                    </span>
                     <span className="event-countdown__label">Sec</span>
                   </div>
                 </div>

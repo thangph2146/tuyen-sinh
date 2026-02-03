@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Icon } from '@iconify/react';
 /* eslint-disable @next/next/no-img-element */
 
 const Header: React.FC = () => {
@@ -213,12 +214,15 @@ const Header: React.FC = () => {
         <div className="mobile-nav__overlay" onClick={() => setIsMobileNavOpen(false)}></div>
         <div className="mobile-nav__panel">
           <div className="mobile-nav__header">
-            <button 
-              className="mobile-nav__close" 
+            <Link href="/" className="mobile-nav__logo" onClick={() => setIsMobileNavOpen(false)}>
+              <img src="/assets/svg/logo.svg" alt="HUB Logo" width={50} height={72} />
+            </Link>
+            <button
+              className="mobile-nav__close"
               onClick={() => setIsMobileNavOpen(false)}
               aria-label="Đóng menu"
             >
-              <span>&times;</span>
+              <Icon icon="mdi:close" width="28" height="28" />
             </button>
           </div>
           <nav className="mobile-nav__body" aria-label="Menu chính (mobile)">
@@ -247,19 +251,19 @@ const Header: React.FC = () => {
             <p className="mobile-nav__footer-title">Kết nối với chúng tôi</p>
             <div className="mobile-nav__socials">
               <a href="#" aria-label="Facebook" className="mobile-nav__social mobile-nav__social--facebook">
-                <span className="iconify" data-icon="mdi:facebook" data-width="20" data-height="20"></span>
+                <Icon icon="logos:facebook" width="24" height="24" />
               </a>
               <a href="#" aria-label="YouTube" className="mobile-nav__social mobile-nav__social--youtube">
-                <span className="iconify" data-icon="mdi:youtube" data-width="20" data-height="20"></span>
+                <Icon icon="logos:youtube-icon" width="24" height="24" />
               </a>
               <a href="#" aria-label="TikTok" className="mobile-nav__social mobile-nav__social--tiktok">
-                <span className="iconify" data-icon="ic:baseline-tiktok" data-width="20" data-height="20"></span>
+                <Icon icon="logos:tiktok-icon" width="24" height="24" />
               </a>
               <a href="#" aria-label="Email" className="mobile-nav__social mobile-nav__social--email">
-                <span className="iconify" data-icon="mdi:email" data-width="20" data-height="20"></span>
+                <Icon icon="fluent:mail-24-filled" width="28" height="28" color="white" />
               </a>
               <a href="#" aria-label="Zalo" className="mobile-nav__social mobile-nav__social--zalo">
-                <span className="iconify" data-icon="simple-icons:zalo" data-width="20" data-height="20"></span>
+                <Icon icon="simple-icons:zalo" width="24" height="24" color="white" />
               </a>
             </div>
           </div>
