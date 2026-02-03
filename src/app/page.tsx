@@ -1,12 +1,12 @@
-import Hero from '@/components/Hero/Hero';
-import About from '@/components/About/About';
-import AdmissionInfo from '@/components/AdmissionInfo/AdmissionInfo';
-import Programs from '@/components/Programs/Programs';
-import News from '@/components/News/News';
-import FAQ from '@/components/FAQ/FAQ';
-import StudentLife from '@/components/StudentLife/StudentLife';
-import Events from '@/components/Events/Events';
-import Registration from '@/components/Registration/Registration';
+import Hero from '@/components/Home/Hero/Hero';
+import About from '@/components/Home/About/About';
+import AdmissionInfo from '@/components/Home/AdmissionInfo/AdmissionInfo';
+import Programs from '@/components/Home/Programs/Programs';
+import News from '@/components/Home/News/News';
+import FAQ from '@/components/Home/FAQ/FAQ';
+import StudentLife from '@/components/Home/StudentLife/StudentLife';
+import Events from '@/components/Home/Events/Events';
+import Registration from '@/components/Home/Registration/Registration';
 
 export default function Home() {
   return (
