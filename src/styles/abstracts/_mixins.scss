@@ -26,9 +26,9 @@
   }
 }
 
-// Desktop (>= 992px)
-@mixin desktop {
-  @media (min-width: 992px) {
+// Small device up (>= 576px)
+@mixin sm-up {
+  @media (min-width: 576px) {
     @content;
   }
 }
@@ -40,9 +40,30 @@
   }
 }
 
+// Desktop up (>= 992px)
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+// Desktop xl up (>= 1024px)
+@mixin xl-up {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 // Laptop up (>= 1200px)
 @mixin laptop-up {
   @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// Laptop down (< 1200px)
+@mixin laptop-down {
+  @media (max-width: 1199px) {
     @content;
   }
 }

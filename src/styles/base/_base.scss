@@ -117,6 +117,7 @@ p {
    Container Config - FLUID SCALE
    ================================================ */
 
+/* Mặc định cho Mobile/Tablet (Sử dụng padding để tạo khoảng trắng 2 bên) */
 .container,
 .container-fluid,
 .container-sm,
@@ -124,7 +125,7 @@ p {
 .container-lg,
 .container-xl,
 .container-xxl {
-  --bs-gutter-x: vars.$sp-6;
+  --bs-gutter-x: 4rem;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   width: 100%;
@@ -132,46 +133,36 @@ p {
   margin-left: auto;
 }
 
-/* Mobile (< 576px) */
-@include mobile {
-  .container,
-  .container-sm,
-  .container-md,
-  .container-lg,
-  .container-xl,
-  .container-xxl {
-    --bs-gutter-x: vars.$sp-4;
-    padding-right: vars.$sp-4;
-    padding-left: vars.$sp-4;
-  }
-}
-
-/* Tablet (>= 576px) */
-@media (min-width: 576px) {
+/* Tablet (Giữ max-width cứng theo pixel/rem để ổn định) */
+@include sm-up {
   .container {
-    max-width: vars.$container-md;
-    --bs-gutter-x: vars.$sp-6;
+    max-width: 72rem;
+    --bs-gutter-x: 8rem;
   }
 }
 
-/* Tablet up (>= 768px) */
 @include tablet-up {
   .container {
-    max-width: vars.$container-lg;
-    --bs-gutter-x: vars.$sp-8;
+    max-width: 96rem;
+    --bs-gutter-x: 8rem;
   }
 }
 
-/* Desktop (>= 1024px) */
-@media (min-width: 1024px) {
+/* QUAN TRỌNG: FLUID SCALE CHO DESKTOP LỚN (>= 1024px) */
+@include xl-up {
   .container,
   .container-lg,
   .container-md,
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: vars.$container-xxl !important;
-    --bs-gutter-x: vars.$sp-6;
+    /* Chuyển max-width sang rem. 
+       120rem sẽ tương đương 1200px khi 1rem = 10px.
+    */
+    max-width: 120rem !important;
+
+    /* Gutter cũng scale theo rem */
+    --bs-gutter-x: 4rem;
     padding-right: calc(var(--bs-gutter-x) * 0.5);
     padding-left: calc(var(--bs-gutter-x) * 0.5);
   }
@@ -264,7 +255,7 @@ p {
 .col-12 { flex: 0 0 auto; width: 100%; }
 .col-6 { flex: 0 0 auto; width: 50%; }
 
-@media (min-width: 576px) {
+@include sm-up {
   .col-sm-6 { flex: 0 0 auto; width: 50%; }
 }
 
@@ -315,7 +306,7 @@ p {
 .d-grid { display: grid !important; }
 .d-inline-block { display: inline-block !important; }
 
-@media (min-width: 576px) {
+@include sm-up {
   .d-sm-none { display: none !important; }
   .d-sm-block { display: block !important; }
   .d-sm-flex { display: flex !important; }

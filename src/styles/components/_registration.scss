@@ -1,330 +1,350 @@
 @use "sass:color";
-@use '../abstracts/variables' as vars;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
 
 /* ============================================
    REGISTRATION SECTION
    ============================================ */
 .registration-section {
-	padding: vars.$sp-6 0;
-	background-color: vars.$brand-primary;
+  padding: vars.$sp-6 0;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		padding: vars.$sp-8 0;
-		background-color: vars.$color-light;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    padding: vars.$sp-8 0;
+  }
 }
 
 .registration-section__wrapper {
-	position: relative;
-
-	// Desktop (>= 1200px)
-	@include laptop-up {
-		padding-bottom: 29rem;
-	}
+  position: relative;
 }
 
 .registration-section__bg {
-	display: none;
+  display: none;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		display: block;
-		width: 100%;
-		height: 40rem;
-		object-fit: cover;
-		border-radius: vars.$radius-10;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    display: block;
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+    border-radius: vars.$radius-10;
+  }
 
-	// Desktop (>= 1200px)
-	@include laptop-up {
-		height: 54.3rem;
-	}
+  // Desktop (>= 1200px)
+  @include laptop-up {
+    height: 54.3rem;
+  }
 }
 
 /* ============================================
    FORM CARD
    ============================================ */
 .registration-card {
-	background-color: vars.$brand-primary;
-	border-radius: vars.$radius-10;
-	padding: vars.$sp-4 vars.$sp-3;
-	box-shadow: none;
-	z-index: 1;
-	position: relative;
-	width: 100%;
+  position: absolute;
+  top: 0;
+  left: 71.4rem;
+  width: 48.6rem;
+  height: 57.7rem;
+  background-color: vars.$color-light;
+  border-radius: 2rem;
+  padding: 5.3rem 3.8rem;
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.15);
+  z-index: 1;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		background-color: vars.$color-light;
-		border-radius: 2rem;
-		padding: vars.$sp-5 vars.$sp-4;
-		box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.15);
-		max-width: 100rem;
-		margin: vars.$sp-4 auto 0;
-	}
+	// Laptop (>= 1200px)
+  @include laptop-up {
+    position: relative;
+    top: -8rem;
+    left: auto;
+    width: 100%;
+    max-width: 70rem;
+    height: auto;
+    padding: vars.$sp-5 vars.$sp-4;
+    z-index: 1;
+  }
 
-	// Desktop (>= 1200px)
-	@include laptop-up {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translate(-50%, 50%);
-		padding: 5.3rem 3.8rem;
-		margin: 0;
-	}
+  // Laptop down (< 1200px)
+  @include laptop-down {
+    position: relative;
+    top: -8rem;
+    left: auto;
+    width: 100%;
+    max-width: 70rem;
+    height: auto;
+    padding: vars.$sp-5 vars.$sp-4;
+    z-index: 1;
+  }
+
+  @include mobile {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    padding: vars.$sp-4 vars.$sp-3;
+    border-radius: vars.$radius-10;
+    background-color: vars.$brand-primary;
+  }
 }
 
-.registration-card__subtitle {
-	display: block;
-	font-family: vars.$font-primary;
-	font-size: vars.$fs-100;
-	font-weight: 600;
-	line-height: 1.2;
-	color: vars.$color-light;
-	text-align: center;
-	margin: 0 0 0.8rem;
+  .registration-section .registration-card {
+    max-width: 100rem;
+    margin: vars.$sp-4 auto 0;
+    height: 57.7rem;
 
-	// Tablet (>= 576px): hide
-	@media (min-width: 576px) {
-		display: none;
-	}
+  }
+
+
+.registration-card__subtitle {
+  display: block;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-100;
+  font-weight: 600;
+  line-height: 1.2;
+  color: vars.$color-light;
+  text-align: center;
+  margin: 0 0 0.8rem;
+
+  // Tablet (>= 576px): hide
+  @include sm-up {
+    display: none;
+  }
 }
 
 .registration-card__title {
-	font-family: vars.$font-primary;
-	font-size: 2rem;
-	font-weight: 700;
-	line-height: 1.21;
-	color: vars.$color-light;
-	text-align: center;
-	margin: 0 0 vars.$sp-3;
+  font-family: vars.$font-primary;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.21;
+  color: vars.$color-light;
+  text-align: center;
+  margin: 0 0 vars.$sp-3;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		font-size: 2.4rem;
-		color: vars.$brand-primary;
-		margin-bottom: 2rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    font-size: 2.4rem;
+    color: vars.$brand-primary;
+    margin-bottom: 2rem;
+  }
 
-	// Desktop (>= 1200px)
-	@include laptop-up {
-		font-size: 2.8rem;
-		margin-bottom: 2.5rem;
-		text-align: left;
-	}
+  // Desktop (>= 1200px)
+  @include laptop-up {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
 }
 
 /* ============================================
    FORM ELEMENTS
    ============================================ */
 .registration-form {
-	display: flex;
-	flex-direction: column;
-	gap: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		gap: 1.9rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    gap: 1.9rem;
+  }
 }
 
 .registration-form__row {
-	display: flex;
-	flex-direction: column;
-	gap: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		flex-direction: row;
-		gap: 2rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    flex-direction: row;
+    gap: 2rem;
+  }
 }
 
 .registration-form__group {
-	flex: 1;
-	min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .registration-form__group--full {
-	width: 100%;
+  width: 100%;
 }
 
 .registration-form__input,
 .registration-form__select,
 .registration-form__textarea {
-	width: 100%;
-	height: 4rem;
-	padding: 1rem 1.4rem;
-	background-color: vars.$color-light;
-	border: 0.1rem solid #ededed;
-	border-radius: 0.6rem;
-	font-family: vars.$font-primary;
-	font-size: vars.$fs-200;
-	font-weight: 400;
-	line-height: 1.21;
-	color: vars.$gray-800;
-	transition: border-color vars.$transition-base;
+  width: 100%;
+  height: 4rem;
+  padding: 1rem 1.4rem;
+  background-color: vars.$color-light;
+  border: 0.1rem solid #ededed;
+  border-radius: 0.6rem;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-200;
+  font-weight: 400;
+  line-height: 1.21;
+  color: vars.$gray-800;
+  transition: border-color vars.$transition-base;
 
-	&:focus {
-		outline: none;
-		border-color: vars.$brand-primary;
-	}
+  &:focus {
+    outline: none;
+    border-color: vars.$brand-primary;
+  }
 
-	&::placeholder {
-		color: vars.$gray-800;
-	}
+  &::placeholder {
+    color: vars.$gray-800;
+  }
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		height: 3.7rem;
-		padding: 0.9rem 1.8rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    height: 3.7rem;
+    padding: 0.9rem 1.8rem;
+  }
 }
 
 .registration-form__select {
-	appearance: none;
-	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23333333" d="M0 0l5 5 5-5z"/></svg>');
-	background-repeat: no-repeat;
-	background-position: right 1.8rem center;
-	background-size: 1rem 1rem;
-	padding-right: 4rem;
-	cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23333333" d="M0 0l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1.8rem center;
+  background-size: 1rem 1rem;
+  padding-right: 4rem;
+  cursor: pointer;
 
-	option:first-child {
-		color: vars.$gray-800;
-	}
+  option:first-child {
+    color: vars.$gray-800;
+  }
 }
 
 .registration-form__textarea {
-	height: 9rem;
-	resize: none;
-	padding-top: 1rem;
+  height: 9rem;
+  resize: none;
+  padding-top: 1rem;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		height: 10rem;
-		padding-top: 0.9rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    height: 10rem;
+    padding-top: 0.9rem;
+  }
 }
 
 /* ============================================
    CHECKBOXES
    ============================================ */
 .registration-form__checkboxes {
-	display: flex;
-	flex-direction: column;
-	gap: 1.2rem;
-	margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 0;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		flex-direction: row;
-		gap: 2.7rem;
-		margin-top: -0.6rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    flex-direction: row;
+    gap: 2.7rem;
+    margin-top: -0.6rem;
+  }
 }
 
 .registration-form__checkbox {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .registration-form__checkbox-input {
-	width: 1.8rem;
-	height: 1.8rem;
-	border: 0.1rem solid #ededed;
-	border-radius: 0.2rem;
-	cursor: pointer;
-	flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 0.1rem solid #ededed;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  flex-shrink: 0;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		width: 1.7rem;
-		height: 1.7rem;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
 }
 
 .registration-form__checkbox-label {
-	font-family: vars.$font-primary;
-	font-size: vars.$fs-200;
-	font-weight: 400;
-	line-height: 1.22;
-	color: vars.$color-light;
-	cursor: pointer;
-	user-select: none;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-200;
+  font-weight: 400;
+  line-height: 1.22;
+  color: vars.$color-light;
+  cursor: pointer;
+  user-select: none;
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		font-size: vars.$fs-100;
-		color: vars.$gray-800;
-	}
+  // Tablet (>= 576px)
+  @include sm-up {
+    font-size: vars.$fs-100;
+    color: vars.$gray-800;
+  }
 }
 
 /* ============================================
    SUBMIT BUTTON
    ============================================ */
 .registration-form__submit {
-	width: 100%;
-	height: 4.2rem;
-	background-color: vars.$brand-secondary;
-	border: none;
-	border-radius: 1rem;
-	font-family: vars.$font-primary;
-	font-size: vars.$fs-350;
-	font-weight: 700;
-	line-height: 1.22;
-	color: vars.$color-light;
-	cursor: pointer;
-	transition: background-color vars.$transition-base;
-	margin-top: vars.$sp-2;
+  width: 100%;
+  height: 4.2rem;
+  background-color: vars.$brand-secondary;
+  border: none;
+  border-radius: 1rem;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-350;
+  font-weight: 700;
+  line-height: 1.22;
+  color: vars.$color-light;
+  cursor: pointer;
+  transition: background-color vars.$transition-base;
+  margin-top: vars.$sp-4;
 
-	&:hover {
-		background-color: color.adjust(vars.$brand-secondary, $lightness: -10%);
-	}
+  &:hover {
+    background-color: color.adjust(vars.$brand-secondary, $lightness: -10%);
+  }
 
-	&:active {
-		transform: translateY(0.1rem);
-	}
+  &:active {
+    transform: translateY(0.1rem);
+  }
 
-	// Tablet (>= 576px)
-	@media (min-width: 576px) {
-		height: 3.7rem;
-		margin-top: 0.6rem;
-		background-color: vars.$brand-primary;
+  // Tablet (>= 576px)
+  @include sm-up {
+    height: 3.7rem;
+    margin-top: 0.6rem;
+    background-color: vars.$brand-primary;
 
-		&:hover {
-			background-color: #8a0d2a;
-		}
-	}
+    &:hover {
+      background-color: #8a0d2a;
+    }
+  }
 }
 
 /* Loading state */
 .registration-form__submit--loading {
-	position: relative;
-	pointer-events: none;
-	opacity: 0.8;
-	color: transparent;
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+  color: transparent;
 
-	&::after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 2rem;
-		height: 2rem;
-		margin: -1rem 0 0 -1rem;
-		border: 0.2rem solid vars.$color-light;
-		border-top-color: transparent;
-		border-radius: 50%;
-		animation: btn-spinner 0.8s linear infinite;
-	}
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin: -1rem 0 0 -1rem;
+    border: 0.2rem solid vars.$color-light;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: btn-spinner 0.8s linear infinite;
+  }
 }
 
 @keyframes btn-spinner {
-	to {
-		transform: rotate(360deg);
-	}
+  to {
+    transform: rotate(360deg);
+  }
 }

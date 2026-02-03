@@ -19,8 +19,7 @@ const Registration: React.FC = () => {
             loading="lazy"
           />
           {/* Form Card */}
-          <div data-include="/partials/registration-card.html" style={{ position: 'relative' }}>
-            <div className="registration-card">
+          <div className="registration-card">
               <p className="registration-card__subtitle">
                 TRƯỜNG ĐẠI HỌC NGÂN HÀNG HUB
               </p>
@@ -87,9 +86,7 @@ const Registration: React.FC = () => {
                     required
                     defaultValue=""
                   >
-                    <option value="" disabled>
-                      Chọn chương trình quan tâm
-                    </option>
+                    <option value="">Chọn chương trình quan tâm</option>
                     <option value="dai-hoc-chinh-quy">Đại học chính quy</option>
                     <option value="lien-thong">Liên thông</option>
                     <option value="chat-luong-cao">Chất lượng cao</option>
@@ -104,24 +101,13 @@ const Registration: React.FC = () => {
                     required
                     defaultValue=""
                   >
-                    <option value="" disabled>
-                      Chọn ngành học quan tâm
-                    </option>
-                    <option value="tai-chinh-ngan-hang">
-                      Tài chính Ngân hàng
-                    </option>
-                    <option value="ke-toan-kiem-toan">
-                      Kế toán - Kiểm toán
-                    </option>
+                    <option value="">Chọn ngành học quan tâm</option>
+                    <option value="ngan-hang">Ngân hàng</option>
+                    <option value="tai-chinh">Tài chính</option>
+                    <option value="ke-toan">Kế toán</option>
                     <option value="quan-tri-kinh-doanh">
                       Quản trị kinh doanh
                     </option>
-                    <option value="kinh-te-quoc-te">Kinh tế quốc tế</option>
-                    <option value="he-thong-thong-tin-quan-ly">
-                      Hệ thống thông tin quản lý
-                    </option>
-                    <option value="ngon-ngu-anh">Ngôn ngữ Anh</option>
-                    <option value="luat-kinh-te">Luật kinh tế</option>
                   </select>
                 </div>
 
@@ -170,11 +156,10 @@ const Registration: React.FC = () => {
                   ĐĂNG KÝ NGAY
                 </button>
               </form>
-            </div>
+  </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 
