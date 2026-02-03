@@ -8,8 +8,11 @@
 .registration-section {
   padding: vars.$sp-6 0;
 
-  // Tablet (>= 576px)
-  @include sm-up {
+  @include tablet-up {
+    padding-bottom: 29.6rem;
+  }
+
+  @include laptop-down {
     padding: vars.$sp-8 0;
   }
 }
@@ -51,15 +54,17 @@
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.15);
   z-index: 1;
 
-	// Laptop (>= 1200px)
+  // Laptop (>= 1200px)
   @include laptop-up {
-    position: relative;
-    top: -8rem;
-    left: auto;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
     width: 100%;
-    max-width: 70rem;
+    max-width: 100rem;
     height: auto;
     padding: vars.$sp-5 vars.$sp-4;
+    margin: 0;
     z-index: 1;
   }
 
@@ -69,12 +74,19 @@
     top: -8rem;
     left: auto;
     width: 100%;
-    max-width: 70rem;
+    max-width: 80%;
+    margin: 0 auto;
     height: auto;
     padding: vars.$sp-5 vars.$sp-4;
     z-index: 1;
   }
 
+  // tablet-down
+  @include tablet-down{
+    max-width: 90%;
+  }
+
+  // Mobile (< 576px)
   @include mobile {
     position: relative;
     top: auto;
@@ -87,14 +99,6 @@
     background-color: vars.$brand-primary;
   }
 }
-
-  .registration-section .registration-card {
-    max-width: 100rem;
-    margin: vars.$sp-4 auto 0;
-    height: 57.7rem;
-
-  }
-
 
 .registration-card__subtitle {
   display: block;

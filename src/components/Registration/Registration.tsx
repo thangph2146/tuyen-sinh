@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const Registration: React.FC = () => {
   return (
@@ -11,11 +12,13 @@ const Registration: React.FC = () => {
     >
       <div className="container">
         <div className="registration-section__wrapper">
-          <img
+          <Image
             src="/assets/images/dkts_bg.png"
             alt="Banner đăng ký tư vấn tuyển sinh"
             className="registration-section__bg"
-            role="presentation"
+            width={1200}
+            height={400}
+            style={{ objectFit: "cover" }}
             loading="lazy"
           />
           {/* Form Card */}

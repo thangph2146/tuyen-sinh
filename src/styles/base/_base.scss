@@ -9,6 +9,36 @@
 }
 
 /* ================================================
+   Layout
+   ================================================ */
+
+.container {
+  --bs-gutter-x: 4rem;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include sm-up {
+    max-width: 72rem;
+    --bs-gutter-x: 8rem;
+  }
+
+  @include tablet-up {
+    max-width: 96rem;
+    --bs-gutter-x: 8rem;
+  }
+
+  @include xl-up {
+    max-width: 120rem !important;
+    --bs-gutter-x: 4rem;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+  }
+}
+
+/* ================================================
    Base Styles
    ================================================ */
 
