@@ -2,307 +2,329 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as *;
 
+/* ============================================
+   REGISTRATION SECTION
+   ============================================ */
 .registration-section {
-  padding: vars.$sp-6 0;
+	padding: vars.$sp-6 0;
+	background-color: vars.$brand-primary;
+
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		padding: vars.$sp-8 0;
+		background-color: vars.$color-light;
+	}
 }
 
 .registration-section__wrapper {
-  position: relative;
-  width: 100%;
+	position: relative;
+
+	// Desktop (>= 1200px)
+	@include laptop-up {
+		padding-bottom: 29rem;
+	}
 }
 
 .registration-section__bg {
-  display: none;
+	display: none;
 
-  @include tablet-up {
-    display: block;
-    width: 100%;
-    height: 40rem !important;
-    object-fit: cover;
-    border-radius: vars.$radius-10;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		display: block;
+		width: 100%;
+		height: 40rem;
+		object-fit: cover;
+		border-radius: vars.$radius-10;
+	}
 
-  @include laptop-up {
-    height: 54.3rem !important;
-  }
+	// Desktop (>= 1200px)
+	@include laptop-up {
+		height: 54.3rem;
+	}
 }
 
-.registration-text-effect {
-  display: none;
-
-  @include laptop-up {
-    display: block;
-    position: absolute;
-    top: 40.3rem;
-    left: 1.4rem;
-    font-family: vars.$font-primary;
-    font-size: 10rem;
-    font-weight: vars.$fw-bold;
-    line-height: 1.22;
-    color: transparent;
-    -webkit-text-stroke: 0.1rem rgba(0, 0, 0, 0.1);
-    text-stroke: 0.1rem rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 1;
-  }
-}
-
+/* ============================================
+   FORM CARD
+   ============================================ */
 .registration-card {
-  background-color: vars.$color-light;
-  border-radius: vars.$radius-20;
-  padding: vars.$sp-5 vars.$sp-4;
-  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.15);
-  width: 100%;
-  margin: 0 auto;
+	background-color: vars.$brand-primary;
+	border-radius: vars.$radius-10;
+	padding: vars.$sp-4 vars.$sp-3;
+	box-shadow: none;
+	z-index: 1;
+	position: relative;
+	width: 100%;
 
-  @include tablet-up {
-    position: relative;
-    max-width: 100rem;
-    margin: vars.$sp-4 auto 0;
-    padding: 4rem 3rem;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		background-color: vars.$color-light;
+		border-radius: 2rem;
+		padding: vars.$sp-5 vars.$sp-4;
+		box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.15);
+		max-width: 100rem;
+		margin: vars.$sp-4 auto 0;
+	}
 
-  // Mobile: red background card
-  @include mobile {
-    background-color: vars.$brand-primary;
-    border-radius: vars.$radius-10;
-    padding: vars.$sp-4 vars.$sp-3;
-  }
+	// Desktop (>= 1200px)
+	@include laptop-up {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 50%);
+		padding: 5.3rem 3.8rem;
+		margin: 0;
+	}
 }
 
 .registration-card__subtitle {
-  display: none;
+	display: block;
+	font-family: vars.$font-primary;
+	font-size: vars.$fs-100;
+	font-weight: 600;
+	line-height: 1.2;
+	color: vars.$color-light;
+	text-align: center;
+	margin: 0 0 0.8rem;
 
-  @include laptop-up {
-    display: block;
-    font-family: vars.$font-family-base;
-    font-size: vars.$fs-body-sm;
-    color: vars.$gray-600;
-    text-align: center;
-    margin-bottom: vars.$sp-1;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  // Mobile: show subtitle with white color
-  @include mobile {
-    display: block;
-    font-family: vars.$font-family-base;
-    font-size: vars.$fs-100;
-    font-weight: vars.$fw-semibold;
-    line-height: 1.2;
-    color: vars.$color-light;
-    text-align: center;
-    margin: 0 0 vars.$sp-2;
-  }
+	// Tablet (>= 576px): hide
+	@media (min-width: 576px) {
+		display: none;
+	}
 }
 
 .registration-card__title {
-  font-family: vars.$font-family-base;
-  font-size: vars.$fs-500;
-  color: vars.$brand-primary;
-  margin-bottom: vars.$sp-4;
-  text-align: center;
-  font-weight: vars.$fw-bold;
+	font-family: vars.$font-primary;
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.21;
+	color: vars.$color-light;
+	text-align: center;
+	margin: 0 0 vars.$sp-3;
 
-  @include tablet-up {
-    font-size: 2.8rem;
-    margin-bottom: vars.$sp-5;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		font-size: 2.4rem;
+		color: vars.$brand-primary;
+		margin-bottom: 2rem;
+	}
 
-  // Mobile: white title
-  @include mobile {
-    font-size: vars.$fs-425;
-    margin-bottom: vars.$sp-3;
-    color: vars.$color-light;
-  }
+	// Desktop (>= 1200px)
+	@include laptop-up {
+		font-size: 2.8rem;
+		margin-bottom: 2.5rem;
+		text-align: left;
+	}
 }
 
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
 .registration-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.9rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
 
-  @include tablet {
-    gap: vars.$sp-4;
-  }
-
-  @include mobile {
-    gap: 1.4rem;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		gap: 1.9rem;
+	}
 }
 
 .registration-form__row {
-  display: flex;
-  gap: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
 
-  @include mobile {
-    flex-direction: column;
-    gap: 1.4rem;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		flex-direction: row;
+		gap: 2rem;
+	}
 }
 
 .registration-form__group {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: vars.$sp-1;
-
-  &--full {
-    width: 100%;
-  }
+	flex: 1;
+	min-width: 0;
 }
 
-.registration-form__label {
-  font-size: vars.$fs-100;
-  font-weight: vars.$fw-medium;
-  color: vars.$gray-800;
+.registration-form__group--full {
+	width: 100%;
 }
 
 .registration-form__input,
 .registration-form__select,
 .registration-form__textarea {
-  width: 100%;
-  height: 3.7rem;
-  padding: 0.9rem 1.8rem;
-  background-color: vars.$color-light;
-  border: 0.1rem solid #ededed;
-  border-radius: vars.$radius-md;
-  font-family: vars.$font-primary;
-  font-size: vars.$fs-200;
-  font-weight: vars.$fw-regular;
-  line-height: 1.21;
-  color: vars.$gray-800;
-  transition: border-color vars.$transition-base;
+	width: 100%;
+	height: 4rem;
+	padding: 1rem 1.4rem;
+	background-color: vars.$color-light;
+	border: 0.1rem solid #ededed;
+	border-radius: 0.6rem;
+	font-family: vars.$font-primary;
+	font-size: vars.$fs-200;
+	font-weight: 400;
+	line-height: 1.21;
+	color: vars.$gray-800;
+	transition: border-color vars.$transition-base;
 
-  &:focus {
-    outline: none;
-    border-color: vars.$brand-primary;
-  }
+	&:focus {
+		outline: none;
+		border-color: vars.$brand-primary;
+	}
 
-  &::placeholder {
-    color: vars.$gray-800;
-  }
+	&::placeholder {
+		color: vars.$gray-800;
+	}
 
-  @include mobile {
-    height: 4rem;
-    padding: 1rem 1.4rem;
-  }
-}
-
-.registration-form__textarea {
-  height: 10rem;
-  resize: none;
-  padding-top: 0.9rem;
-
-  @include mobile {
-    height: 9rem;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		height: 3.7rem;
+		padding: 0.9rem 1.8rem;
+	}
 }
 
 .registration-form__select {
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23333333" d="M0 0l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 1.8rem center;
-  background-size: 1rem 1rem;
-  padding-right: 4rem;
-  cursor: pointer;
+	appearance: none;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23333333" d="M0 0l5 5 5-5z"/></svg>');
+	background-repeat: no-repeat;
+	background-position: right 1.8rem center;
+	background-size: 1rem 1rem;
+	padding-right: 4rem;
+	cursor: pointer;
 
-  option:first-child {
-    color: vars.$gray-800;
-  }
+	option:first-child {
+		color: vars.$gray-800;
+	}
 }
 
-.registration-form__checkboxes {
-  display: flex;
-  gap: 2.7rem;
-  margin-top: -0.6rem;
+.registration-form__textarea {
+	height: 9rem;
+	resize: none;
+	padding-top: 1rem;
 
-  @include mobile {
-    flex-direction: column;
-    gap: vars.$sp-3;
-    margin-top: 0;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		height: 10rem;
+		padding-top: 0.9rem;
+	}
+}
+
+/* ============================================
+   CHECKBOXES
+   ============================================ */
+.registration-form__checkboxes {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	margin-top: 0;
+
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		flex-direction: row;
+		gap: 2.7rem;
+		margin-top: -0.6rem;
+	}
 }
 
 .registration-form__checkbox {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 }
 
 .registration-form__checkbox-input {
-  width: 1.7rem;
-  height: 1.7rem;
-  border: 0.1rem solid #ededed;
-  border-radius: vars.$radius-sm;
-  cursor: pointer;
-  flex-shrink: 0;
+	width: 1.8rem;
+	height: 1.8rem;
+	border: 0.1rem solid #ededed;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	flex-shrink: 0;
+
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		width: 1.7rem;
+		height: 1.7rem;
+	}
 }
 
 .registration-form__checkbox-label {
-  font-family: vars.$font-primary;
-  font-size: vars.$fs-100;
-  font-weight: vars.$fw-regular;
-  line-height: 1.22;
-  color: vars.$gray-800;
-  cursor: pointer;
-  user-select: none;
+	font-family: vars.$font-primary;
+	font-size: vars.$fs-200;
+	font-weight: 400;
+	line-height: 1.22;
+	color: vars.$color-light;
+	cursor: pointer;
+	user-select: none;
 
-  @include mobile {
-    color: vars.$color-light;
-  }
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		font-size: vars.$fs-100;
+		color: vars.$gray-800;
+	}
 }
 
+/* ============================================
+   SUBMIT BUTTON
+   ============================================ */
 .registration-form__submit {
-  width: 100%;
-  height: 3.7rem;
-  background-color: vars.$brand-primary;
-  color: vars.$color-light;
-  border: none;
-  border-radius: vars.$radius-10;
-  font-family: vars.$font-primary;
-  font-size: vars.$fs-350;
-  font-weight: vars.$fw-bold;
-  line-height: 1.22;
-  cursor: pointer;
-  transition: background-color vars.$transition-base;
-  margin-top: 0.6rem;
+	width: 100%;
+	height: 4.2rem;
+	background-color: vars.$brand-secondary;
+	border: none;
+	border-radius: 1rem;
+	font-family: vars.$font-primary;
+	font-size: vars.$fs-350;
+	font-weight: 700;
+	line-height: 1.22;
+	color: vars.$color-light;
+	cursor: pointer;
+	transition: background-color vars.$transition-base;
+	margin-top: vars.$sp-2;
 
-  &:hover {
-    background-color: vars.$brand-accent-dark;
-  }
+	&:hover {
+		background-color: color.adjust(vars.$brand-secondary, $lightness: -10%);
+	}
 
-  &:active {
-    transform: translateY(0.1rem);
-  }
+	&:active {
+		transform: translateY(0.1rem);
+	}
 
-  @include mobile {
-    height: 4.2rem;
-    margin-top: vars.$sp-2;
-    background-color: vars.$brand-secondary;
+	// Tablet (>= 576px)
+	@media (min-width: 576px) {
+		height: 3.7rem;
+		margin-top: 0.6rem;
+		background-color: vars.$brand-primary;
 
-    &:hover {
-      background-color: #1a2a4a;
-    }
-  }
+		&:hover {
+			background-color: #8a0d2a;
+		}
+	}
 }
 
-.registration-form__note {
-  font-size: vars.$fs-100;
-  color: vars.$gray-500;
-  text-align: center;
-  margin-top: vars.$sp-3;
+/* Loading state */
+.registration-form__submit--loading {
+	position: relative;
+	pointer-events: none;
+	opacity: 0.8;
+	color: transparent;
 
-  a {
-    color: vars.$brand-primary;
-    text-decoration: underline;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 2rem;
+		height: 2rem;
+		margin: -1rem 0 0 -1rem;
+		border: 0.2rem solid vars.$color-light;
+		border-top-color: transparent;
+		border-radius: 50%;
+		animation: btn-spinner 0.8s linear infinite;
+	}
+}
 
-    &:hover {
-      color: color.adjust(vars.$brand-primary, $lightness: -10%);
-    }
-  }
+@keyframes btn-spinner {
+	to {
+		transform: rotate(360deg);
+	}
 }
