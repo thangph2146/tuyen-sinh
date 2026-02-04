@@ -18,34 +18,12 @@
   }
 
   &__logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: vars.$sp-8;
-    flex-wrap: wrap;
-
-    @include mobile {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      gap: vars.$sp-3;
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-bottom: vars.$sp-2;
-      margin: 0 -1.6rem;
-      padding-left: 1.6rem;
-      padding-right: 1.6rem;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
+    // Removed redundant mobile flex properties as it uses Bootstrap grid in JSX
+    margin-top: vars.$sp-4;
   }
 
   &__logo-wrapper {
-    flex-shrink: 0;
+    // Styling handled by Bootstrap grid
   }
 
   &__logo {
@@ -53,13 +31,8 @@
     width: auto;
     object-fit: contain;
     transition: vars.$transition-base;
-
-    @include mobile {
-      min-width: 10rem;
-      background-color: vars.$gray-100;
-      padding: vars.$sp-3 vars.$sp-4;
-      border-radius: vars.$radius-md;
-    }
+    display: block;
+    margin: 0 auto;
 
     &:hover {
       transform: scale(1.05);

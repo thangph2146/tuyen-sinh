@@ -20,21 +20,13 @@
   }
 
   &__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: vars.$sp-6;
-
-    // Tablet down: 1 column
-    @include tablet {
-      grid-template-columns: 1fr;
-      gap: vars.$sp-4;
-    }
+    // Removed redundant grid as it uses Bootstrap row/col in JSX
+    display: block;
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: vars.$sp-3;
+    // Handled by .news-list class
+    display: block;
   }
 }
 

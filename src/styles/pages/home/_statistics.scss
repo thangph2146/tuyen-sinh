@@ -32,14 +32,15 @@
   }
 
   .row {
-    width: 100%;
-    margin: 0;
+    // Styling handled by Bootstrap grid
   }
 
   .col-6,
   .col-md-3 {
     position: relative;
     padding: 0;
+    display: flex;
+    justify-content: center;
 
     &::after {
       content: "";

@@ -69,6 +69,20 @@ const Hero = () => {
           <Icon icon="mdi:chevron-right" width="32" height="32" color="white" />
         </button>
       </div>
+
+      {/* Hero Content Overlay */}
+      <div className="hero-section__overlay">
+        <div className="container h-100">
+          <div className="hero-section__content">
+            <p className="hero-section__brand">HUB</p>
+            <h1 className="hero-section__title">TRƯỜNG ĐẠI HỌC NGÂN HÀNG TP.HCM</h1>
+            <a href="#about" className="btn hero-section__btn">
+              <span>Xem Chi Tiết</span>
+              <span className="hero-section__btn-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
