@@ -226,9 +226,9 @@ export default function ThacSiPage() {
         </div>
       </section>
 
-      {/* Stats Section - Hidden on mobile */}
+      {/* Stats Section */}
       <section
-        className="stats-section-wrapper d-none d-sm-block"
+        className="stats-section-wrapper"
         aria-label="Thống kê HUB University"
       >
         <div className="container">

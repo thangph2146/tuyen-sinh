@@ -4,6 +4,7 @@
    ============================================ */
 
 @use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
 
 /* ========== SECTION: Hero Thac Si ========== */
 .hero-section--thacsi .hero-section__bg {
@@ -380,6 +381,449 @@
         height: 1rem;
         object-fit: contain;
       }
+    }
+  }
+}
+
+/* ========== SECTION: Tuition Table ========== */
+.tuition-section {
+  padding: vars.$sp-7 0;
+  background-color: #fff4f7;
+  position: relative;
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-3;
+
+    @include tablet-down {
+      font-size: vars.$section-title-tablet;
+    }
+
+    @include mobile {
+      font-size: vars.$section-title-mobile;
+    }
+  }
+
+  &__description {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    line-height: 1.2;
+    color: vars.$gray-900;
+    text-align: center;
+    margin-bottom: vars.$sp-6;
+
+    @include tablet-down {
+      font-size: vars.$section-description-tablet;
+    }
+
+    @include mobile {
+      font-size: vars.$section-description-mobile;
+    }
+  }
+}
+
+.tuition-table-wrapper {
+  position: relative;
+  max-width: 99.6rem;
+  margin: 0 auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 16rem;
+    height: 26.2rem;
+    background-image: url("/assets/images/tuition_decorator1.png");
+    background-size: contain;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
+    transform: translateX(-100%);
+
+    @include laptop-down {
+      display: none;
+    }
+  }
+}
+
+.tuition-table {
+  width: 100%;
+  background-color: vars.$color-light;
+  border-collapse: collapse;
+  overflow: hidden;
+
+  thead {
+    background-color: vars.$brand-primary;
+
+    th {
+      font-family: vars.$font-family-heading;
+      font-size: vars.$fs-body;
+      font-weight: vars.$fw-bold;
+      line-height: 1.125;
+      color: vars.$color-light;
+      text-transform: capitalize;
+      padding: vars.$sp-3 vars.$sp-5;
+      text-align: center;
+      white-space: nowrap;
+
+      &:first-child {
+        text-align: left;
+        padding-left: 16rem;
+
+        @include tablet-down {
+          padding-left: vars.$sp-4;
+        }
+      }
+
+      &:nth-child(2) {
+        text-align: center;
+      }
+
+      &:last-child {
+        text-align: left;
+      }
+    }
+  }
+
+  tbody tr {
+    background-color: vars.$color-light;
+    border: 0.1rem solid #e3e3e3;
+
+    td {
+      padding: vars.$sp-3 vars.$sp-5;
+      font-family: vars.$font-family-heading;
+      font-size: vars.$fs-body-sm;
+      font-weight: vars.$fw-medium;
+      line-height: 1.5;
+      color: vars.$gray-900;
+      text-align: center;
+
+      &:first-child {
+        text-align: left;
+        padding-left: 16rem;
+        font-weight: vars.$fw-bold;
+        color: vars.$brand-primary;
+
+        @include tablet-down {
+          padding-left: vars.$sp-4;
+        }
+      }
+
+      &:nth-child(2) {
+        text-align: left;
+        color: #757f95;
+      }
+
+      &:last-child {
+        text-align: left;
+      }
+    }
+
+    &.tuition-table__row--alt {
+      background-color: #fdf2f4;
+    }
+  }
+
+  &__price {
+    font-weight: vars.$fw-bold !important;
+    color: vars.$brand-primary !important;
+    white-space: nowrap;
+  }
+
+  &__note {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-body-sm;
+    font-style: italic;
+    color: #757f95;
+    margin-top: vars.$sp-3;
+    text-align: right;
+  }
+}
+
+@include mobile {
+  .tuition-table {
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      display: flex;
+      flex-direction: column;
+      padding: vars.$sp-3;
+      gap: vars.$sp-2;
+
+      td {
+        padding: 0;
+        text-align: left !important;
+
+        &:first-child {
+          padding-left: 0;
+          &::before {
+            content: "Học kỳ: ";
+            color: vars.$gray-600;
+            font-weight: vars.$fw-medium;
+          }
+        }
+
+        &.tuition-table__price {
+          &::before {
+            content: "Tổng: ";
+            color: vars.$gray-600;
+            font-weight: vars.$fw-medium;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ========== SECTION: Training Orientation ========== */
+.training-orientation {
+  padding: vars.$sp-7 0;
+  background-color: vars.$brand-primary;
+  position: relative;
+
+  @include mobile {
+    padding: vars.$sp-6 0;
+  }
+
+  &__content {
+    color: vars.$color-light;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$color-light;
+    text-transform: uppercase;
+    margin-bottom: vars.$sp-5;
+
+    @include tablet-down {
+      font-size: vars.$section-title-tablet;
+    }
+
+    @include mobile {
+      font-size: vars.$section-title-mobile;
+    }
+  }
+
+  &__section {
+    margin-bottom: vars.$sp-5;
+  }
+
+  &__subtitle {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-subtitle;
+    font-weight: vars.$fw-bold;
+    line-height: 1.2;
+    color: vars.$color-light;
+    text-transform: uppercase;
+    margin-bottom: vars.$sp-3;
+
+    @include tablet-down {
+      font-size: vars.$section-subtitle-tablet;
+    }
+  }
+
+  &__text {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+
+    @include tablet-down {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &--ordered {
+      counter-reset: item;
+    }
+  }
+
+  &__item {
+    margin-bottom: vars.$sp-4;
+    counter-increment: item;
+
+    .training-orientation__subtitle {
+      position: relative;
+      padding-left: vars.$sp-5;
+      margin-bottom: vars.$sp-2;
+
+      &::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: vars.$brand-secondary;
+      }
+    }
+  }
+
+  &__sublist {
+    list-style: none;
+    padding-left: vars.$sp-5;
+    margin: vars.$sp-2 0 0;
+
+    li {
+      position: relative;
+      font-family: vars.$font-family-heading;
+      font-size: vars.$fs-body-sm;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: vars.$sp-1;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: -1.5rem;
+        color: vars.$brand-secondary;
+      }
+    }
+  }
+}
+
+/* ========== SECTION: Admission Criteria ========== */
+.admission-criteria {
+  padding: vars.$sp-8 0;
+  background-color: vars.$color-light;
+
+  @include mobile {
+    padding: vars.$sp-6 0;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: vars.$sp-6;
+
+    @include tablet-down {
+      font-size: vars.$section-title-tablet;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: vars.$radius-20;
+    overflow: hidden;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+
+    @include tablet-down {
+      margin-bottom: vars.$sp-5;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.admission-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$sp-3;
+
+  &__item {
+    background-color: vars.$color-light;
+    border-radius: vars.$radius-10;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 0.1rem solid #eee;
+    transition: all vars.$transition-base;
+
+    &--active {
+      border-color: vars.$brand-primary;
+      box-shadow: 0 0.5rem 2rem rgba(164, 16, 52, 0.1);
+
+      .admission-accordion__header {
+        background-color: vars.$brand-primary;
+        color: vars.$color-light;
+
+        &::after {
+          transform: translateY(-50%) rotate(180deg);
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      .admission-accordion__content {
+        max-height: 50rem;
+        padding: vars.$sp-4;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__header {
+    width: 100%;
+    padding: vars.$sp-3 vars.$sp-4;
+    background-color: transparent;
+    border: none;
+    font-family: vars.$font-family-heading;
+    font-size: 1.6rem;
+    font-weight: vars.$fw-bold;
+    color: vars.$brand-primary;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    transition: all vars.$transition-base;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: vars.$sp-4;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.2rem;
+      height: 0.8rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a41034' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform vars.$transition-base;
+    }
+
+    &:hover:not(.admission-accordion__item--active &) {
+      background-color: rgba(vars.$brand-primary, 0.05);
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    padding: 0 vars.$sp-4;
+    overflow: hidden;
+    opacity: 0;
+    transition: all vars.$transition-base;
+
+    p {
+      font-family: vars.$font-family-heading;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: vars.$gray-700;
+      margin: 0;
     }
   }
 }

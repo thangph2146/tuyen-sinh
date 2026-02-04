@@ -183,12 +183,12 @@
   }
 }
 
-.program-card {
+.home-program-card {
   text-decoration: none;
   color: inherit;
-  display: flex !important; // Ép buộc sử dụng flex
-  flex-direction: row !important; // Ép buộc nằm trên cùng một hàng
-  align-items: center !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: vars.$sp-3;
   padding: vars.$sp-2;
   background-color: vars.$color-light;
@@ -264,11 +264,11 @@
     font-weight: vars.$fw-medium;
     color: vars.$gray-900;
     text-transform: capitalize;
-    line-height: 1.3; // Tăng line-height một chút để dễ đọc
+    line-height: 1.3;
     margin: 0;
     white-space: normal;
-    word-break: break-word; // Đảm bảo từ dài không làm tràn card
-    overflow: visible; // Hiển thị đầy đủ text
+    word-break: break-word;
+    overflow: visible;
     padding-right: vars.$sp-3;
     min-width: 0;
     flex: 1;
@@ -277,7 +277,7 @@
 }
 
 @include mobile {
-  .program-card__title {
+  .home-program-card__title {
     font-size: 1.4rem;
   }
 }

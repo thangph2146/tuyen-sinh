@@ -157,12 +157,12 @@ const Programs = () => {
                       key={idx}
                       className={`programs-row__item ${prog.wide ? 'programs-row__item--wide' : ''}`}
                     >
-                      <Link href={prog.href} className="program-card">
-                        <div className="program-card__icon-wrapper">
+                      <Link href={prog.href} className="home-program-card">
+                        <div className="home-program-card__icon-wrapper">
                           <Image
                             src="/assets/svg/daotao-icon_wrapper.svg"
                             alt=""
-                            className="program-card__icon-bg"
+                            className="home-program-card__icon-bg"
                             width={100}
                             height={100}
                             role="presentation"
@@ -170,12 +170,12 @@ const Programs = () => {
                           <Image
                             src={prog.icon}
                             alt={`Biểu tượng ${prog.title}`}
-                            className={`program-card__icon program-card__icon--${prog.iconSize}`}
+                            className={`home-program-card__icon home-program-card__icon--${prog.iconSize}`}
                             width={60}
                             height={60}
                           />
                         </div>
-                        <h3 className="program-card__title">{prog.title}</h3>
+                        <h3 className="home-program-card__title">{prog.title}</h3>
                       </Link>
                     </li>
                   )

@@ -284,9 +284,9 @@ export default function DaiHocPage() {
             </div>
           </div>
 
-          <div className="feature-cards-wrapper">
+          <div className="feature-cards-wrapper row g-4">
             {featureCards.map((card) => (
-              <div key={card.id} className="col-lg-3 col-md-6">
+              <div key={card.id} className="col-lg-3 col-md-6 col-12">
                 <FeatureCard card={card} />
               </div>
             ))}
