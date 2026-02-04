@@ -206,18 +206,20 @@ export default function SuKienDetailPage({ params }: { params: { slug: string } 
                     <Link
                       key={event.id}
                       href={`/su-kien/${event.id}`}
-                      className="news-card"
+                      className="event-card event-card--list"
                     >
                       <Image
                         src={event.image}
                         alt="Sự kiện liên quan"
-                        className="news-card__image"
-                        width={374}
-                        height={340}
+                        className="event-card__thumbnail"
+                        width={186}
+                        height={169}
                         loading="lazy"
                       />
-                      <h3 className="news-card__title">{event.title}</h3>
-                      <p className="news-card__description">{event.description}</p>
+                      <div className="event-card__content">
+                        <h3 className="event-card__title">{event.title}</h3>
+                        <p className="event-card__excerpt">{event.description}</p>
+                      </div>
                     </Link>
                   ))}
                 </div>

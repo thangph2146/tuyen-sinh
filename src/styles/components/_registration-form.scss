@@ -1,0 +1,158 @@
+@use "sass:color";
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+
+/* ============================================
+   COMPONENT: Registration Form
+   ============================================ */
+
+.reg-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: vars.$sp-4;
+  width: 100%;
+
+  @include tablet-down {
+    grid-template-columns: 1fr;
+    gap: vars.$sp-3;
+  }
+}
+
+.reg-form__group {
+  position: relative;
+
+  &--full {
+    grid-column: span 2;
+
+    @include tablet-down {
+      grid-column: span 1;
+    }
+  }
+}
+
+.reg-form__input,
+.reg-form__select,
+.reg-form__textarea {
+  width: 100%;
+  padding: 1.4rem 1.6rem;
+  font-family: vars.$font-primary;
+  font-size: vars.$fs-300;
+  color: vars.$gray-900;
+  background-color: #f3f4f6;
+  border: 1px solid transparent;
+  border-radius: vars.$radius-md;
+  transition: all vars.$transition-base;
+
+  &::placeholder {
+    color: vars.$gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: vars.$color-light;
+    border-color: vars.$brand-primary;
+    box-shadow: 0 0 0 4px rgba(vars.$brand-primary, 0.1);
+  }
+}
+
+.reg-form__select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%236b7280" d="M2.5 4.5L6 8L9.5 4.5" stroke="%236b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.2rem;
+  padding-right: 4.5rem;
+  cursor: pointer;
+
+  &:invalid {
+    color: vars.$gray-500;
+  }
+}
+
+.reg-form__textarea {
+  min-height: 12rem;
+  resize: vertical;
+}
+
+.reg-form__checkboxes {
+  grid-column: span 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$sp-4;
+  margin-top: vars.$sp-2;
+
+  @include tablet-down {
+    grid-column: span 1;
+    flex-direction: column;
+    gap: vars.$sp-2;
+  }
+}
+
+.reg-form__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.reg-form__checkbox-input {
+  width: 1.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+}
+
+.reg-form__checkbox-label {
+  font-size: vars.$fs-200;
+  color: vars.$gray-700;
+  user-select: none;
+}
+
+.reg-form__submit {
+  grid-column: span 2;
+  width: 100%;
+  padding: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: vars.$radius-md;
+  cursor: pointer;
+  transition: all vars.$transition-base;
+
+  @include tablet-down {
+    grid-column: span 1;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(vars.$brand-primary, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+    color: transparent !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2rem;
+      height: 2rem;
+      margin: -1rem 0 0 -1rem;
+      border: 0.2rem solid currentColor;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: btn-spinner 0.8s linear infinite;
+    }
+  }
+}
+
+@keyframes btn-spinner {
+  to { transform: rotate(360deg); }
+}

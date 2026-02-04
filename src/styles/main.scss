@@ -9,6 +9,10 @@
 @use "components/header";
 @use "components/footer";
 @use "components/chat-widget";
+@use "components/news-card";
+@use "components/event-card";
+@use "components/event-countdown";
+@use "components/registration-form";
 
 // Pages
 @use "pages/home";
@@ -31,4 +35,3 @@
 @use "pages/co-so-vat-chat";
 @use "pages/lich-su";
 @use "pages/quoc-te";
-@use "pages/dktv-tuyen-sinh";

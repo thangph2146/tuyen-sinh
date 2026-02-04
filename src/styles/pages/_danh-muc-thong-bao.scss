@@ -4,6 +4,7 @@
    ============================================ */
 
 @use "../abstracts/variables" as vars;
+@use "../components/news-card" as news;
 
 /* ============================================
    FEATURED ANNOUNCEMENTS SECTION
@@ -25,8 +26,7 @@
 }
 
 /* Link reset for clickable cards */
-a.announcement-card,
-a.news-card {
+a.announcement-card {
   text-decoration: none;
   color: inherit;
 }
@@ -158,7 +158,7 @@ a.news-card {
     -ms-overflow-style: none;
 
     .news-card {
-      cursor: pointer;
+      @include news.news-card-highlighted;
     }
 
     &::-webkit-scrollbar {
@@ -168,44 +168,6 @@ a.news-card {
     &.is-dragging {
       scroll-behavior: auto;
     }
-  }
-}
-
-/* News Card */
-.news-card {
-  width: 37.4rem;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-
-  &__image {
-    width: 100%;
-    height: 34rem;
-    object-fit: cover;
-    display: block;
-    border-radius: vars.$radius-10;
-  }
-
-  &__title {
-    width: 32rem;
-    margin: 0 auto;
-    font-family: vars.$font-family-base;
-    font-size: vars.$fs-300;
-    font-weight: 700;
-    line-height: 1.47;
-    color: vars.$gray-800;
-    text-align: center;
-    text-transform: capitalize;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__description {
-    display: none;
   }
 }
 
@@ -372,30 +334,6 @@ a.news-card {
           pointer-events: none;
         }
       }
-    }
-  }
-
-  .news-card {
-    background-color: vars.$color-light;
-    border-radius: vars.$radius-10;
-    padding: 0 0 vars.$sp-4;
-    flex: 0 0 calc(100% - 3.2rem);
-    max-width: calc(100% - 3.2rem);
-    min-width: calc(100% - 3.2rem);
-    scroll-snap-align: center;
-
-    &__image {
-      height: auto;
-      aspect-ratio: 16/10;
-      border-radius: vars.$radius-10 vars.$radius-10 0 0;
-    }
-
-    &__title {
-      color: vars.$gray-800;
-      width: 100%;
-      padding: 0 vars.$sp-4;
-      text-align: left;
-      font-size: vars.$fs-400;
     }
   }
 

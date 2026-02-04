@@ -153,93 +153,81 @@ export default function DangKyTuVanPage() {
 
                 {/* Right Form Card */}
                 <div className="registration-card">
-                  <p className="registration-card__subtitle">
-                    TRƯỜNG ĐẠI HỌC NGÂN HÀNG HUB
-                  </p>
                   <h2 className="registration-card__title">ĐĂNG KÝ TƯ VẤN</h2>
 
                   <form
-                    className="registration-form"
+                    className="registration-form reg-form"
                     onSubmit={handleSubmit}
                     noValidate
                   >
-                    {/* Row 1: Họ tên & Số điện thoại */}
-                    <div className="registration-form__row">
-                      <div className="registration-form__group">
-                        <input
-                          type="text"
-                          className="registration-form__input"
-                          id="fullName"
-                          placeholder="Họ tên"
-                          value={formData.fullName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div className="registration-form__group">
-                        <input
-                          type="tel"
-                          className="registration-form__input"
-                          id="phone"
-                          placeholder="Số điện thoại"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
+                    <div className="reg-form__group">
+                      <input
+                        type="text"
+                        className="reg-form__input"
+                        id="fullName"
+                        placeholder="Họ tên *"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="reg-form__group">
+                      <input
+                        type="tel"
+                        className="reg-form__input"
+                        id="phone"
+                        placeholder="Số điện thoại *"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="reg-form__group">
+                      <input
+                        type="email"
+                        className="reg-form__input"
+                        id="email"
+                        placeholder="Email *"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="reg-form__group">
+                      <input
+                        type="text"
+                        className="reg-form__input"
+                        id="address"
+                        placeholder="Địa chỉ"
+                        value={formData.address}
+                        onChange={handleInputChange}
+                      />
                     </div>
 
-                    {/* Row 2: Email & Địa chỉ */}
-                    <div className="registration-form__row">
-                      <div className="registration-form__group">
-                        <input
-                          type="email"
-                          className="registration-form__input"
-                          id="email"
-                          placeholder="Email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div className="registration-form__group">
-                        <input
-                          type="text"
-                          className="registration-form__input"
-                          id="address"
-                          placeholder="Địa chỉ"
-                          value={formData.address}
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Dropdown: Chọn chương trình */}
-                    <div className="registration-form__group registration-form__group--full">
+                    <div className="reg-form__group reg-form__group--full">
                       <select
-                        className="registration-form__select"
+                        className="reg-form__select"
                         id="program"
                         value={formData.program}
                         onChange={handleInputChange}
                         required
                       >
-                        <option value="">Chọn chương trình quan tâm</option>
+                        <option value="">Chọn chương trình quan tâm *</option>
                         <option value="dai-hoc-chinh-quy">Đại học chính quy</option>
                         <option value="lien-thong">Liên thông</option>
                         <option value="chat-luong-cao">Chất lượng cao</option>
                       </select>
                     </div>
 
-                    {/* Dropdown: Chọn ngành học */}
-                    <div className="registration-form__group registration-form__group--full">
+                    <div className="reg-form__group reg-form__group--full">
                       <select
-                        className="registration-form__select"
+                        className="reg-form__select"
                         id="major"
                         value={formData.major}
                         onChange={handleInputChange}
                         required
                       >
-                        <option value="">Chọn ngành học quan tâm</option>
+                        <option value="">Chọn ngành học quan tâm *</option>
                         <option value="ngan-hang">Ngân hàng</option>
                         <option value="tai-chinh">Tài chính</option>
                         <option value="ke-toan">Kế toán</option>
@@ -249,33 +237,32 @@ export default function DangKyTuVanPage() {
                       </select>
                     </div>
 
-                    {/* Checkboxes */}
-                    <div className="registration-form__checkboxes">
-                      <div className="registration-form__checkbox">
+                    <div className="reg-form__checkboxes">
+                      <div className="reg-form__checkbox">
                         <input
                           type="checkbox"
-                          className="registration-form__checkbox-input"
+                          className="reg-form__checkbox-input"
                           id="newsletter"
                           checked={formData.newsletter}
                           onChange={handleInputChange}
                         />
                         <label
-                          className="registration-form__checkbox-label"
+                          className="reg-form__checkbox-label"
                           htmlFor="newsletter"
                         >
                           Đăng ký nhận thông tin tuyển sinh
                         </label>
                       </div>
-                      <div className="registration-form__checkbox">
+                      <div className="reg-form__checkbox">
                         <input
                           type="checkbox"
-                          className="registration-form__checkbox-input"
+                          className="reg-form__checkbox-input"
                           id="consultation"
                           checked={formData.consultation}
                           onChange={handleInputChange}
                         />
                         <label
-                          className="registration-form__checkbox-label"
+                          className="reg-form__checkbox-label"
                           htmlFor="consultation"
                         >
                           Đăng ký tư vấn
@@ -283,10 +270,9 @@ export default function DangKyTuVanPage() {
                       </div>
                     </div>
 
-                    {/* Textarea: Nội dung */}
-                    <div className="registration-form__group registration-form__group--full">
+                    <div className="reg-form__group reg-form__group--full">
                       <textarea
-                        className="registration-form__textarea"
+                        className="reg-form__textarea"
                         id="content"
                         placeholder="Nội dung"
                         rows={4}
@@ -295,11 +281,10 @@ export default function DangKyTuVanPage() {
                       />
                     </div>
 
-                    {/* Submit Button */}
                     <button
                       type="submit"
-                      className={`registration-form__submit ${
-                        isSubmitting ? "registration-form__submit--loading" : ""
+                      className={`reg-form__submit btn btn--primary ${
+                        isSubmitting ? "reg-form__submit--loading" : ""
                       }`}
                       disabled={isSubmitting}
                     >

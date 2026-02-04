@@ -115,70 +115,48 @@ export default function SuKienPage() {
           <div className="row">
             {/* Featured Event Card */}
             <div className="col-12 col-lg-5 mb-4 mb-lg-0">
-              <article className="featured-event">
-                <span className="featured-event__category d-lg-none">
-                  Trường Đại học Ngân hàng HUB
-                </span>
-                <h2 className="featured-event__title d-lg-none">Sự Kiện Sắp Tới</h2>
+              <Link href="/su-kien/1" className="event-card event-card--featured">
                 <Image
                   src="/assets/images/sukien_img5.png"
                   alt="Sự kiện kế tiếp"
-                  className="featured-event__image"
+                  className="event-card__featured-image"
                   width={477}
                   height={369}
                   loading="lazy"
                 />
-                <h2 className="featured-event__title featured-event__title--desktop d-none d-lg-block">
-                  Sự Kiện Sắp Tới
-                </h2>
-                <p className="featured-event__subtitle">
-                  &quot;Sẵn sàng bứt phá – Cùng HUB đón chờ sự kiện lớn nhất
-                  năm!&quot;
-                </p>
+                <div className="event-card__featured-content">
+                  <h3 className="event-card__featured-title">Sự Kiện Sắp Tới</h3>
+                  <p className="event-card__featured-subtitle">
+                    &quot;Sẵn sàng bứt phá – Cùng HUB đón chờ sự kiện lớn nhất
+                    năm!&quot;
+                  </p>
 
-                {/* Countdown Timer */}
-                <div
-                  className="featured-event__countdown event-countdown"
-                  aria-label="Thời gian còn lại đến sự kiện"
-                >
-                  <div className="countdown-item event-countdown__item">
-                    <span className="countdown-item__value event-countdown__value">
-                      541
-                    </span>
-                    <span className="countdown-item__label event-countdown__label">
-                      Days
-                    </span>
+                  {/* Countdown Timer */}
+                  <div
+                    className="event-countdown"
+                    aria-label="Thời gian còn lại đến sự kiện"
+                  >
+                    <div className="event-countdown__item">
+                      <span className="event-countdown__value">541</span>
+                      <span className="event-countdown__label">Days</span>
+                    </div>
+                    <div className="event-countdown__item">
+                      <span className="event-countdown__value">01</span>
+                      <span className="event-countdown__label">Hrs</span>
+                    </div>
+                    <div className="event-countdown__item">
+                      <span className="event-countdown__value">47</span>
+                      <span className="event-countdown__label">Min</span>
+                    </div>
+                    <div className="event-countdown__item">
+                      <span className="event-countdown__value">54</span>
+                      <span className="event-countdown__label">Sec</span>
+                    </div>
                   </div>
-                  <div className="countdown-item event-countdown__item">
-                    <span className="countdown-item__value event-countdown__value">
-                      01
-                    </span>
-                    <span className="countdown-item__label event-countdown__label">
-                      Hrs
-                    </span>
-                  </div>
-                  <div className="countdown-item event-countdown__item">
-                    <span className="countdown-item__value event-countdown__value">
-                      47
-                    </span>
-                    <span className="countdown-item__label event-countdown__label">
-                      Min
-                    </span>
-                  </div>
-                  <div className="countdown-item event-countdown__item">
-                    <span className="countdown-item__value event-countdown__value">
-                      54
-                    </span>
-                    <span className="countdown-item__label event-countdown__label">
-                      Sec
-                    </span>
-                  </div>
+
+                  <span className="event-card__link">Xem chi tiết</span>
                 </div>
-
-                <Link href="/su-kien/1" className="featured-event__link">
-                  Xem chi tiết
-                </Link>
-              </article>
+              </Link>
             </div>
 
             {/* Upcoming Events List */}
@@ -192,20 +170,17 @@ export default function SuKienPage() {
                     <Link
                       key={event.id}
                       href={`/su-kien/${event.id}`}
-                      className="event-card"
+                      className="event-card event-card--list"
                     >
                       <Image
                         src={event.image}
-                        alt={event.category}
-                        className="event-card__image"
+                        alt={event.title}
+                        className="event-card__thumbnail"
                         width={186}
                         height={169}
                         loading="lazy"
                       />
                       <div className="event-card__content">
-                        <span className="event-card__category">{event.category}</span>
-                        <h3 className="event-card__title">{event.title}</h3>
-                        <p className="event-card__excerpt">{event.excerpt}</p>
                         <div className="event-card__date">
                           <Image
                             src="/assets/images/calendar_primary.png"
@@ -216,6 +191,8 @@ export default function SuKienPage() {
                           />
                           <span>{event.date}</span>
                         </div>
+                        <h3 className="event-card__title">{event.title}</h3>
+                        <p className="event-card__excerpt">{event.excerpt}</p>
                       </div>
                     </Link>
                   ))}

@@ -1,0 +1,57 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *;
+
+/* ============================================
+   COMPONENT: Event Countdown
+   ============================================ */
+
+.event-countdown {
+  display: flex;
+  justify-content: center;
+  gap: vars.$sp-6;
+  margin-bottom: vars.$sp-5;
+
+  @include mobile {
+    gap: vars.$sp-4;
+  }
+
+  &__item {
+    text-align: center;
+    min-width: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      min-width: 5rem;
+    }
+  }
+
+  &__value {
+    display: block;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-700;
+    font-weight: vars.$fw-bold;
+    color: vars.$brand-primary;
+    line-height: 1;
+    margin-bottom: vars.$sp-2;
+
+    @include mobile {
+      font-size: vars.$fs-600;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-200;
+    font-weight: vars.$fw-medium;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+
+    @include mobile {
+      font-size: vars.$fs-100;
+    }
+  }
+}
