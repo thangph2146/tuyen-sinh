@@ -1,0 +1,318 @@
+/* ==========================================================================
+   KẾT QUẢ TRA CỨU TUYỂN SINH PAGE STYLES
+   ========================================================================== */
+
+@use "../abstracts/variables" as vars;
+
+/* Layout */
+.result-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 12rem);
+}
+
+/* ==========================================================================
+   RESULT SECTION
+   ========================================================================== */
+.result-section {
+  flex: 1;
+  padding: vars.$sp-7 0;
+  background-color: vars.$gray-50;
+}
+
+/* ==========================================================================
+   RESULT HEADER
+   ========================================================================== */
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: vars.$sp-2;
+  background-color: vars.$brand-primary;
+  padding: vars.$sp-3 vars.$sp-4;
+  border-radius: vars.$radius-md vars.$radius-md 0 0;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: vars.$color-light;
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-weight: 700;
+    font-size: vars.$fs-body;
+    color: vars.$color-light;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+  }
+}
+
+/* ==========================================================================
+   RESULT CARD
+   ========================================================================== */
+.result-card {
+  background: vars.$color-light;
+  border: 0.1rem solid vars.$gray-300;
+  border-top: none;
+  border-radius: 0 0 vars.$radius-md vars.$radius-md;
+  padding: vars.$sp-5;
+  margin-bottom: vars.$sp-5;
+}
+
+/* ==========================================================================
+   STUDENT INFO
+   ========================================================================== */
+.result-info {
+  margin-bottom: vars.$sp-5;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: vars.$sp-2;
+    margin-bottom: vars.$sp-3;
+    padding-bottom: vars.$sp-2;
+    border-bottom: 0.1rem solid vars.$gray-200;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: vars.$brand-primary;
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-weight: 600;
+    font-size: vars.$fs-body-sm;
+    color: vars.$gray-800;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vars.$sp-5;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$sp-3;
+  }
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    gap: vars.$sp-2;
+  }
+
+  &__label {
+    font-family: vars.$font-family-base;
+    font-weight: 400;
+    font-size: vars.$fs-body-sm;
+    color: vars.$gray-600;
+    white-space: nowrap;
+  }
+
+  &__value {
+    font-family: vars.$font-family-base;
+    font-weight: 600;
+    font-size: vars.$fs-body-sm;
+    color: vars.$gray-800;
+  }
+}
+
+/* ==========================================================================
+   SCORE TABLE
+   ========================================================================== */
+.result-table-wrapper {
+  overflow-x: auto;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: vars.$font-family-base;
+  font-size: vars.$fs-body-sm;
+
+  &__th {
+    background-color: vars.$gray-100;
+    padding: vars.$sp-3 vars.$sp-4;
+    text-align: left;
+    font-weight: 600;
+    color: vars.$gray-800;
+    border: 0.1rem solid vars.$gray-300;
+    white-space: nowrap;
+
+    &--stt {
+      width: 6rem;
+      text-align: center;
+    }
+
+    &--subject {
+      min-width: 12rem;
+    }
+
+    &--score {
+      width: 10rem;
+      text-align: center;
+    }
+
+    &--priority {
+      width: 15rem;
+      text-align: center;
+    }
+
+    &--note {
+      min-width: 10rem;
+    }
+  }
+
+  &__td {
+    padding: vars.$sp-3 vars.$sp-4;
+    border: 0.1rem solid vars.$gray-300;
+    color: vars.$gray-700;
+    vertical-align: middle;
+
+    &--center {
+      text-align: center;
+    }
+
+    &--score {
+      text-align: center;
+      color: vars.$brand-primary;
+      font-weight: 600;
+    }
+  }
+}
+
+/* ==========================================================================
+   TOTAL SCORE
+   ========================================================================== */
+.result-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: vars.$sp-2;
+  padding: vars.$sp-3 vars.$sp-4;
+  background-color: vars.$gray-50;
+  border: 0.1rem solid vars.$gray-300;
+  border-top: none;
+
+  &__label {
+    font-family: vars.$font-family-base;
+    font-weight: 600;
+    font-size: vars.$fs-body-sm;
+    color: vars.$gray-800;
+  }
+
+  &__value {
+    font-family: vars.$font-family-base;
+    font-weight: 700;
+    font-size: vars.$fs-body;
+    color: vars.$brand-primary;
+  }
+}
+
+/* ==========================================================================
+   RESULT ACTIONS
+   ========================================================================== */
+.result-actions {
+  display: flex;
+  justify-content: flex-start;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: vars.$sp-2;
+    padding: vars.$sp-3 vars.$sp-5;
+    font-family: vars.$font-family-base;
+    font-weight: 600;
+    font-size: vars.$fs-body-sm;
+    color: vars.$color-light;
+    background-color: vars.$brand-primary;
+    border: none;
+    border-radius: vars.$radius-md;
+    text-decoration: none;
+    transition: background-color vars.$transition-base;
+
+    &:hover {
+      background-color: #8a0d2a;
+      color: vars.$color-light;
+    }
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .result-info__row {
+    grid-template-columns: 1fr;
+    gap: vars.$sp-4;
+  }
+
+  .result-info__col {
+    gap: vars.$sp-2;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .result-section {
+    padding: vars.$sp-5 0;
+  }
+
+  .result-header {
+    padding: vars.$sp-3;
+    gap: vars.$sp-2;
+
+    &__title {
+      font-size: vars.$fs-body;
+    }
+  }
+
+  .result-card {
+    padding: vars.$sp-4;
+  }
+
+  .result-info__item {
+    flex-direction: column;
+    gap: vars.$sp-1;
+  }
+
+  .result-table {
+    &__th,
+    &__td {
+      padding: vars.$sp-2 vars.$sp-3;
+      font-size: vars.$fs-100;
+    }
+
+    &__th--stt {
+      width: 4rem;
+    }
+
+    &__th--score,
+    &__th--priority {
+      width: auto;
+    }
+  }
+
+  .result-total {
+    padding: vars.$sp-2 vars.$sp-3;
+  }
+
+  .result-actions__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

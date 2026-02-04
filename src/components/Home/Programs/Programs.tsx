@@ -86,20 +86,45 @@ const Programs = () => {
                 className={`programs-accordion__header ${activeTab === tab.id ? 'active' : ''}`}
                 onClick={() => setActiveTab(activeTab === tab.id ? '' : tab.id)}
                 aria-expanded={activeTab === tab.id}
+                id={`tab-${tab.id}`}
               >
                 <span>{tab.label}</span>
+                <svg
+                  className={`programs-accordion__chevron ${activeTab === tab.id ? 'active' : ''}`}
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2.5 4.5L6 8L9.5 4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
               <div
                 className={`programs-accordion__panel ${activeTab === tab.id ? 'active' : ''}`}
                 style={{ display: activeTab === tab.id ? 'block' : 'none' }}
+                id={`panel-${tab.id}`}
+                role="tabpanel"
+                aria-labelledby={`tab-${tab.id}`}
               >
                 <ul className="programs-accordion__list">
-                  {(programData[tab.id as keyof typeof programData] || []).map(
-                    (prog, idx) => (
-                      <li key={idx} className="programs-accordion__list-item">
-                        <Link href={prog.href}>{prog.title}</Link>
-                      </li>
+                  {(programData[tab.id as keyof typeof programData] || []).length > 0 ? (
+                    (programData[tab.id as keyof typeof programData] || []).map(
+                      (prog, idx) => (
+                        <li key={idx} className="programs-accordion__list-item">
+                          <Link href={prog.href}>{prog.title}</Link>
+                        </li>
+                      )
                     )
+                  ) : (
+                    <li className="programs-accordion__empty">Đang cập nhật nội dung...</li>
                   )}
                 </ul>
               </div>
@@ -125,10 +150,10 @@ const Programs = () => {
               className={`programs-group ${activeTab === tab.id ? 'programs-group--active' : ''}`}
               id={tab.id}
             >
-              <div className="programs-row mb-3">
+              <ul className="programs-row mb-3">
                 {(programData[tab.id as keyof typeof programData] || []).map(
                   (prog, idx) => (
-                    <div
+                    <li
                       key={idx}
                       className={`programs-row__item ${prog.wide ? 'programs-row__item--wide' : ''}`}
                     >
@@ -150,12 +175,12 @@ const Programs = () => {
                             height={60}
                           />
                         </div>
-                        <span className="program-card__title">{prog.title}</span>
+                        <h3 className="program-card__title">{prog.title}</h3>
                       </Link>
-                    </div>
+                    </li>
                   )
                 )}
-              </div>
+              </ul>
             </div>
           ))}
         </div>

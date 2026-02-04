@@ -1,0 +1,346 @@
+/* ============================================
+   PAGE: Facilities (Cơ sở vật chất)
+   HUB University facilities showcase
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* ============================================
+   ABOUT FACILITIES SECTION
+   ============================================ */
+.facilities-about {
+  padding-top: vars.$sp-8;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-title;
+    font-weight: 700;
+    line-height: vars.$lh-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__content {
+    max-width: 120rem;
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin-bottom: vars.$sp-4;
+
+    p {
+      margin-bottom: vars.$sp-4;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 120rem;
+    height: 54.6rem;
+    object-fit: cover;
+    border-radius: 2rem;
+    display: block;
+  }
+}
+
+/* ============================================
+   FACILITIES LIST SECTION
+   ============================================ */
+.facilities-list {
+  padding-top: vars.$sp-7;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-title;
+    font-weight: 600;
+    line-height: vars.$lh-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__intro {
+    max-width: 120rem;
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin-bottom: vars.$sp-3;
+  }
+
+  /* Facility Items List */
+  &__items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 vars.$sp-5 0;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$sp-5;
+
+    li {
+      position: relative;
+      padding-left: 2.3rem;
+      font-family: vars.$font-family-base;
+      font-size: vars.$section-description;
+      font-weight: 400;
+      line-height: 1.57;
+      color: vars.$gray-800;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: vars.$brand-primary;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+/* Facility Cards */
+.facilities-card {
+  width: 100%;
+  height: 26rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform vars.$transition-base;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* ============================================
+   FACILITY DETAILS SECTION
+   ============================================ */
+.facilities-details {
+  padding-top: vars.$sp-7;
+  padding-bottom: vars.$sp-7;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-title;
+    font-weight: 600;
+    line-height: vars.$lh-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__intro {
+    max-width: 120rem;
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: vars.$sp-4 0 0;
+    max-width: 120rem;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$sp-3;
+
+    li {
+      position: relative;
+      padding-left: 1.6rem;
+      font-family: vars.$font-family-base;
+      font-size: vars.$section-description;
+      font-weight: 400;
+      line-height: 1.57;
+      color: vars.$gray-800;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.8rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        background-color: vars.$gray-900;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+/* ================================================
+   TABLET (max-width: 1199px)
+   ================================================ */
+@media (max-width: 1199px) {
+  .facilities-about {
+    padding-top: vars.$sp-7;
+
+    &__title {
+      font-size: vars.$section-title-tablet;
+    }
+
+    &__image {
+      height: 40rem;
+      border-radius: vars.$radius-lg;
+    }
+
+    &__content {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+
+  .facilities-list {
+    padding-top: vars.$sp-6;
+
+    &__title {
+      font-size: vars.$section-title-tablet;
+    }
+
+    &__intro {
+      font-size: vars.$section-description-tablet;
+    }
+
+    &__items li {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+
+  .facilities-card {
+    height: 22rem;
+    border-radius: vars.$radius-lg;
+  }
+
+  .facilities-details {
+    padding-top: vars.$sp-6;
+    padding-bottom: vars.$sp-6;
+
+    &__title {
+      font-size: vars.$section-title-tablet;
+    }
+
+    &__intro,
+    &__list li {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+}
+
+/* ================================================
+   MOBILE (max-width: 575px)
+   ================================================ */
+@media (max-width: 575px) {
+  .facilities-about {
+    padding-top: vars.$sp-5;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      text-align: left;
+      margin-bottom: vars.$sp-3;
+    }
+
+    &__content {
+      font-size: vars.$section-description-mobile;
+      line-height: 1.5;
+
+      p {
+        margin-bottom: vars.$sp-3;
+      }
+    }
+
+    &__image {
+      height: 20rem;
+      border-radius: vars.$radius-10;
+    }
+  }
+
+  .facilities-list {
+    padding-top: vars.$sp-5;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      text-align: left;
+      margin-bottom: vars.$sp-3;
+    }
+
+    &__intro {
+      font-size: vars.$section-description-mobile;
+      line-height: 1.5;
+      margin-bottom: vars.$sp-2;
+    }
+
+    &__items {
+      margin: vars.$sp-3 0;
+      gap: vars.$sp-3;
+
+      li {
+        font-size: vars.$section-description-mobile;
+        padding-left: 2rem;
+
+        &::before {
+          width: 1rem;
+          height: 1rem;
+          top: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .facilities-card {
+    height: 18rem;
+    border-radius: vars.$radius-10;
+  }
+
+  .facilities-details {
+    padding-top: vars.$sp-5;
+    padding-bottom: vars.$sp-6;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      text-align: left;
+      margin-bottom: vars.$sp-3;
+    }
+
+    &__intro {
+      font-size: vars.$section-description-mobile;
+      line-height: 1.5;
+      margin-bottom: vars.$sp-3;
+    }
+
+    &__list {
+      margin-top: vars.$sp-3;
+      gap: vars.$sp-2;
+
+      li {
+        font-size: vars.$section-description-mobile;
+        padding-left: 1.4rem;
+
+        &::before {
+          top: 0.7rem;
+        }
+      }
+    }
+  }
+}

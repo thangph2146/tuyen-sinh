@@ -1,0 +1,47 @@
+/* ============================================
+   PAGE: Tien Si (Doctoral Programs)
+   Shares most styles with Thac Si, with minor adjustments
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* ========== SECTION: Hero Tien Si ========== */
+.hero-section--tiensi .hero-section__bg {
+  background-image: url("/assets/images/hero_bg.png");
+}
+
+/* ========== SECTION: Program Introduction - Tien Si Variant ========== */
+.program-intro--tiensi {
+  .program-intro__image-wrapper {
+    padding: vars.$sp-4 0;
+  }
+
+  .program-intro__image {
+    width: 55.3rem;
+    height: 36.6rem;
+    border-radius: vars.$radius-20;
+    object-fit: cover;
+  }
+}
+
+/* Reuse most styles from Thac Si page */
+/* The program-intro, section-header, program-cards-section, 
+   tuition-section, training-orientation, admission-criteria 
+   styles are shared and defined in _thac-si.scss */
+
+/* ================================================
+   MOBILE (max-width: 575px)
+   ================================================ */
+@media (max-width: 575px) {
+  .program-intro--tiensi {
+    .row {
+      flex-direction: column;
+    }
+
+    .program-intro__image {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+    }
+  }
+}

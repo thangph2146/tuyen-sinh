@@ -1,0 +1,395 @@
+/* ============================================
+   PAGE: Admissions Detail (Chi tiết Tin Tuyển Sinh)
+   Detailed article page for admissions news
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* Link reset for clickable cards */
+a.related-article {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   ARTICLE HEADER SECTION
+   ============================================ */
+.admissions-detail-header {
+  padding: vars.$sp-6 0 vars.$sp-5 0;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: vars.$sp-2;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: inline-block;
+    object-fit: contain;
+    vertical-align: middle;
+    color: vars.$gray-500;
+  }
+
+  &__date {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-caption;
+    font-weight: vars.$fw-regular;
+    line-height: 1.2;
+    color: vars.$gray-500;
+  }
+}
+
+.admissions-detail-divider {
+  width: 100%;
+  height: 0.1rem;
+  background-color: vars.$gray-300;
+}
+
+/* ============================================
+   ARTICLE CONTENT SECTION
+   ============================================ */
+.admissions-detail-content {
+  padding-top: 1.5rem;
+  background-color: vars.$color-light;
+}
+
+.admissions-detail-header__intro {
+  font-family: vars.$font-family-base;
+  font-size: vars.$section-description;
+  font-weight: 400;
+  line-height: 1.21;
+  color: vars.$gray-800;
+  margin: 0 0 vars.$sp-4 0;
+  max-width: 120rem;
+}
+
+/* Figure with Image and Caption */
+.admissions-detail-figure {
+  margin: 0 auto 1.6rem;
+  margin-top: 2rem;
+  max-width: 99.2rem;
+  text-align: center;
+
+  &__image {
+    width: 100%;
+    max-width: 99.2rem;
+    height: 66rem;
+    object-fit: cover;
+    border-radius: 2rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__caption {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-400;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.22;
+    color: #959595;
+    margin: 1.6rem auto 0;
+    max-width: 99.2rem;
+  }
+}
+
+/* Text Content */
+.admissions-detail-text {
+  max-width: 120rem;
+  margin: 3.6rem auto 0;
+
+  p {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin: 0 0 0.8rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+/* Source Attribution */
+.admissions-detail-source {
+  font-family: vars.$font-family-base;
+  font-size: vars.$fs-200;
+  font-weight: 600;
+  line-height: 1.57;
+  color: vars.$brand-primary;
+  margin: 1.6rem 0 0;
+  max-width: 120rem;
+}
+
+/* ============================================
+   RELATED ARTICLES SECTION
+   ============================================ */
+.admissions-detail-related {
+  padding-top: 3.4rem;
+  padding-bottom: 6rem;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-525;
+    font-weight: 700;
+    line-height: vars.$lh-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: 2.9rem;
+  }
+}
+
+/* Related Articles List */
+.related-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Related Article Card */
+.related-article {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+  transition: background-color vars.$transition-base;
+  padding: 1rem;
+  margin: -1rem;
+  border-radius: vars.$radius-10;
+
+  &:hover {
+    background-color: vars.$gray-100;
+
+    .related-article__title {
+      color: vars.$brand-primary;
+    }
+  }
+
+  &__image {
+    width: 28.4rem;
+    height: 14.8rem;
+    object-fit: cover;
+    display: block;
+    border-radius: vars.$radius-10;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-350;
+    font-weight: 600;
+    line-height: 1.4;
+    color: vars.$brand-secondary;
+    margin: 0.6rem 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__excerpt {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-200;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Related Article Badge */
+  &__badge {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background-color: vars.$brand-primary;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-100;
+    font-weight: 400;
+    line-height: 1.5;
+    color: vars.$color-light;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 0.8rem;
+    border-radius: 0.2rem;
+  }
+}
+
+/* Related Article Divider */
+.related-article-divider {
+  width: 100%;
+  height: 0.1rem;
+  background-color: #cccccc;
+  opacity: 0.3;
+  margin: 2.6rem 0;
+}
+
+/* ============================================
+   PAGINATION SECTION
+   ============================================ */
+.admissions-detail-pagination {
+  display: none; /* Override default - visibility via d-sm-flex */
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 3rem;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (max-width: 1199px)
+   ============================================ */
+@media (max-width: 1199px) {
+  .admissions-detail-header__title {
+    font-size: vars.$section-title-tablet;
+  }
+
+  .admissions-detail-related__title {
+    font-size: vars.$fs-500;
+  }
+
+  .admissions-detail-figure__image {
+    height: 50rem;
+  }
+
+  .admissions-detail-text p,
+  .admissions-detail-header__intro {
+    font-size: vars.$section-description-tablet;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (max-width: 575px)
+   ============================================ */
+@media (max-width: 575px) {
+  /* Header Section */
+  .admissions-detail-header {
+    padding: vars.$sp-4 0 vars.$sp-3 0;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      margin-bottom: vars.$sp-2;
+    }
+
+    &__meta {
+      margin-bottom: vars.$sp-2;
+    }
+  }
+
+  /* Content Section */
+  .admissions-detail-content {
+    padding-top: vars.$sp-2;
+  }
+
+  .admissions-detail-figure {
+    &__image {
+      height: auto;
+      aspect-ratio: 16/10;
+      border-radius: vars.$radius-10;
+    }
+
+    &__caption {
+      font-size: vars.$fs-200;
+      margin-top: 1.2rem;
+    }
+  }
+
+  .admissions-detail-text {
+    margin-top: vars.$sp-3;
+  }
+
+  /* Related Articles Section */
+  .admissions-detail-related {
+    padding-top: vars.$sp-4;
+    padding-bottom: vars.$sp-5;
+
+    &__title {
+      font-size: vars.$fs-450;
+      margin-bottom: vars.$sp-3;
+    }
+  }
+
+  .related-article {
+    gap: 1.2rem;
+
+    &__image {
+      width: 12rem;
+      height: 8rem;
+    }
+
+    &__content {
+      gap: 0.8rem;
+    }
+
+    &__title {
+      font-size: vars.$fs-200;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &__excerpt {
+      display: none;
+    }
+
+    &__badge {
+      display: none;
+    }
+  }
+
+  .related-article-divider {
+    margin: vars.$sp-3 0;
+  }
+
+  /* Pagination */
+  .admissions-detail-pagination {
+    margin-top: vars.$sp-5;
+
+    .pagination__btn,
+    .pagination__item {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+
+    .pagination__item {
+      font-size: vars.$fs-300;
+    }
+  }
+
+  .admissions-detail-text p,
+  .admissions-detail-header__intro {
+    font-size: vars.$section-description-mobile;
+  }
+}

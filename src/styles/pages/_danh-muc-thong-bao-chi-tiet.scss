@@ -1,0 +1,467 @@
+/* ============================================
+   PAGE: Announcement Detail (Chi tiết Thông Báo)
+   Detailed article page for announcements
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* Link reset for clickable cards */
+a.related-article {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   ARTICLE HEADER SECTION
+   ============================================ */
+.announcement-detail-header {
+  padding-top: 5rem;
+  padding-bottom: vars.$sp-2;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: vars.$sp-4;
+    margin-top: vars.$sp-4;
+  }
+
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: vars.$sp-2;
+  }
+
+  &__icon {
+    font-size: 1.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+    display: inline-block;
+    color: vars.$brand-primary;
+  }
+
+  &__text {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-caption;
+    font-weight: vars.$fw-regular;
+    line-height: 1.2;
+    color: vars.$gray-800;
+  }
+}
+
+.announcement-detail-divider {
+  width: 100%;
+  height: 0.1rem;
+  background-color: vars.$gray-300;
+}
+
+/* ============================================
+   ARTICLE CONTENT SECTION
+   ============================================ */
+.announcement-detail-content {
+  padding-top: 1.5rem;
+  background-color: vars.$color-light;
+}
+
+.announcement-detail-header__intro {
+  font-family: vars.$font-family-base;
+  font-size: vars.$section-description;
+  font-weight: 400;
+  line-height: 1.5;
+  color: vars.$gray-800;
+  margin: 0 0 vars.$sp-4 0;
+}
+
+/* Figure with Image and Caption */
+.announcement-detail-figure {
+  margin: 0 auto 1.6rem;
+  max-width: 80rem;
+  text-align: center;
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__caption {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-400;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.22;
+    color: #959595;
+    margin: 1.6rem auto 0;
+  }
+}
+
+/* Text Content */
+.announcement-detail-text {
+  margin: 3.6rem auto 0;
+
+  p {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.6;
+    color: vars.$gray-800;
+    margin: 0 0 1.6rem;
+    text-align: justify;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+/* Source Attribution */
+.announcement-detail-source {
+  font-family: vars.$font-family-base;
+  font-size: vars.$fs-200;
+  font-weight: 600;
+  line-height: 1.57;
+  color: vars.$brand-primary;
+  margin: 1.6rem 0 0;
+}
+
+/* ============================================
+   RELATED ANNOUNCEMENTS SECTION
+   ============================================ */
+.announcement-detail-related {
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-title;
+    font-weight: 700;
+    line-height: vars.$lh-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: 3.2rem;
+  }
+}
+
+/* Related Articles List */
+.related-articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Related Article Card - Date Box Style */
+.related-article {
+  background-color: vars.$gray-100;
+  border-radius: vars.$radius-10;
+  padding: 2.6rem 2.8rem 2.8rem;
+  display: flex;
+  gap: 1.8rem;
+  height: 18rem;
+  transition: transform vars.$transition-base, box-shadow vars.$transition-base;
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08);
+  }
+
+  &__date-box {
+    width: 7.9rem;
+    height: 8.8rem;
+    background-color: vars.$brand-primary;
+    border-radius: vars.$radius-10;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    position: relative;
+  }
+
+  &__date-day,
+  &__date-month {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-350;
+    font-weight: 500;
+    line-height: 1.15;
+    color: vars.$color-light;
+    text-transform: capitalize;
+  }
+
+  &__date-year {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-350;
+    font-weight: 500;
+    line-height: 1.15;
+    color: vars.$color-light;
+    text-transform: capitalize;
+    order: 2;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-300;
+    font-weight: 700;
+    line-height: 1.38;
+    color: vars.$gray-800;
+    text-transform: capitalize;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__excerpt {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-200;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__link {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-200;
+    font-weight: 500;
+    line-height: 1.22;
+    color: vars.$brand-primary;
+    text-decoration: none;
+    border-bottom: 0.1rem solid vars.$brand-primary;
+    display: inline-block;
+    width: fit-content;
+    transition: opacity vars.$transition-base;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  /* Inline date - hidden on desktop */
+  &__date-inline {
+    display: none;
+  }
+}
+
+/* Slider Navigation */
+.related-slider-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: vars.$sp-2;
+  margin-top: vars.$sp-4;
+
+  &__btn {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: vars.$gray-200;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+
+    &:hover:not(:disabled) {
+      background-color: vars.$gray-300;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    img {
+      width: 1.1rem;
+      height: 1rem;
+      object-fit: contain;
+    }
+  }
+}
+
+/* ============================================
+   PAGINATION SECTION
+   ============================================ */
+.announcement-detail-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: vars.$sp-6;
+  width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (max-width: 1199px)
+   ============================================ */
+@media (max-width: 1199px) {
+  .related-articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .announcement-detail-header__title,
+  .announcement-detail-related__title {
+    font-size: vars.$section-title-tablet;
+  }
+
+  .announcement-detail-header__intro,
+  .announcement-detail-text p {
+    font-size: vars.$section-description-tablet;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (max-width: 767px)
+   ============================================ */
+@media (max-width: 767px) {
+  .announcement-detail-header {
+    padding: vars.$sp-4 0 vars.$sp-3 0;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      margin-bottom: vars.$sp-2;
+    }
+
+    &__intro {
+      font-size: vars.$section-description-mobile;
+    }
+
+    &__meta {
+      margin-top: vars.$sp-2;
+      flex-wrap: wrap;
+      gap: vars.$sp-2;
+    }
+  }
+
+  .announcement-detail-content {
+    padding-top: vars.$sp-2;
+  }
+
+  .announcement-detail-figure__image {
+    height: auto;
+  }
+
+  .announcement-detail-text {
+    margin-top: vars.$sp-3;
+
+    p {
+      font-size: vars.$section-description-mobile;
+    }
+  }
+
+  .announcement-detail-related {
+    padding-top: vars.$sp-6;
+    padding-bottom: vars.$sp-5;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      margin-bottom: vars.$sp-4;
+    }
+  }
+
+  /* Related Articles - Mobile: Stack vertically */
+  .related-articles {
+    grid-template-columns: 1fr;
+  }
+
+  /* Related Article - Mobile: clean list style with inline date */
+  .related-article {
+    padding: 1.6rem 1.2rem;
+    padding-right: 3.6rem;
+    gap: 0;
+    height: auto;
+    position: relative;
+    background-color: vars.$color-light;
+    border-radius: vars.$radius-8;
+    margin-bottom: 1.2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Hide date box on mobile */
+    &__date-box {
+      display: none;
+    }
+
+    /* Content layout */
+    &__content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      width: 100%;
+    }
+
+    &__title {
+      font-size: vars.$fs-200;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Show inline date on mobile */
+    &__date-inline {
+      display: block;
+      font-family: vars.$font-family-base;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: vars.$gray-500;
+      order: 2;
+    }
+
+    /* Arrow icon indicator - subtle gray, red on hover */
+    &::after {
+      content: "";
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.6rem;
+      height: 1.6rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      transition: transform 0.2s ease, opacity 0.2s ease, background-image 0.2s ease;
+    }
+
+    &:hover::after,
+    &:active::after {
+      transform: translateY(-50%) translateX(0.2rem);
+      opacity: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A01130' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+  }
+}

@@ -1,0 +1,469 @@
+/* ============================================
+   PAGE: International (Viện Đào Tạo Quốc Tế)
+   International Institute programs and info
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* Link reset for clickable cards */
+a.intl-news-card,
+a.intl-program-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.intl-about {
+  position: relative;
+  padding: 6rem 0;
+  background-color: vars.$color-light;
+  overflow: hidden;
+
+  > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Decoration Image */
+  &__decoration {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 50rem;
+    height: 28rem;
+    object-fit: cover;
+    object-position: left center;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+
+  &__image-wrapper {
+    position: relative;
+    border-radius: vars.$radius-20;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: vars.$radius-20;
+  }
+
+  &__content {
+    padding-left: 4rem;
+  }
+
+  &__subtitle {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-subtitle;
+    font-weight: vars.$fw-semibold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-secondary;
+    text-transform: uppercase;
+    margin-bottom: vars.$sp-2;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    line-height: vars.$lh-body-loose;
+    color: vars.$gray-800;
+    margin-bottom: 3rem;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 6rem;
+    align-items: flex-start;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.1rem;
+      height: 6rem;
+      background-color: vars.$gray-300;
+    }
+  }
+
+  &__stat-number {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-800;
+    font-weight: vars.$fw-bold;
+    line-height: 1;
+    color: vars.$brand-primary;
+  }
+
+  &__stat-label {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-200;
+    font-weight: vars.$fw-semibold;
+    line-height: 1.5;
+    color: vars.$brand-secondary;
+  }
+}
+
+/* ============================================
+   WHY CHOOSE SECTION
+   ============================================ */
+.intl-why {
+  position: relative;
+  padding: vars.$sp-7 0;
+  background-color: vars.$brand-primary;
+
+  > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__header {
+    text-align: left;
+    margin-bottom: vars.$sp-5;
+    max-width: 60rem;
+  }
+
+  &__subtitle {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-subtitle;
+    font-weight: vars.$fw-semibold;
+    line-height: 2.1942rem;
+    color: vars.$color-light;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-2;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$color-light;
+    text-transform: uppercase;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__tagline {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-400;
+    font-weight: vars.$fw-regular;
+    font-style: normal;
+    line-height: vars.$lh-body-normal;
+    color: vars.$color-light;
+    opacity: 0.9;
+    margin-bottom: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: vars.$sp-3;
+    margin-bottom: vars.$sp-5;
+    max-width: 60rem;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: vars.$radius-10;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0.1rem solid vars.$color-light;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-200;
+    font-weight: vars.$fw-medium;
+    color: vars.$color-light;
+    text-decoration: none;
+    transition: all vars.$transition-base;
+    cursor: pointer;
+
+    &:hover {
+      background-color: vars.$color-light;
+      border-color: vars.$color-light;
+      color: vars.$brand-primary;
+    }
+
+    &--active {
+      background-color: vars.$brand-secondary;
+      border-color: vars.$brand-secondary;
+      color: vars.$color-light;
+
+      &:hover {
+        background-color: vars.$brand-secondary;
+        border-color: vars.$brand-secondary;
+        color: vars.$color-light;
+      }
+    }
+  }
+
+  &__description {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    line-height: vars.$lh-body-loose;
+    color: vars.$color-light;
+    text-align: left;
+    max-width: 60rem;
+    margin: 0;
+  }
+
+  /* Decoration Image */
+  &__image {
+    position: absolute;
+    bottom: -10rem;
+    right: 4rem;
+    width: auto;
+    max-width: 50%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+    border-radius: vars.$radius-20;
+    z-index: 0;
+  }
+}
+
+/* ============================================
+   PROGRAMS SECTION
+   ============================================ */
+.intl-programs {
+  padding: 12rem 0 vars.$sp-8;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: vars.$sp-5;
+  }
+
+  /* Programs Tabs */
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    gap: vars.$sp-4;
+    list-style: none;
+    padding: 1rem 1rem 1rem 1rem;
+    margin: -1rem -1rem vars.$sp-6;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: calc(100% + 2rem);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.is-overflow {
+      justify-content: flex-start;
+    }
+  }
+
+  &__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 2.4rem;
+    border-radius: vars.$radius-10;
+    background-color: vars.$gray-100;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-300;
+    font-weight: vars.$fw-semibold;
+    color: vars.$gray-800;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: vars.$gray-200;
+    }
+
+    &--active {
+      background-color: vars.$brand-primary;
+      color: vars.$color-light;
+
+      &:hover {
+        background-color: vars.$brand-primary;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__panel {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}
+
+/* Program Card */
+.intl-program-card {
+  background-color: vars.$gray-50;
+  border-radius: vars.$radius-lg;
+  padding: vars.$sp-5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$sp-3;
+  transition: transform vars.$transition-base, box-shadow vars.$transition-base;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.1);
+  }
+
+  &__number {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-700;
+    font-weight: vars.$fw-bold;
+    line-height: 1;
+    color: vars.$brand-primary;
+    opacity: 0.3;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-450;
+    font-weight: vars.$fw-bold;
+    line-height: 1.3;
+    color: vars.$brand-secondary;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin: 0;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (max-width: 1199px)
+   ============================================ */
+@media (max-width: 1199px) {
+  .intl-about__title,
+  .intl-why__title,
+  .intl-programs__title {
+    font-size: vars.$section-title-tablet;
+  }
+
+  .intl-about__content {
+    padding-left: 2rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (max-width: 575px)
+   ============================================ */
+@media (max-width: 575px) {
+  .intl-about {
+    padding: vars.$sp-5 0;
+
+    &__decoration {
+      display: none;
+    }
+
+    &__content {
+      padding-left: 0;
+      padding-top: vars.$sp-4;
+    }
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+    }
+
+    &__description {
+      font-size: vars.$section-description-mobile;
+    }
+
+    &__stats {
+      gap: vars.$sp-5;
+    }
+  }
+
+  .intl-why {
+    padding: vars.$sp-6 0;
+
+    &__image {
+      display: none;
+    }
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+    }
+
+    &__description {
+      font-size: vars.$section-description-mobile;
+    }
+  }
+
+  .intl-programs {
+    padding: vars.$sp-6 0 vars.$sp-6;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+    }
+
+    &__tabs {
+      justify-content: flex-start;
+    }
+
+    &__tab {
+      padding: 1rem 1.6rem;
+      font-size: vars.$fs-200;
+    }
+  }
+
+  .intl-program-card {
+    padding: vars.$sp-4;
+  }
+}

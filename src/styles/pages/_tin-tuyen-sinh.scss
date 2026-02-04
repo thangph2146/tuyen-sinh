@@ -1,0 +1,254 @@
+/* ============================================
+   PAGE: Admissions News (Tin Tuyển Sinh)
+   List of admissions-related news and announcements
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* ============================================
+   NEWS LIST SECTION
+   ============================================ */
+.admissions-news-list {
+  padding-top: 5.7rem;
+  padding-bottom: 6rem;
+  background-color: vars.$color-light;
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-title;
+    font-weight: 700;
+    line-height: vars.$lh-tight;
+    color: vars.$brand-primary;
+    text-transform: capitalize;
+    margin-bottom: 2.9rem;
+  }
+}
+
+/* News Items Container */
+.news-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* News Item */
+a.news-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-item {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  cursor: pointer;
+  transition: background-color vars.$transition-base;
+  padding: 1rem;
+  margin: -1rem;
+  border-radius: vars.$radius-10;
+
+  &:hover {
+    background-color: vars.$gray-100;
+
+    .news-item__title {
+      color: vars.$brand-primary;
+    }
+  }
+
+  &__image {
+    width: 28.4rem;
+    height: 14.8rem;
+    object-fit: cover;
+    display: block;
+    border-radius: vars.$radius-10;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    min-width: 0;
+  }
+
+  &__title {
+    font-family: vars.$font-family-base;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.53;
+    color: vars.$brand-secondary;
+    margin: 0;
+  }
+
+  &__excerpt {
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-200;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+    margin: 0;
+  }
+
+  /* News Badge "Mới" */
+  &__badge {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background-color: vars.$brand-primary;
+    font-family: vars.$font-family-base;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: vars.$color-light;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 0.8rem;
+    border-radius: 0.2rem;
+  }
+}
+
+/* News Divider */
+.news-divider {
+  width: 100%;
+  height: 0.1rem;
+  background-color: #cccccc;
+  opacity: 0.3;
+  margin: 2.6rem 0;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+.pagination {
+  margin-top: 3rem;
+  display: none; /* Override Bootstrap - visibility via d-sm-flex */
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+
+  &__btn {
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    border-radius: 50%;
+    background-color: vars.$gray-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color vars.$transition-base;
+    position: relative;
+
+    &:hover {
+      background-color: vars.$gray-200;
+    }
+
+    img {
+      width: 1.1rem;
+      height: 1rem;
+      display: block;
+    }
+  }
+
+  &__item {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: vars.$gray-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: vars.$font-family-base;
+    font-size: vars.$fs-400;
+    font-weight: 400;
+    line-height: 1.22;
+    color: vars.$gray-800;
+    text-decoration: none;
+    transition: background-color vars.$transition-base, color vars.$transition-base;
+
+    &:hover {
+      background-color: vars.$gray-200;
+    }
+
+    &--active {
+      background-color: vars.$brand-primary;
+      color: vars.$color-light;
+
+      &:hover {
+        background-color: #8a0d2a;
+      }
+    }
+  }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (max-width: 1199px)
+   ============================================ */
+@media (max-width: 1199px) {
+  .admissions-news-list__title {
+    font-size: vars.$section-title-tablet;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (max-width: 575px)
+   ============================================ */
+@media (max-width: 575px) {
+  .admissions-news-list {
+    padding-top: vars.$sp-4;
+    padding-bottom: vars.$sp-5;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      text-align: left;
+      margin-bottom: vars.$sp-3;
+    }
+  }
+
+  .news-item {
+    gap: 1.2rem;
+
+    &__image {
+      width: 12rem;
+      height: 8rem;
+    }
+
+    &__content {
+      gap: 0.8rem;
+    }
+
+    &__title {
+      font-size: vars.$fs-200;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &__excerpt {
+      display: none;
+    }
+
+    &__badge {
+      display: none;
+    }
+  }
+
+  .news-divider {
+    margin: vars.$sp-3 0;
+  }
+
+  .pagination {
+    margin-top: vars.$sp-5;
+
+    &__btn,
+    &__item {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+
+    &__item {
+      font-size: vars.$fs-300;
+    }
+  }
+}

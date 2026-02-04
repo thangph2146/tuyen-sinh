@@ -1,0 +1,385 @@
+/* ============================================
+   PAGE: Thac Si (Masters Programs)
+   Breakpoints: Desktop (default), Tablet (max-width: 1199px), Mobile (max-width: 575px)
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* ========== SECTION: Hero Thac Si ========== */
+.hero-section--thacsi .hero-section__bg {
+  background-image: url("/assets/images/hero_bg.png");
+}
+
+/* ========== SECTION: Program Introduction ========== */
+.program-intro {
+  padding: vars.$sp-7 0 0;
+  background-color: vars.$color-light;
+
+  &__image-wrapper {
+    position: relative;
+    padding: vars.$sp-4 0;
+  }
+
+  &__image {
+    width: 55.3rem;
+    height: 36.6rem;
+    border-radius: vars.$radius-20;
+    object-fit: cover;
+  }
+
+  &__decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 16.2rem;
+    height: 10.5rem;
+    background-image: url("/assets/images/program_decorator_1.png");
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  &__content {
+    padding: vars.$sp-4 0;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$sp-3;
+    margin-bottom: vars.$sp-4;
+  }
+
+  &__title-sub,
+  &__title-main {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-description;
+    font-weight: vars.$fw-regular;
+    line-height: 1.57;
+    color: vars.$gray-900;
+    margin: 0;
+  }
+}
+
+/* ========== SECTION: Section Headers ========== */
+.section-header {
+  margin-bottom: vars.$sp-7;
+
+  &__subtitle {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-subtitle;
+    font-weight: vars.$fw-semibold;
+    line-height: 1.2;
+    color: vars.$brand-secondary;
+    text-transform: capitalize;
+    margin-bottom: vars.$sp-2;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}
+
+/* ========== SECTION: Program Cards ========== */
+.program-cards-section {
+  padding: vars.$sp-8 0;
+  background-color: vars.$color-light;
+}
+
+.program-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$sp-4;
+  padding-top: vars.$sp-4;
+
+  .program-card-item {
+    flex: 0 0 calc(33.333% - vars.$sp-4 * 2 / 3);
+    max-width: calc(33.333% - vars.$sp-4 * 2 / 3);
+
+    /* Hidden items in pagination */
+    &.pagination-hidden {
+      display: none !important;
+    }
+  }
+}
+
+/* Program Pagination - visibility controlled by Bootstrap d-none/d-md-flex classes */
+.program-pagination {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: vars.$sp-6;
+
+  /* Enable flex display when Bootstrap's d-md-flex is applied */
+  &.d-md-flex {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex !important;
+    }
+  }
+
+  &__btn {
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-400;
+    font-weight: vars.$fw-regular;
+    line-height: 1.2;
+    color: vars.$gray-900;
+
+    &--prev,
+    &--next {
+      background-color: vars.$gray-200;
+      border-radius: 50%;
+    }
+
+    &--active {
+      background-color: vars.$brand-primary;
+      border-radius: 50%;
+      color: vars.$color-light;
+    }
+
+    &:not(&--prev):not(&--next):not(&--active) {
+      background-color: vars.$gray-200;
+      border-radius: 50%;
+    }
+
+    img {
+      width: 1.1rem;
+      height: 1rem;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.8;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Pagination Page Items (dynamically generated) */
+  &__item {
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    border-radius: 50%;
+    background-color: vars.$gray-200;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: vars.$font-family-heading;
+    font-size: vars.$fs-400;
+    font-weight: vars.$fw-regular;
+    line-height: 1.2;
+    color: vars.$gray-900;
+
+    &:hover {
+      background-color: vars.$gray-300;
+    }
+
+    &--active {
+      background-color: vars.$brand-primary;
+      color: vars.$color-light;
+
+      &:hover {
+        background-color: vars.$brand-primary;
+        color: vars.$color-light;
+      }
+    }
+  }
+}
+
+/* Slider Navigation - Hidden on desktop */
+.program-slider-nav {
+  display: none;
+}
+
+/* ================================================
+   TABLET (max-width: 1199px)
+   ================================================ */
+@media (max-width: 1199px) {
+  .program-intro {
+    padding: vars.$sp-6 0 0;
+
+    &__image {
+      width: 100%;
+      max-width: 48rem;
+      height: auto;
+    }
+
+    &__title-sub,
+    &__title-main {
+      font-size: vars.$section-title-tablet;
+    }
+
+    &__description {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+
+  .section-header {
+    &__subtitle {
+      font-size: vars.$section-subtitle-tablet;
+    }
+
+    &__title {
+      font-size: vars.$section-title-tablet;
+    }
+  }
+
+  .program-cards-section {
+    padding: vars.$sp-7 0;
+  }
+
+  .program-cards-grid .program-card-item {
+    flex: 0 0 calc(50% - vars.$sp-4 / 2);
+    max-width: calc(50% - vars.$sp-4 / 2);
+  }
+}
+
+/* ================================================
+   MOBILE (max-width: 575px)
+   ================================================ */
+@media (max-width: 575px) {
+  .program-intro {
+    padding: vars.$sp-5 0 0;
+
+    .row {
+      flex-direction: column-reverse;
+    }
+
+    &__image-wrapper {
+      padding: 0;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+    }
+
+    &__decoration {
+      display: none;
+    }
+
+    &__content {
+      padding: vars.$sp-4 0;
+    }
+
+    &__title-sub,
+    &__title-main {
+      font-size: vars.$section-title-mobile;
+    }
+
+    &__description {
+      font-size: vars.$section-description-mobile;
+    }
+  }
+
+  .section-header {
+    &__subtitle {
+      font-size: vars.$section-subtitle-mobile;
+      text-align: left;
+    }
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      text-align: left;
+    }
+  }
+
+  .program-cards-section {
+    padding: vars.$sp-6 0;
+  }
+
+  .program-cards-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: vars.$sp-3;
+    margin: 0 -1.6rem;
+    padding: vars.$sp-4 1.6rem 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .program-card-item {
+      flex: 0 0 calc(100% - 3.2rem);
+      max-width: calc(100% - 3.2rem);
+      min-width: calc(100% - 3.2rem);
+      scroll-snap-align: center;
+    }
+  }
+
+  /* Show Slider Navigation on mobile */
+  .program-slider-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: vars.$sp-2;
+    margin-top: vars.$sp-4;
+
+    &__btn {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: vars.$gray-200;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all vars.$transition-base;
+
+      &:hover:not(:disabled) {
+        background-color: vars.$gray-300;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      img {
+        width: 1.1rem;
+        height: 1rem;
+        object-fit: contain;
+      }
+    }
+  }
+}
