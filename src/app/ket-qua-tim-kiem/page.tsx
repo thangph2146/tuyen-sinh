@@ -3,9 +3,9 @@
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function KetQuaTimKiemPage() {
+function SearchResults() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [activeTab, setActiveTab] = useState("web");
@@ -225,5 +225,13 @@ export default function KetQuaTimKiemPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function KetQuaTimKiemPage() {
+  return (
+    <Suspense fallback={<div>Đang tải...</div>}>
+      <SearchResults />
+    </Suspense>
   );
 }

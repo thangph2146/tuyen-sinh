@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function KetQuaTraCuuPage() {
+function SearchResultContent() {
   const searchParams = useSearchParams();
   const cccd = searchParams.get("cccd");
   const sbd = searchParams.get("sbd");
@@ -127,5 +128,13 @@ export default function KetQuaTraCuuPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function KetQuaTraCuuPage() {
+  return (
+    <Suspense fallback={<div>Đang tải...</div>}>
+      <SearchResultContent />
+    </Suspense>
   );
 }

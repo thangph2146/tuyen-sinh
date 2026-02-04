@@ -73,11 +73,7 @@ const relatedArticles = [
   },
 ];
 
-export default function TinTuyenSinhDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function TinTuyenSinhDetailPage() {
   return (
     <main className="admissions-detail-page">
       {/* Breadcrumb Navigation */}

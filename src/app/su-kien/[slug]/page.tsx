@@ -39,7 +39,7 @@ const relatedEvents = [
   },
 ];
 
-export default function SuKienDetailPage({ params }: { params: { slug: string } }) {
+export default function SuKienDetailPage() {
   return (
     <main className="event-detail-page">
       {/* Hero Section */}

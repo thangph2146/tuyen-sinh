@@ -16,7 +16,7 @@ const careers = [
   "Giảng viên, nghiên cứu sinh.",
 ];
 
-export default function DaiHocDetailPage({ params }: { params: { slug: string } }) {
+export default function DaiHocDetailPage() {
   return (
     <main className="program-detail">
       {/* Breadcrumb Navigation */}

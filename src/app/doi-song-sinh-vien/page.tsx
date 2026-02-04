@@ -427,8 +427,8 @@ export default function DoiSongSinhVienPage() {
                 Hỗ trợ mượn – trả sách linh hoạt, gia hạn tài liệu tiện lợi .
               </li>
               <li>
-                Tổ chức các talkshow, sự kiện chuyên đề – ví dụ "Hành trang lập
-                nghiệp qua những trang sách" với sự tham gia của gần 600 sinh
+                Tổ chức các talkshow, sự kiện chuyên đề – ví dụ &quot;Hành trang lập
+                nghiệp qua những trang sách&quot; với sự tham gia của gần 600 sinh
                 viên
               </li>
             </ul>

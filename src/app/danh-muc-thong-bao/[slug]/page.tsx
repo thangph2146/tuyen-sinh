@@ -52,11 +52,7 @@ const relatedAnnouncements = [
   },
 ];
 
-export default function ThongBaoDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function ThongBaoDetailPage() {
   return (
     <main className="announcement-detail-page">
       {/* Hero Section */}

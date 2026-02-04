@@ -35,11 +35,7 @@ const galleryImages = [
   },
 ];
 
-export default function DoiSongSinhVienDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function DoiSongSinhVienDetailPage() {
   return (
     <main className="student-life-detail-page">
       {/* SECTION: Hero */}
