@@ -1,0 +1,246 @@
+/* ============================================
+   PAGE: Student Life Detail (Chi tiết Đời sống sinh viên)
+   Student life detail article page
+   ============================================ */
+
+@use "../abstracts/variables" as vars;
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.student-life-detail-hero {
+  width: 100%;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ============================================
+   PAGE HEADER SECTION
+   ============================================ */
+.student-life-detail-header {
+  padding-top: 6rem;
+  background-color: vars.$color-light;
+  text-align: center;
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    font-size: vars.$section-title;
+    font-weight: vars.$fw-bold;
+    line-height: vars.$lh-heading-tight;
+    color: vars.$brand-primary;
+    text-transform: uppercase;
+    margin: 0 auto vars.$sp-3;
+    max-width: 80rem;
+  }
+
+  &__intro {
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.43;
+    color: vars.$gray-800;
+    max-width: 79.4rem;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+   ARTICLE BODY SECTION (wrapper)
+   ============================================ */
+.student-life-detail-body {
+  padding-top: 2.8rem;
+  padding-bottom: 6rem;
+  background-color: vars.$color-light;
+}
+
+/* Featured Image */
+.student-life-detail-featured {
+  &__image {
+    width: 100%;
+    height: 50.8rem;
+    object-fit: cover;
+    border-radius: 2rem;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* Main Content */
+.student-life-detail-content {
+  padding-top: 4rem;
+
+  &__text {
+    max-width: 120rem;
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+
+    p {
+      margin-bottom: vars.$sp-4;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/* Image Gallery */
+.student-life-detail-gallery {
+  padding-top: 3rem;
+}
+
+.gallery-card {
+  width: 100%;
+  height: 24rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform vars.$transition-base;
+
+  &:hover {
+    transform: translateY(-0.4rem);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Additional Content */
+.student-life-detail-additional {
+  padding-top: 2.6rem;
+
+  &__text {
+    max-width: 120rem;
+    font-family: vars.$font-family-base;
+    font-size: vars.$section-description;
+    font-weight: 400;
+    line-height: 1.57;
+    color: vars.$gray-800;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ================================================
+   TABLET (max-width: 1199px)
+   ================================================ */
+@media (max-width: 1199px) {
+  .student-life-detail-header {
+    &__title {
+      font-size: vars.$section-title-tablet;
+    }
+
+    &__intro {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+
+  .student-life-detail-featured {
+    &__image {
+      height: 40rem;
+      border-radius: vars.$radius-16;
+    }
+  }
+
+  .student-life-detail-content {
+    &__text {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+
+  .gallery-card {
+    height: 20rem;
+    border-radius: vars.$radius-16;
+  }
+
+  .student-life-detail-additional {
+    &__text {
+      font-size: vars.$section-description-tablet;
+    }
+  }
+}
+
+/* ================================================
+   MOBILE (max-width: 575px)
+   ================================================ */
+@media (max-width: 575px) {
+  /* Header Section - Mobile */
+  .student-life-detail-header {
+    padding-top: vars.$sp-5;
+
+    &__title {
+      font-size: vars.$section-title-mobile;
+      text-align: left;
+      margin-bottom: vars.$sp-2;
+    }
+
+    &__intro {
+      display: none;
+    }
+  }
+
+  /* Article Body - Mobile */
+  .student-life-detail-body {
+    padding-top: vars.$sp-4;
+    padding-bottom: vars.$sp-6;
+  }
+
+  /* Featured Image - Mobile */
+  .student-life-detail-featured {
+    &__image {
+      height: 20rem;
+      border-radius: vars.$radius-10;
+    }
+  }
+
+  /* Content Section - Mobile */
+  .student-life-detail-content {
+    padding-top: vars.$sp-4;
+
+    &__text {
+      font-size: vars.$section-description-mobile;
+      line-height: 1.5;
+
+      p {
+        margin-bottom: vars.$sp-3;
+      }
+    }
+  }
+
+  /* Gallery Section - Mobile */
+  .student-life-detail-gallery {
+    padding-top: vars.$sp-4;
+  }
+
+  .gallery-card {
+    height: 18rem;
+    border-radius: vars.$radius-10;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  /* Additional Content - Mobile */
+  .student-life-detail-additional {
+    padding-top: vars.$sp-4;
+
+    &__text {
+      font-size: vars.$section-description-mobile;
+      line-height: 1.5;
+    }
+  }
+}
