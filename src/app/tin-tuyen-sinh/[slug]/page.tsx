@@ -263,41 +263,37 @@ export default function TinTuyenSinhDetailPage() {
 
               {/* Related Articles List */}
               <div className="related-articles">
-                {relatedArticles.map((article, index) => (
-                  <div key={article.id}>
-                    <Link
-                      href={`/tin-tuyen-sinh/${article.id}`}
-                      className="related-article"
-                    >
-                      <Image
-                        src={article.image}
-                        alt="Bài viết liên quan"
-                        className="related-article__image"
-                        width={284}
-                        height={148}
-                        loading="lazy"
-                      />
-                      <div className="related-article__content">
-                        <h3 className="related-article__title">
-                          {article.title}
-                          {article.isNew && (
-                            <span
-                              className="related-article__badge"
-                              aria-label="Tin mới"
-                            >
-                              Mới
-                            </span>
-                          )}
-                        </h3>
-                        <p className="related-article__excerpt">
-                          {article.excerpt}
-                        </p>
-                      </div>
-                    </Link>
-                    {index < relatedArticles.length - 1 && (
-                      <div className="related-article-divider"></div>
-                    )}
-                  </div>
+                {relatedArticles.map((article) => (
+                  <Link
+                    key={article.id}
+                    href={`/tin-tuyen-sinh/${article.id}`}
+                    className="related-article"
+                  >
+                    <Image
+                      src={article.image}
+                      alt="Bài viết liên quan"
+                      className="related-article__image"
+                      width={284}
+                      height={148}
+                      loading="lazy"
+                    />
+                    <div className="related-article__content">
+                      <h3 className="related-article__title">
+                        {article.title}
+                        {article.isNew && (
+                          <span
+                            className="related-article__badge"
+                            aria-label="Tin mới"
+                          >
+                            Mới
+                          </span>
+                        )}
+                      </h3>
+                      <p className="related-article__excerpt">
+                        {article.excerpt}
+                      </p>
+                    </div>
+                  </Link>
                 ))}
               </div>
 

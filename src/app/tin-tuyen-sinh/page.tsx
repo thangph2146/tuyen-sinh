@@ -155,32 +155,31 @@ export default function TinTuyenSinhPage() {
               {/* News Items */}
               <div className="news-items">
                 {newsItems.map((item, index) => (
-                  <div key={item.id}>
-                    <Link href={`/tin-tuyen-sinh/${item.id}`} className="news-item">
-                      <Image
-                        src={item.image}
-                        alt="Tin tuyển sinh"
-                        className="news-item__image"
-                        width={284}
-                        height={148}
-                        loading={index < 3 ? "eager" : "lazy"}
-                      />
-                      <div className="news-item__content">
-                        <h2 className="news-item__title">
-                          {item.title}
-                          {item.isNew && (
-                            <span className="news-item__badge" aria-label="Tin mới">
-                              Mới
-                            </span>
-                          )}
-                        </h2>
-                        <p className="news-item__excerpt">{item.excerpt}</p>
-                      </div>
-                    </Link>
-                    {index < newsItems.length - 1 && (
-                      <div className="news-divider"></div>
-                    )}
-                  </div>
+                  <Link
+                    key={item.id}
+                    href={`/tin-tuyen-sinh/${item.id}`}
+                    className="news-item"
+                  >
+                    <Image
+                      src={item.image}
+                      alt="Tin tuyển sinh"
+                      className="news-item__image"
+                      width={284}
+                      height={148}
+                      loading={index < 3 ? "eager" : "lazy"}
+                    />
+                    <div className="news-item__content">
+                      <h2 className="news-item__title">
+                        {item.title}
+                        {item.isNew && (
+                          <span className="news-item__badge" aria-label="Tin mới">
+                            Mới
+                          </span>
+                        )}
+                      </h2>
+                      <p className="news-item__excerpt">{item.excerpt}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
 
