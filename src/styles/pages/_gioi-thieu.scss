@@ -1,0 +1,431 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+
+/* ========== SECTION: Hero About ========== */
+
+/* Hero variant for About page - uses same structure as index hero-section */
+.hero-section--about .hero-section__bg {
+  background-image: url("/assets/images/hero_bg.png");
+}
+
+/* ========== SECTION: About Intro ========== */
+
+.about-intro {
+  background-color: vars.$color-light;
+  padding: vars.$sp-6 0;
+
+  @include sm-up {
+    padding: vars.$sp-8 0;
+  }
+}
+
+.about-intro__subtitle {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-subtitle-mobile;
+  font-weight: vars.$fw-medium;
+  line-height: 1.3;
+  color: vars.$brand-secondary;
+  letter-spacing: 0.05rem;
+
+  @include sm-up {
+    font-size: vars.$section-subtitle-tablet;
+  }
+
+  @include laptop-up {
+    font-size: vars.$section-subtitle;
+  }
+}
+
+.about-intro__title {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-title-mobile;
+  font-weight: vars.$fw-bold;
+  line-height: 1.22;
+  color: vars.$brand-primary;
+
+  @include sm-up {
+    font-size: vars.$section-title-tablet;
+  }
+
+  @include laptop-up {
+    font-size: vars.$section-title;
+  }
+}
+
+.about-intro__description {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-description-mobile;
+  line-height: 1.57;
+  color: vars.$gray-900;
+
+  @include sm-up {
+    font-size: vars.$section-description-tablet;
+  }
+
+  @include laptop-up {
+    font-size: vars.$section-description;
+  }
+
+  p {
+    margin-bottom: vars.$sp-3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.about-intro__image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  margin-top: vars.$sp-4;
+
+  @include sm-up {
+    border-radius: vars.$radius-30;
+    box-shadow: vars.$shadow-1;
+    margin-top: 0;
+  }
+}
+
+.about-intro__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+
+  @include sm-up {
+    border-radius: vars.$radius-30;
+  }
+}
+
+/* ========== SECTION: Team ========== */
+
+.team-section {
+  background-color: vars.$gray-50;
+  padding: vars.$sp-6 0;
+
+  @include sm-up {
+    padding: vars.$sp-8 0;
+  }
+}
+
+.team-section__header {
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-section__title {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-title-mobile;
+  font-weight: vars.$fw-bold;
+  line-height: 1.22;
+  color: vars.$brand-primary;
+  margin-bottom: vars.$sp-3;
+
+  @include sm-up {
+    font-size: vars.$section-title-tablet;
+  }
+
+  @include laptop-up {
+    font-size: vars.$section-title;
+  }
+}
+
+.team-section__description {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$section-description-mobile;
+  font-weight: vars.$fw-regular;
+  line-height: 1.5;
+  color: vars.$gray-900;
+  max-width: 80rem;
+
+  @include sm-up {
+    font-size: vars.$section-description-tablet;
+  }
+
+  @include laptop-up {
+    font-size: vars.$section-description;
+  }
+}
+
+/* ========== COMPONENT: Team Card ========== */
+
+.team-card {
+  display: block;
+  height: 100%;
+  background-color: vars.$color-light;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.08);
+  transition: all vars.$transition-base;
+
+  @include sm-up {
+    border: 0.1rem solid #d3dbe2;
+    border-radius: vars.$radius-10;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: vars.$shadow-2;
+      transform: translateY(-0.4rem);
+    }
+  }
+}
+
+.team-card__inner {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$sp-3;
+  padding: vars.$sp-4;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+
+  @include sm-up {
+    flex-direction: row;
+    gap: vars.$sp-4;
+    padding: vars.$sp-4;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  @include laptop-up {
+    gap: vars.$sp-5;
+  }
+}
+
+.team-card__photo {
+  flex-shrink: 0;
+  width: 10rem;
+  height: 12rem;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: vars.$gray-100;
+  border: 0.4rem solid vars.$brand-primary;
+
+  @include sm-up {
+    width: 18rem;
+    height: 22rem;
+    border-radius: vars.$radius-sm;
+    border: none;
+  }
+
+  @include laptop-up {
+    width: 24.6rem;
+    height: 26.2rem;
+  }
+}
+
+.team-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.team-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+
+  @include sm-up {
+    padding-top: vars.$sp-4;
+  }
+
+  @include laptop-up {
+    padding-top: vars.$sp-5;
+  }
+}
+
+.team-card__name {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$fs-body-sm;
+  font-weight: vars.$fw-bold;
+  line-height: 1.3;
+  color: vars.$brand-primary;
+  margin-bottom: vars.$sp-1;
+
+  @include sm-up {
+    font-size: vars.$fs-body;
+    margin-bottom: vars.$sp-2;
+  }
+
+  @include laptop-up {
+    font-size: vars.$fs-400;
+  }
+}
+
+.team-card__position {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$fs-caption;
+  font-weight: vars.$fw-medium;
+  line-height: 1.4;
+  color: #707070;
+  margin-bottom: vars.$sp-2;
+
+  @include sm-up {
+    font-size: vars.$fs-body-sm;
+    line-height: 1.55;
+    margin-bottom: vars.$sp-3;
+  }
+
+  @include laptop-up {
+    font-size: vars.$fs-caption;
+    margin-bottom: vars.$sp-4;
+  }
+}
+
+.team-card__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vars.$sp-2;
+  margin-bottom: vars.$sp-4;
+
+  @include sm-up {
+    align-items: flex-start;
+    gap: vars.$sp-3;
+  }
+}
+
+.team-card__contact-item {
+  display: flex;
+  align-items: center;
+  gap: vars.$sp-2;
+
+  svg {
+    font-size: 1.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    flex-shrink: 0;
+    color: vars.$gray-500;
+  }
+}
+
+.team-card__link {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$fs-caption;
+  font-weight: vars.$fw-regular;
+  line-height: 1.4;
+  color: vars.$gray-900;
+  text-decoration: none;
+  transition: color vars.$transition-base;
+
+  @include sm-up {
+    font-size: vars.$fs-body-sm;
+  }
+
+  @include laptop-up {
+    font-size: vars.$fs-caption;
+  }
+
+  &:hover {
+    color: vars.$brand-primary;
+  }
+}
+
+.team-card__social {
+  display: flex;
+  justify-content: center;
+  gap: vars.$sp-3;
+  margin-top: auto;
+
+  @include sm-up {
+    justify-content: flex-start;
+  }
+}
+
+.team-card__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 0.1rem solid #e6e6e6;
+  border-radius: vars.$radius-60;
+  color: vars.$gray-600;
+  text-decoration: none;
+  transition: all vars.$transition-base;
+
+  &:hover {
+    background-color: vars.$brand-primary;
+    border-color: vars.$brand-primary;
+    color: vars.$color-light;
+    transform: translateY(-0.2rem);
+  }
+
+  svg {
+    font-size: 1.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    flex-shrink: 0;
+  }
+}
+
+/* ========== COMPONENT: Breadcrumb ========== */
+
+.hero-breadcrumb {
+  background-color: #f6f7f8;
+  padding: vars.$sp-4 0;
+
+  @include mobile {
+    padding: vars.$sp-3 0;
+  }
+}
+
+.hero-breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: vars.$sp-2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: vars.$sp-2;
+  font-family: vars.$font-family-base;
+  font-size: vars.$fs-body-sm;
+  font-weight: vars.$fw-regular;
+  line-height: 1.2;
+
+  @include mobile {
+    font-size: vars.$fs-caption;
+  }
+
+  &:not(:last-child)::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.8rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='8' viewBox='0 0 5 8' fill='none'%3E%3Cpath d='M1 1L4 4L1 7' stroke='%23333333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: vars.$sp-2;
+  }
+}
+
+.hero-breadcrumb__link {
+  color: vars.$gray-700;
+  text-decoration: none;
+  transition: color vars.$transition-base;
+
+  &:hover {
+    color: vars.$brand-primary;
+    text-decoration: underline;
+  }
+}
+
+.hero-breadcrumb__item--active .hero-breadcrumb__current {
+  color: vars.$brand-secondary;
+  font-weight: vars.$fw-regular;
+}

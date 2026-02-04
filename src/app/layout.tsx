@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ChatWidget from "@/components/ChatWidget/ChatWidget";
+import "./globals.css";
 import "../styles/main.scss";
 
 const inter = Inter({
