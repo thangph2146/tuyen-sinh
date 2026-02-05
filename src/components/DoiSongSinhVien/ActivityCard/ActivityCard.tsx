@@ -4,6 +4,7 @@ import Link from "next/link";
 interface ActivityCardProps {
   activity: {
     id: number;
+    slug: string;
     title: string;
     description: string;
     image: string;
@@ -16,7 +17,7 @@ interface ActivityCardProps {
 export default function ActivityCard({ activity }: ActivityCardProps) {
   return (
     <Link
-      href={`/doi-song-sinh-vien/${activity.id}`}
+      href={`/doi-song-sinh-vien/${activity.slug}`}
       className="activity-card activity-card--featured"
     >
       <div className="activity-card__image">

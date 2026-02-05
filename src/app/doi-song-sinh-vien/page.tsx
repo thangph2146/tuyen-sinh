@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 const activities = [
   {
     id: 1,
+    slug: "mon-the-thao-1",
     title: "Tên môn thể thao",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -32,6 +33,7 @@ const activities = [
   },
   {
     id: 2,
+    slug: "mon-the-thao-2",
     title: "Tên môn thể thao",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -42,6 +44,7 @@ const activities = [
   },
   {
     id: 3,
+    slug: "mon-the-thao-3",
     title: "Tên môn thể thao",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -52,6 +55,7 @@ const activities = [
   },
   {
     id: 4,
+    slug: "mon-the-thao-4",
     title: "Tên môn thể thao",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -62,6 +66,7 @@ const activities = [
   },
   {
     id: 5,
+    slug: "hoat-dong-khac-1",
     title: "Hoạt động khác",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả...",
@@ -72,6 +77,7 @@ const activities = [
   },
   {
     id: 6,
+    slug: "hoat-dong-khac-2",
     title: "Hoạt động khác 2",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả...",
@@ -82,6 +88,7 @@ const activities = [
   },
   {
     id: 7,
+    slug: "hoat-dong-khac-3",
     title: "Hoạt động khác 3",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả...",
@@ -92,6 +99,7 @@ const activities = [
   },
   {
     id: 8,
+    slug: "hoat-dong-khac-4",
     title: "Hoạt động khác 4",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả...",

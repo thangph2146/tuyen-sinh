@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 const relatedArticles = [
   {
     id: 1,
+    slug: "thong-bao-tuyen-sinh-dai-hoc-bang-2-2025",
     title:
       "Thông báo Tuyển sinh Đại học Bằng 2 hệ vừa làm vừa học ngành Ngôn ngữ Anh, Luật kinh tế năm 2025",
     excerpt:
@@ -29,6 +30,7 @@ const relatedArticles = [
   },
   {
     id: 2,
+    slug: "thong-bao-tuyen-sinh-bang-2-ngon-ngu-anh-luat-kinh-te-2025",
     title:
       "Thông báo Tuyển sinh Đại học Bằng 2 hệ vừa làm vừa học ngành Ngôn ngữ Anh, Luật kinh tế năm 2025",
     excerpt:
@@ -38,6 +40,7 @@ const relatedArticles = [
   },
   {
     id: 3,
+    slug: "tb-to-chuc-thi-tieng-anh-theo-khung-nlnn-6-bac-vn-2025",
     title:
       "TB tổ chức thi tiếng Anh theo Khung NLNN 6 bậc dùng cho VN - Dự kiến thi ngày 11, 12/06/2025",
     excerpt:
@@ -47,6 +50,7 @@ const relatedArticles = [
   },
   {
     id: 4,
+    slug: "thong-bao-cung-cap-minh-chung-phuong-thuc-2-va-3-dhcq-2025",
     title:
       "Thông báo Cung cấp minh chứng phục vụ các tiêu chí xét tuyển đối với phương thức 2 (Tổng hợp) và phương thức 3 (kỳ thi V-SAT) Đại học chính quy năm 2025",
     excerpt:
@@ -56,6 +60,7 @@ const relatedArticles = [
   },
   {
     id: 5,
+    slug: "thong-bao-dang-ky-lop-hoc-tinh-hoa-2025",
     title: "Thông báo về việc đăng ký lớp học Tinh hoa",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn...",
@@ -64,6 +69,7 @@ const relatedArticles = [
   },
   {
     id: 6,
+    slug: "thong-bao-thi-cap-chung-chi-tin-hoc-ung-dung-cntt-07-2025",
     title:
       "Thông báo tổ chức thi và cấp chứng chỉ tin học ứng dụng công nghệ thông tin cơ bản và nâng cao - Dự kiến thi ngày 20//07/2025",
     excerpt:
@@ -73,7 +79,13 @@ const relatedArticles = [
   },
 ];
 
-export default function TinTuyenSinhDetailPage() {
+export default async function TinTuyenSinhDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
   return (
     <main className="admissions-detail-page">
       {/* Breadcrumb Navigation */}
@@ -266,7 +278,7 @@ export default function TinTuyenSinhDetailPage() {
                 {relatedArticles.map((article) => (
                   <Link
                     key={article.id}
-                    href={`/tin-tuyen-sinh/${article.id}`}
+                    href={`/tin-tuyen-sinh/${article.slug}`}
                     className="related-article"
                   >
                     <Image

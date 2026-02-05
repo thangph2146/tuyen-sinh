@@ -35,7 +35,13 @@ const galleryImages = [
   },
 ];
 
-export default function DoiSongSinhVienDetailPage() {
+export default async function DoiSongSinhVienDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
   return (
     <main className="student-life-detail-page">
       {/* SECTION: Hero */}

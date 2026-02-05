@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 const relatedEvents = [
   {
     id: 1,
+    slug: "thong-bao-tuyen-sinh-ke-hoach-xet-tuyen-2025",
     title: "Thông báo tuyển sinh – Kế hoạch xét tuyển 2025",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -25,6 +26,7 @@ const relatedEvents = [
   },
   {
     id: 2,
+    slug: "cac-chuong-trinh-hoc-moi-chuong-trinh-chat-luong-cao",
     title: "Các chương trình học mới – chương trình chất lượng cao",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -32,6 +34,7 @@ const relatedEvents = [
   },
   {
     id: 3,
+    slug: "hoi-thao-khoi-nghiep-va-doi-moi-sang-tao",
     title: "Hội thảo khởi nghiệp và đổi mới sáng tạo",
     description:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục...",
@@ -39,7 +42,13 @@ const relatedEvents = [
   },
 ];
 
-export default function SuKienDetailPage() {
+export default async function SuKienDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
   return (
     <main className="event-detail-page">
       {/* Hero Section */}
@@ -205,7 +214,7 @@ export default function SuKienDetailPage() {
                   {relatedEvents.map((event) => (
                     <Link
                       key={event.id}
-                      href={`/su-kien/${event.id}`}
+                      href={`/su-kien/${event.slug}`}
                       className="event-card event-card--list"
                     >
                       <Image

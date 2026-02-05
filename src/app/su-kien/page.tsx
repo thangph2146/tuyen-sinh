@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 const upcomingEvents = [
   {
     id: 1,
+    slug: "hoi-thao-khoi-nghiep-va-doi-moi-sang-tao",
     title: "Hội thảo khởi nghiệp và đổi mới sáng tạo",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ...",
@@ -28,6 +29,7 @@ const upcomingEvents = [
   },
   {
     id: 2,
+    slug: "workshop-ky-nang-mem-cho-sinh-vien",
     title: "Workshop kỹ năng mềm cho sinh viên",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ...",
@@ -37,6 +39,7 @@ const upcomingEvents = [
   },
   {
     id: 3,
+    slug: "ngay-hoi-viec-lam-hub-career-fair-2025",
     title: "Ngày hội việc làm HUB Career Fair 2025",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ...",
@@ -46,6 +49,7 @@ const upcomingEvents = [
   },
   {
     id: 4,
+    slug: "chuong-trinh-giao-luu-van-hoa-quoc-te",
     title: "Chương trình giao lưu văn hóa quốc tế",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ...",
@@ -55,6 +59,7 @@ const upcomingEvents = [
   },
   {
     id: 5,
+    slug: "cuoc-thi-olympic-kinh-te-hub-2025",
     title: "Cuộc thi Olympic Kinh tế HUB 2025",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ...",
@@ -64,6 +69,7 @@ const upcomingEvents = [
   },
   {
     id: 6,
+    slug: "seminar-chuyen-de-tai-chinh-ngan-hang",
     title: "Seminar chuyên đề Tài chính ngân hàng",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ...",
@@ -115,7 +121,10 @@ export default function SuKienPage() {
           <div className="row">
             {/* Featured Event Card */}
             <div className="col-12 col-lg-5 mb-4 mb-lg-0">
-              <Link href="/su-kien/1" className="event-card event-card--featured">
+              <Link
+                href="/su-kien/hoi-thao-khoi-nghiep-va-doi-moi-sang-tao"
+                className="event-card event-card--featured"
+              >
                 <Image
                   src="/assets/images/sukien_img5.png"
                   alt="Sự kiện kế tiếp"
@@ -169,7 +178,7 @@ export default function SuKienPage() {
                   {upcomingEvents.map((event) => (
                     <Link
                       key={event.id}
-                      href={`/su-kien/${event.id}`}
+                      href={`/su-kien/${event.slug}`}
                       className="event-card event-card--list"
                     >
                       <Image

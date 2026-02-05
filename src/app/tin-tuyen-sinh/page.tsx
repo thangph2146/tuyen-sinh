@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 const newsItems = [
   {
     id: 1,
+    slug: "hub-truong-dai-hoc-ngan-hang-tphcm-cong-bo-thong-tin-tuyen-sinh-2025",
     title:
       "[HUB] Trường Đại học Ngân hàng TPHCM công bố thông tin tuyển sinh chính thức năm 2025",
     excerpt:
@@ -29,6 +30,7 @@ const newsItems = [
   },
   {
     id: 2,
+    slug: "thong-bao-tuyen-sinh-dai-hoc-bang-2-ngon-ngu-anh-luat-kinh-te-2025",
     title:
       "Thông báo Tuyển sinh Đại học Bằng 2 hệ vừa làm vừa học ngành Ngôn ngữ Anh, Luật kinh tế năm 2025",
     excerpt:
@@ -38,6 +40,7 @@ const newsItems = [
   },
   {
     id: 3,
+    slug: "tb-to-chuc-thi-tieng-anh-theo-khung-nlnn-6-bac-2025",
     title:
       "TB tổ chức thi tiếng Anh theo Khung NLNN 6 bậc dùng cho VN - Dự kiến thi ngày 11, 12/06/2025",
     excerpt:
@@ -47,6 +50,7 @@ const newsItems = [
   },
   {
     id: 4,
+    slug: "thong-bao-cung-cap-minh-chung-phuong-thuc-2-va-3-nam-2025",
     title:
       "Thông báo Cung cấp minh chứng phục vụ các tiêu chí xét tuyển đối với phương thức 2 (Tổng hợp) và phương thức 3 (kỳ thi V-SAT) Đại học chính quy năm 2025",
     excerpt:
@@ -56,6 +60,7 @@ const newsItems = [
   },
   {
     id: 5,
+    slug: "thong-bao-dang-ky-lop-hoc-tinh-hoa",
     title: "Thông báo về việc đăng ký lớp học Tinh hoa",
     excerpt:
       "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn...",
@@ -64,6 +69,7 @@ const newsItems = [
   },
   {
     id: 6,
+    slug: "thong-bao-thi-cap-chung-chi-tin-hoc-ung-dung-cntt-2025",
     title:
       "Thông báo tổ chức thi và cấp chứng chỉ tin học ứng dụng công nghệ thông tin cơ bản và nâng cao - Dự kiến thi ngày 20//07/2025",
     excerpt:
@@ -73,6 +79,7 @@ const newsItems = [
   },
   {
     id: 7,
+    slug: "hub-cong-bo-thong-tin-tuyen-sinh-chinh-thuc-2025",
     title:
       "[HUB] Trường Đại học Ngân hàng TPHCM công bố thông tin tuyển sinh chính thức năm 2025",
     excerpt:
@@ -82,6 +89,7 @@ const newsItems = [
   },
   {
     id: 8,
+    slug: "thong-bao-thi-tieng-anh-bac-3-5-khung-6-bac-2025",
     title:
       "Thông báo tổ chức thi và cấp chứng chỉ tiếng Anh bậc 3-5 theo Khung năng lực Ngoại ngữ 6 bậc dùng cho Việt Nam - Dự kiến thi ngày 17, 18, 19/07/2025",
     excerpt:
@@ -91,15 +99,17 @@ const newsItems = [
   },
   {
     id: 9,
+    slug: "hub-tuyen-sinh-chinh-thuc-nam-2025",
     title:
       "[HUB] Trường Đại học Ngân hàng TPHCM công bố thông tin tuyển sinh chính thức năm 2025",
     excerpt:
-      "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn...",
+      "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn...",
     image: "/assets/images/tin_img1.png",
     isNew: false,
   },
   {
     id: 10,
+    slug: "thong-bao-tuyen-sinh-vb2-vlvh-ngon-ngu-anh-luat-kinh-te-2025",
     title:
       "Thông báo Tuyển sinh Đại học Bằng 2 hệ vừa làm vừa học ngành Ngôn ngữ Anh, Luật kinh tế năm 2025",
     excerpt:
@@ -157,7 +167,7 @@ export default function TinTuyenSinhPage() {
                 {newsItems.map((item, index) => (
                   <Link
                     key={item.id}
-                    href={`/tin-tuyen-sinh/${item.id}`}
+                    href={`/tin-tuyen-sinh/${item.slug}`}
                     className="news-item"
                   >
                     <Image
