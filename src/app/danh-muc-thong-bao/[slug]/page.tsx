@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 const relatedAnnouncements = [
   {
     id: 1,
+    slug: "thong-bao-ket-qua-lay-phieu-tin-nhiem",
     title: "Thông Báo Về Kết Quả Lấy Phiếu Tín Nhiệm Đối Với...",
     day: "11",
     month: "Th7",
@@ -28,6 +29,7 @@ const relatedAnnouncements = [
   },
   {
     id: 2,
+    slug: "quyet-dinh-cong-nhan-trinh-do-tieng-anh-chuan-dau-ra",
     title: "Quyết Định V/V Công Nhận Đạt Trình Độ Tiếng Anh...",
     day: "11",
     month: "Th7",
@@ -36,6 +38,7 @@ const relatedAnnouncements = [
   },
   {
     id: 3,
+    slug: "quyet-dinh-cong-nhan-dat-chuan-cong-nghe",
     title: "Quyết Định V/V Công Nhận Đạt Chuẩn Công Nghệ...",
     day: "11",
     month: "Th7",
@@ -44,6 +47,7 @@ const relatedAnnouncements = [
   },
   {
     id: 4,
+    slug: "thong-bao-ket-qua-xet-tuyen-vb2-vlvh",
     title: "Thông báo Kết Quả Xét Tuyển Đại Học Văn Bằng 2...",
     day: "11",
     month: "Th7",
@@ -52,7 +56,13 @@ const relatedAnnouncements = [
   },
 ];
 
-export default function ThongBaoDetailPage() {
+export default async function ThongBaoDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  
   return (
     <main className="announcement-detail-page">
       {/* Hero Section */}
@@ -195,7 +205,7 @@ export default function ThongBaoDetailPage() {
                 {relatedAnnouncements.map((announcement) => (
                   <Link
                     key={announcement.id}
-                    href={`/danh-muc-thong-bao/${announcement.id}`}
+                    href={`/danh-muc-thong-bao/${announcement.slug}`}
                     className="related-article"
                   >
                     <div className="related-article__date-box">

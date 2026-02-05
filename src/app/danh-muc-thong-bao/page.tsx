@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 const announcements = [
   {
     id: 1,
+    slug: "thong-bao-ket-qua-xet-tuyen-vb2-vlvh-ngon-ngu",
     title:
       "Thông báo Kết quả xét tuyển, tuyển sinh đại học văn bằng 2 hệ vừa làm vừa học ngành Ngôn...",
     date: "11 Th7",
@@ -27,6 +28,7 @@ const announcements = [
   },
   {
     id: 2,
+    slug: "thong-bao-dong-hoc-phi-he-dttx-he-dot-3-2024-2025",
     title:
       "Thông báo v/v đóng học phí của sinh viên hệ ĐTTX Học kỳ Hè – Đợt 3, năm học 2024-2025",
     date: "11 Th7",
@@ -35,6 +37,7 @@ const announcements = [
   },
   {
     id: 3,
+    slug: "thong-bao-to-chuc-thi-cap-chung-chi-tieng-anh-bac-3-5",
     title:
       "Thông báo Về việc tổ chức thi và cấp chứng chỉ tiếng Anh bậc 3-5 theo Khung năng...",
     date: "11 Th7",
@@ -43,6 +46,7 @@ const announcements = [
   },
   {
     id: 4,
+    slug: "quyet-dinh-cong-nhan-tot-nghiep-dhcq-dot-6-2025",
     title: "Quyết định v/v công nhận tốt nghiệp đ/v hệ đại học chính quy đợt tháng 6/2025",
     date: "11 Th7",
     year: "2025",
@@ -50,6 +54,7 @@ const announcements = [
   },
   {
     id: 5,
+    slug: "quyet-dinh-cong-nhan-tot-nghiep-dh-vb2-vlvh",
     title:
       "Quyết định v/v công nhận tốt nghiệp đại học, đại học văn bằng 2 hệ vừa làm vừa học đợt...",
     date: "11 Th7",
@@ -58,6 +63,7 @@ const announcements = [
   },
   {
     id: 6,
+    slug: "quyet-dinh-du-dieu-kien-hoc-anh-van-chuyen-nganh",
     title:
       "Quyết định v/v công nhận đủ điều kiện học Anh văn chuyên ngành đối với sinh viên...",
     date: "11 Th7",
@@ -66,6 +72,7 @@ const announcements = [
   },
   {
     id: 7,
+    slug: "thong-bao-thi-cap-chung-chi-tin-hoc-co-ban",
     title:
       "Thông báo v/v tổ chức thi và cấp chứng chỉ tin học ứng dụng công nghệ thông tin cơ bản ...",
     date: "11 Th7",
@@ -74,6 +81,7 @@ const announcements = [
   },
   {
     id: 8,
+    slug: "thong-bao-dang-ky-lop-hoc-phan-dhcq-vlvh",
     title:
       "Thông báo v/v đăng ký lớp học phần dành cho hệ ĐHCQ chuẩn và hệ ĐH VLVH Học ký...",
     date: "11 Th7",
@@ -82,6 +90,7 @@ const announcements = [
   },
   {
     id: 9,
+    slug: "thong-bao-thuc-tap-cuoi-khoa-dot-4-2024-2025",
     title:
       "Thông báo về việc tổ chức thực hiện học phần thực tập cuối khóa đợt 4 năm học 2024 - 2025",
     date: "11 Th7",
@@ -90,6 +99,7 @@ const announcements = [
   },
   {
     id: 10,
+    slug: "thong-bao-gia-han-cung-cap-minh-chung-xet-tuyen",
     title:
       "Thông báo v/v gia hạn cung cấp minh chứng phục vụ các tiêu chí xét tuyển đối với phương...",
     date: "11 Th7",
@@ -98,6 +108,7 @@ const announcements = [
   },
   {
     id: 11,
+    slug: "quyet-dinh-du-dieu-kien-hoc-anh-van-chuyen-nganh-2",
     title:
       "Quyết định v/v công nhận đủ điều kiện học Anh văn chuyên ngành đối với sinh viên...",
     date: "11 Th7",
@@ -106,6 +117,7 @@ const announcements = [
   },
   {
     id: 12,
+    slug: "thong-bao-thi-cap-chung-chi-tin-hoc-co-ban-2",
     title:
       "Thông báo v/v tổ chức thi và cấp chứng chỉ tin học ứng dụng công nghệ thông tin cơ bản ...",
     date: "11 Th7",
@@ -114,6 +126,7 @@ const announcements = [
   },
   {
     id: 13,
+    slug: "thong-bao-dang-ky-lop-hoc-phan-dhcq-vlvh-2",
     title:
       "Thông báo v/v đăng ký lớp học phần dành cho hệ ĐHCQ chuẩn và hệ ĐH VLVH Học ký...",
     date: "11 Th7",
@@ -122,6 +135,7 @@ const announcements = [
   },
   {
     id: 14,
+    slug: "thong-bao-thuc-tap-cuoi-khoa-dot-4-2024-2025-2",
     title:
       "Thông báo về việc tổ chức thực hiện học phần thực tập cuối khóa đợt 4 năm học 2024 - 2025",
     date: "11 Th7",
@@ -130,6 +144,7 @@ const announcements = [
   },
   {
     id: 15,
+    slug: "thong-bao-gia-han-cung-cap-minh-chung-xet-tuyen-2",
     title:
       "Thông báo v/v gia hạn cung cấp minh chứng phục vụ các tiêu chí xét tuyển đối với phương...",
     date: "11 Th7",
@@ -188,7 +203,7 @@ export default function DanhMucThongBaoPage() {
             {announcements.map((announcement) => (
               <div key={announcement.id} className="col-12 col-lg-6">
                 <Link
-                  href={`/danh-muc-thong-bao/${announcement.id}`}
+                  href={`/danh-muc-thong-bao/${announcement.slug}`}
                   className="announcement-card"
                 >
                   <div className="announcement-card__date">
